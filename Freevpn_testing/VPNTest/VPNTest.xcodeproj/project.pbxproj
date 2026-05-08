@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1B1C1D10000000100000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000100000001 /* AppDelegate.swift */; };
+		A1B1C1D10000000200000001 /* VPNTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000200000001 /* VPNTestConstants.swift */; };
+		A1B1C1D10000000300000001 /* VPNTestReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000300000001 /* VPNTestReport.swift */; };
+		A1B1C1D10000000400000001 /* VPNTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000400000001 /* VPNTestBase.swift */; };
+		A1B1C1D10000000500000001 /* VPNAppLaunchStabilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000500000001 /* VPNAppLaunchStabilityTests.swift */; };
+		A1B1C1D10000000600000001 /* VPNRegionConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000600000001 /* VPNRegionConnectionTests.swift */; };
+		A1B1C1D10000000700000001 /* VPNUIAssetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000700000001 /* VPNUIAssetsTests.swift */; };
+		A1B1C1D10000000800000001 /* VPNTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000800000001 /* VPNTestUITests.swift */; };
+		A1B1C1D10000000E00000001 /* VPNMilestoneScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000E00000001 /* VPNMilestoneScreenshotTests.swift */; };
+		A1B1C1D10000000F00000001 /* VPNRegionDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000000F00000001 /* VPNRegionDiscoveryTests.swift */; };
+		A1B1C1D10000001200000001 /* VPNFirstRegionTimingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000001200000001 /* VPNFirstRegionTimingTests.swift */; };
+		A1B1C1D10000001300000001 /* VPNThreeRegionReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000001300000001 /* VPNThreeRegionReportTests.swift */; };
+		A1B1C1D10000001400000001 /* VPNRegionAndServicesCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1C1D20000001400000001 /* VPNRegionAndServicesCatalogTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1B1C1D50000000900000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1B1C1D50000000800000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B1C1D50000000100000001;
+			remoteInfo = VPNTestHost;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A1B1C1D20000000000000001 /* VPNTestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VPNTestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B1C1D20000000100000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000200000001 /* VPNTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNTestConstants.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000300000001 /* VPNTestReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNTestReport.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000400000001 /* VPNTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNTestBase.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000500000001 /* VPNAppLaunchStabilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNAppLaunchStabilityTests.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000600000001 /* VPNRegionConnectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNRegionConnectionTests.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000700000001 /* VPNUIAssetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNUIAssetsTests.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000800000001 /* VPNTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNTestUITests.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000E00000001 /* VPNMilestoneScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNMilestoneScreenshotTests.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000F00000001 /* VPNRegionDiscoveryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNRegionDiscoveryTests.swift; sourceTree = "<group>"; };
+		A1B1C1D20000001200000001 /* VPNFirstRegionTimingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNFirstRegionTimingTests.swift; sourceTree = "<group>"; };
+		A1B1C1D20000001300000001 /* VPNThreeRegionReportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNThreeRegionReportTests.swift; sourceTree = "<group>"; };
+		A1B1C1D20000001400000001 /* VPNRegionAndServicesCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNRegionAndServicesCatalogTests.swift; sourceTree = "<group>"; };
+		A1B1C1D20000000900000001 /* VPNTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VPNTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B1C1D20000000A00000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B1C1D20000000B00000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1B1C1D30000000100000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B1C1D30000000200000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1B1C1D40000000100000001 = {
+			isa = PBXGroup;
+			children = (
+				A1B1C1D40000000200000001 /* VPNTestHost */,
+				A1B1C1D40000000300000001 /* VPNTestUITests */,
+				A1B1C1D40000000400000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1B1C1D40000000200000001 /* VPNTestHost */ = {
+			isa = PBXGroup;
+			children = (
+				A1B1C1D20000000100000001 /* AppDelegate.swift */,
+				A1B1C1D20000000A00000001 /* Info.plist */,
+			);
+			path = VPNTestHost;
+			sourceTree = "<group>";
+		};
+		A1B1C1D40000000300000001 /* VPNTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A1B1C1D20000000200000001 /* VPNTestConstants.swift */,
+				A1B1C1D20000000300000001 /* VPNTestReport.swift */,
+				A1B1C1D20000000400000001 /* VPNTestBase.swift */,
+				A1B1C1D20000000500000001 /* VPNAppLaunchStabilityTests.swift */,
+				A1B1C1D20000000600000001 /* VPNRegionConnectionTests.swift */,
+				A1B1C1D20000000700000001 /* VPNUIAssetsTests.swift */,
+				A1B1C1D20000000800000001 /* VPNTestUITests.swift */,
+				A1B1C1D20000000E00000001 /* VPNMilestoneScreenshotTests.swift */,
+				A1B1C1D20000000F00000001 /* VPNRegionDiscoveryTests.swift */,
+				A1B1C1D20000001200000001 /* VPNFirstRegionTimingTests.swift */,
+				A1B1C1D20000001300000001 /* VPNThreeRegionReportTests.swift */,
+				A1B1C1D20000001400000001 /* VPNRegionAndServicesCatalogTests.swift */,
+				A1B1C1D20000000B00000001 /* Info.plist */,
+			);
+			path = VPNTestUITests;
+			sourceTree = "<group>";
+		};
+		A1B1C1D40000000400000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1B1C1D20000000000000001 /* VPNTestHost.app */,
+				A1B1C1D20000000900000001 /* VPNTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1B1C1D50000000100000001 /* VPNTestHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B1C1D60000000200000001 /* Build configuration list for PBXNativeTarget "VPNTestHost" */;
+			buildPhases = (
+				A1B1C1D50000000300000001 /* Sources */,
+				A1B1C1D30000000100000001 /* Frameworks */,
+				A1B1C1D50000000400000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VPNTestHost;
+			productName = VPNTestHost;
+			productReference = A1B1C1D20000000000000001 /* VPNTestHost.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A1B1C1D50000000200000001 /* VPNTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B1C1D60000000300000001 /* Build configuration list for PBXNativeTarget "VPNTestUITests" */;
+			buildPhases = (
+				A1B1C1D50000000500000001 /* Sources */,
+				A1B1C1D30000000200000001 /* Frameworks */,
+				A1B1C1D50000000600000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1B1C1D50000000700000001 /* PBXTargetDependency */,
+			);
+			name = VPNTestUITests;
+			productName = VPNTestUITests;
+			productReference = A1B1C1D20000000900000001 /* VPNTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1B1C1D50000000800000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A1B1C1D50000000100000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A1B1C1D50000000200000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A1B1C1D60000000100000001 /* Build configuration list for PBXProject "VPNTest" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1B1C1D40000000100000001;
+			productRefGroup = A1B1C1D40000000400000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1B1C1D50000000100000001 /* VPNTestHost */,
+				A1B1C1D50000000200000001 /* VPNTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B1C1D50000000400000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B1C1D50000000600000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1B1C1D50000000300000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B1C1D10000000100000001 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B1C1D50000000500000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B1C1D10000000200000001 /* VPNTestConstants.swift in Sources */,
+				A1B1C1D10000000300000001 /* VPNTestReport.swift in Sources */,
+				A1B1C1D10000000400000001 /* VPNTestBase.swift in Sources */,
+				A1B1C1D10000000500000001 /* VPNAppLaunchStabilityTests.swift in Sources */,
+				A1B1C1D10000000600000001 /* VPNRegionConnectionTests.swift in Sources */,
+				A1B1C1D10000000700000001 /* VPNUIAssetsTests.swift in Sources */,
+				A1B1C1D10000000800000001 /* VPNTestUITests.swift in Sources */,
+				A1B1C1D10000000E00000001 /* VPNMilestoneScreenshotTests.swift in Sources */,
+				A1B1C1D10000000F00000001 /* VPNRegionDiscoveryTests.swift in Sources */,
+				A1B1C1D10000001200000001 /* VPNFirstRegionTimingTests.swift in Sources */,
+				A1B1C1D10000001300000001 /* VPNThreeRegionReportTests.swift in Sources */,
+				A1B1C1D10000001400000001 /* VPNRegionAndServicesCatalogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1B1C1D50000000700000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B1C1D50000000100000001 /* VPNTestHost */;
+			targetProxy = A1B1C1D50000000900000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A1B1C1D60000000400000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A1B1C1D60000000500000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1B1C1D60000000600000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = PTLM4TG6YC;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = VPNTestHost/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VPNTestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1B1C1D60000000700000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = PTLM4TG6YC;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = VPNTestHost/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VPNTestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A1B1C1D60000000800000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PTLM4TG6YC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VPNTestUITests/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VPNTestUITests;
+				INFOPLIST_KEY_UIApplicationSupportedUserInterfaceStyles = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VPNTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1B1C1D60000000900000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PTLM4TG6YC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VPNTestUITests/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VPNTestUITests;
+				INFOPLIST_KEY_UIApplicationSupportedUserInterfaceStyles = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.VPNTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1B1C1D60000000100000001 /* Build configuration list for PBXProject "VPNTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B1C1D60000000400000001 /* Debug */,
+				A1B1C1D60000000500000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B1C1D60000000200000001 /* Build configuration list for PBXNativeTarget "VPNTestHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B1C1D60000000600000001 /* Debug */,
+				A1B1C1D60000000700000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B1C1D60000000300000001 /* Build configuration list for PBXNativeTarget "VPNTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B1C1D60000000800000001 /* Debug */,
+				A1B1C1D60000000900000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1B1C1D50000000800000001 /* Project object */;
+}

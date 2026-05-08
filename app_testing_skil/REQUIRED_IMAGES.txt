@@ -1,0 +1,27 @@
+Required PNG screenshots (place inside dash_vpn_region_test.sikuli next to the .py file)
+==========================================================================================
+
+Global UI (required unless noted)
+---------------------------------
+ui_connect.png              Primary "Connect" control (idle / disconnected state).
+ui_disconnect.png           "Disconnect" control (connected state).
+ui_region_dropdown.png     Control that opens the region list (dropdown arrow, field, or list header).
+ui_connected.png           Distinctive UI when tunnel is up (e.g. "Connected" text, green state, or changed connect button). Used with wait() up to 5s.
+
+Optional
+--------
+ui_disconnected.png        Clear idle state after disconnect (speeds up disconnect wait). If omitted, script waits for ui_connect.png again.
+
+Per-region (one or more)
+------------------------
+region_item_<id>.png        Tight crop of each selectable region row or tile (unique visual).
+                            Examples used in script:
+                            - region_item_us.png
+                            - region_item_uk.png
+                            - region_item_demo.png
+
+Edit REGIONS in dash_vpn_region_test.py to match your PNG filenames and expected_country (ISO 2-letter from ipinfo.io).
+
+Similarity
+----------
+Default MinSimilarity is 0.72. Per-control tuning: edit _pattern() calls or DEFAULT_SIMILARITY if false positives/negatives occur.

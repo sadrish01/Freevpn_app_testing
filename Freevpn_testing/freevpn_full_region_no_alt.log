@@ -1,0 +1,1035 @@
+══════════════════════════════════════════════════════════
+  FREEVPN REGION CLI TEST
+══════════════════════════════════════════════════════════
+  App: Free VPN CLI 0.2.13 (darwin/arm64)
+  Total regions listed (IPv6 names excluded): 77
+  Regions to test this run: 77 (MAX_REGIONS=999)
+  Connect: 4s (retry 8s if first miss) | Disconnect: 4s
+  Post-connect dwell (still connected): 5s | Pre-disconnect dwell: 5s | alternate-ip wait: ≤20s per attempt (max 2)
+  Alternate-ip phase: SKIPPED (SKIP_ALTERNATE_IP=1) — geo + disconnect/baseline only
+══════════════════════════════════════════════════════════
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [1/77]  Fastest
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Fastest (auto)
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+  FAIL: not Connected within 4s nor within 8s on retry (see /tmp/freevpn-up-62221.log)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [2/77]  North America
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [3/77]  US East
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [4/77]  Illinois
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [5/77]  Chicago
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [6/77]  Detroit
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [7/77]  New York
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [8/77]  Washington DC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [9/77]  Florida
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [10/77]  Miami
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [11/77]  Dallas
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [12/77]  Missouri
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [13/77]  US West
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [14/77]  Southern California
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [15/77]  Los Angeles
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [16/77]  Seattle
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [17/77]  Phoenix
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [18/77]  Mexico
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [19/77]  Canada
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [20/77]  Quebec
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [21/77]  Montreal
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [22/77]  Toronto
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [23/77]  Europe
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [24/77]  EU North
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [25/77]  EU South
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [26/77]  EU East
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [27/77]  UK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [28/77]  London
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [29/77]  France
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [30/77]  Paris
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [31/77]  Strasbourg
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [32/77]  Italy
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [33/77]  Rome
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [34/77]  Germany
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [35/77]  Dusseldorf
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [36/77]  Frankfurt
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [37/77]  Finland
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [38/77]  Helsinki
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [39/77]  Poland
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [40/77]  Warsaw
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [41/77]  Ukraine
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [42/77]  Kyiv
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [43/77]  Spain
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [44/77]  Barcelona
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [45/77]  Netherlands
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [46/77]  Amsterdam
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [47/77]  Scandinavia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [48/77]  Norway
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [49/77]  Oslo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [50/77]  Switzerland
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [51/77]  Zurich
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [52/77]  Estonia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [53/77]  Tallinn
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [54/77]  South America
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [55/77]  Argentina
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [56/77]  Buenos Aires
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [57/77]  Middle East
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [58/77]  Israel
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [59/77]  Tel Aviv
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [60/77]  Turkey
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [61/77]  Istanbul
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [62/77]  South Africa
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [63/77]  Capetown
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [64/77]  Asia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [65/77]  Japan
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [66/77]  Tokyo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [67/77]  China
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [68/77]  Hong Kong
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [69/77]  India
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [70/77]  Maharashtra
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [71/77]  Mumbai
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [72/77]  Singapore
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [73/77]  Malaysia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [74/77]  South Korea
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [75/77]  Seoul
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [76/77]  Australia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [77/77]  Sydney
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           
+      Your IP       
+      Location      
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ read response: EOF
+  FAIL: set-region failed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  RESULT SUMMARY  (this run)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Regions passed              0 / 77
+  Regions failed (hard)       77 / 77
+  Alternate-ip strict tries   0
+  Alternate-ip soft (PASS+Slack)  0
+
+  ▸ PASSED REGIONS
+      (none)
+
+  ▸ FAILED REGIONS  (hard; region did not complete PASS)
+      Fastest: not Connected within 4s nor within 8s on retry (see /tmp/freevpn-up-62221.log)
+      North America: set-region failed
+      US East: set-region failed
+      Illinois: set-region failed
+      Chicago: set-region failed
+      Detroit: set-region failed
+      New York: set-region failed
+      Washington DC: set-region failed
+      Florida: set-region failed
+      Miami: set-region failed
+      Dallas: set-region failed
+      Missouri: set-region failed
+      US West: set-region failed
+      Southern California: set-region failed
+      Los Angeles: set-region failed
+      Seattle: set-region failed
+      Phoenix: set-region failed
+      Mexico: set-region failed
+      Canada: set-region failed
+      Quebec: set-region failed
+      Montreal: set-region failed
+      Toronto: set-region failed
+      Europe: set-region failed
+      EU North: set-region failed
+      EU South: set-region failed
+      EU East: set-region failed
+      UK: set-region failed
+      London: set-region failed
+      France: set-region failed
+      Paris: set-region failed
+      Strasbourg: set-region failed
+      Italy: set-region failed
+      Rome: set-region failed
+      Germany: set-region failed
+      Dusseldorf: set-region failed
+      Frankfurt: set-region failed
+      Finland: set-region failed
+      Helsinki: set-region failed
+      Poland: set-region failed
+      Warsaw: set-region failed
+      Ukraine: set-region failed
+      Kyiv: set-region failed
+      Spain: set-region failed
+      Barcelona: set-region failed
+      Netherlands: set-region failed
+      Amsterdam: set-region failed
+      Scandinavia: set-region failed
+      Norway: set-region failed
+      Oslo: set-region failed
+      Switzerland: set-region failed
+      Zurich: set-region failed
+      Estonia: set-region failed
+      Tallinn: set-region failed
+      South America: set-region failed
+      Argentina: set-region failed
+      Buenos Aires: set-region failed
+      Middle East: set-region failed
+      Israel: set-region failed
+      Tel Aviv: set-region failed
+      Turkey: set-region failed
+      Istanbul: set-region failed
+      South Africa: set-region failed
+      Capetown: set-region failed
+      Asia: set-region failed
+      Japan: set-region failed
+      Tokyo: set-region failed
+      China: set-region failed
+      Hong Kong: set-region failed
+      India: set-region failed
+      Maharashtra: set-region failed
+      Mumbai: set-region failed
+      Singapore: set-region failed
+      Malaysia: set-region failed
+      South Korea: set-region failed
+      Seoul: set-region failed
+      Australia: set-region failed
+      Sydney: set-region failed
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Requesting AI summary card (gemini-3.1-pro-preview)...
+curl: (56) Failure writing output to destination, passed 202 returned 0

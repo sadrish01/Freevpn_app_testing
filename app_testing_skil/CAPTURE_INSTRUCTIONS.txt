@@ -1,0 +1,46 @@
+How to capture SikuliX images for DashVPN (macOS)
+=================================================
+
+1) Environment
+   - Same machine, same display scale, and same theme as test runs (Retina vs non-Retina matters).
+   - Prefer native resolution; avoid changing zoom between capture and run.
+   - Close overlays (notifications, menu bar extras) that overlap targets.
+
+2) Tooling
+   - SikuliX IDE: click "Take screenshot" / insert image, or use macOS Shift+Cmd+4 (region) and crop tightly in Preview.
+   - Save as PNG into: app_testing_skil/dash_vpn_region_test.sikuli/
+
+3) Cropping rules (critical)
+   - Smallest rectangle that uniquely identifies the control; avoid large empty margins.
+   - For buttons: include full label + icon edge; exclude nearby controls.
+   - For list items: one row only; ensure text/flag is unique vs other rows.
+   - For "Connected" state: capture ONLY what changes when connected (badge, color, label) — not the whole window.
+
+4) Dynamic UI
+   - If a control animates, capture mid-state that is stable, or use a slightly larger crop that still matches every success frame.
+   - If hover changes appearance, capture the default (non-hover) appearance.
+
+5) Multi-resolution / CI
+   - Re-capture on each target resolution; do not reuse Retina captures on non-Retina VMs (and vice versa).
+   - Keep a versioned set: images_1080p/, images_retina/ and swap IMAGE_PATH if needed (Sikuli Settings bundle path is default).
+
+6) Similarity threshold
+   - Start DEFAULT_SIMILARITY = 0.72 in the script.
+   - If matches fail: lower slightly (e.g. 0.68) or recapture sharper PNGs.
+   - If wrong clicks: raise similarity or tighten crops.
+
+7) Baseline IP
+   - Turn VPN OFF, quit other VPNs, run script once to confirm curl ipinfo.io/json returns your real ISP IP before automating.
+
+8) Demo / dry checklist
+   - Launch DashVPN manually, walk one region: open list → pick region → Connect → confirm ui_connected.png appears within 5s.
+   - Disconnect → confirm ui_connect.png returns; curl IP matches baseline.
+
+Running the SikuliX script (macOS)
+=================================
+1) Install SikuliX from https://sikulix.github.io/docs/ and ensure DashVPN is in /Applications.
+2) SikuliX IDE: File → Open → select folder `dash_vpn_region_test.sikuli` (the bundle, not only the .py).
+3) Put all PNGs listed in REQUIRED_IMAGES.txt inside that same folder next to `dash_vpn_region_test.py`.
+4) Edit REGIONS in the script so each `select_image` exists and `expected_country` matches ipinfo for that server.
+5) Turn VPN OFF, quit other VPN clients, then Run. Logs go to `dash_vpn_test_logs/` under the Sikuli working directory (often your home or project folder — check console for paths).
+6) Quick demo: temporarily set REGIONS to a single known-good region to validate the pipeline before full sweeps.

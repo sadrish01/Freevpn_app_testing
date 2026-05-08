@@ -1,0 +1,3663 @@
+══════════════════════════════════════════════════════════
+  FREEVPN REGION CLI TEST
+══════════════════════════════════════════════════════════
+  App: Free VPN CLI 0.2.13 (darwin/arm64)
+  Total regions listed (IPv6 names excluded): 77
+  Regions to test this run: 77 (MAX_REGIONS=999)
+  Connect: 4s (retry 8s if first miss) | Disconnect: 4s
+  Post-connect dwell (still connected): 5s | Pre-disconnect dwell: 5s | alternate-ip wait: ≤20s per attempt (max 2)
+  Alternate-ip phase: SKIPPED (SKIP_ALTERNATE_IP=1) — geo + disconnect/baseline only
+══════════════════════════════════════════════════════════
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [1/77]  Fastest
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Fastest (auto)
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Fastest (auto).
+      Result       Connected on retry (≤8s; first status after 7s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       146.0.227.78
+      Region        Fastest (auto → Europe)
+      Location      Frankfurt am Main, Hesse, Germany
+  [Gemini connected] User location is not supported for the API use.
+  FAIL: Gemini connected Region/Location check error: User location is not supported for the API use.
+Disconnected from Fastest (auto).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [2/77]  North America
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to North America
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from North America.
+      Result       Connected on retry (≤8s; first status after 7s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       64.31.59.134
+      Region        North America
+      Location      New York City, New York, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location New York City, United States is geographically coherent with the 
+                  requested and reported region of North America.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  64.31.59.134
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations exactly match Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  North America
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [3/77]  US East
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to US East
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       172.241.166.91
+      Region        US East
+      Location      New York City, New York, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region 'US East' and Location 'New York City' are geographically consistent 
+                  with the 'US East' preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  172.241.166.91
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations perfectly match.
+  ▸ OUTCOME     PASS  —  US East
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [4/77]  Illinois
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Illinois
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Illinois.
+      Result       Connected on retry (≤8s; first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       216.105.171.247
+      Region        Illinois
+      Location      Chicago, Illinois, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The reported Region and Location correctly reflect Chicago, Illinois, perfectly 
+                  matching the requested Illinois preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  216.105.171.247
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the same city of Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Illinois
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [5/77]  Chicago
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Chicago
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       216.105.171.247
+      Region        Illinois
+      Location      Chicago, Illinois, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Location of Chicago perfectly matches the Illinois Region and the requested 
+                  Chicago preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  216.105.171.247
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations exactly match as Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Chicago
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [6/77]  Detroit
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Detroit
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       38.127.60.90
+      Region        Detroit
+      Location      Wixom, Michigan, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Region Detroit matches the preset, and Wixom is located in the Detroit metropolitan 
+                  area, making it a geographically coherent VPN exit location.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  38.127.60.90
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations refer to the exact same place in Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Detroit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [7/77]  New York
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to New York
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       172.241.166.91
+      Region        New York
+      Location      New York City, New York, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region and location perfectly match the selected New York preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  172.241.166.91
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations are identical and describe the exact same city, region, and country.
+  ▸ OUTCOME     PASS  —  New York
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [8/77]  Washington DC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Washington DC
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       108.59.7.74
+      Region        Washington DC
+      Location      Centreville, Virginia, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Centreville, Virginia is within the Washington DC metropolitan area, making it 
+                  geographically coherent with the Washington DC preset and region.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  108.59.7.74
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings are exactly identical.
+  ▸ OUTCOME     PASS  —  Washington DC
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [9/77]  Florida
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Florida
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       162.254.203.206
+      Region        Florida
+      Location      Miami, Florida, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location of Miami is geographically coherent with the selected Florida region 
+                  and preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  162.254.203.206
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations indicate Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Florida
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [10/77]  Miami
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Miami
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       162.254.203.206
+      Region        Florida
+      Location      Miami, Florida, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region of Florida and Location of Miami perfectly match the selected Miami 
+                  preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  162.254.203.206
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations perfectly match as Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Miami
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [11/77]  Dallas
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Dallas
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Dallas.
+      Result       Connected on retry (≤8s; first status after 6s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       173.234.30.51
+      Region        Dallas
+      Location      Dallas, Texas, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region, location, and preset all consistently indicate Dallas, Texas.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  173.234.30.51
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations perfectly match as Lucknow, Uttar Pradesh, 
+                  India.
+  ▸ OUTCOME     PASS  —  Dallas
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [12/77]  Missouri
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Missouri
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       148.72.166.142
+      Region        Missouri
+      Location      St. Louis, Missouri, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Location of St. Louis correctly matches the Region and preset of Missouri.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  148.72.166.142
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the exact same real-world place.
+  ▸ OUTCOME     PASS  —  Missouri
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [13/77]  US West
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to US West
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       107.158.232.253
+      Region        US West
+      Location      Phoenix, Arizona, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location Phoenix, Arizona is geographically coherent with the US West region 
+                  and exactly matches the selected preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  107.158.232.253
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations perfectly match as Lucknow, Uttar Pradesh, 
+                  India.
+  ▸ OUTCOME     PASS  —  US West
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [14/77]  Southern California
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Southern California
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Southern California.
+      Result       Connected on retry (≤8s; first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       64.42.182.195
+      Region        Southern California
+      Location      Los Angeles, California, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location Los Angeles is perfectly coherent with the Southern California region 
+                  and matches the requested preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  64.42.182.195
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations are exactly identical and describe Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Southern California
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [15/77]  Los Angeles
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Los Angeles
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Southern California.
+      Result       Connected on retry (≤8s; first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       64.42.182.195
+      Region        Southern California
+      Location      Los Angeles, California, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Location of Los Angeles precisely matches the Region of Southern California and 
+                  the Los Angeles preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  64.42.182.195
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  The baseline and current locations exactly match.
+  ▸ OUTCOME     PASS  —  Los Angeles
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [16/77]  Seattle
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Seattle
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       23.82.201.139
+      Region        Seattle
+      Location      Seattle, Washington, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region 'Seattle' and Location 'Seattle, Washington, United States' perfectly 
+                  match the selected 'Seattle' preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  23.82.201.139
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 3s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings identically describe the exact same location in Lucknow, confirming 
+                  the baseline state after disconnection.
+  ▸ OUTCOME     PASS  —  Seattle
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [17/77]  Phoenix
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Phoenix
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Phoenix.
+      Result       Connected on retry (≤8s; first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       170.130.7.228
+      Region        Phoenix
+      Location      Phoenix, Arizona, United States
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region and Location explicitly match the requested Phoenix preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  170.130.7.228
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the exact same real-world place.
+  ▸ OUTCOME     PASS  —  Phoenix
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [18/77]  Mexico
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Mexico
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       69.67.148.211
+      Region        Mexico
+      Location      
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region correctly matches the 'Mexico' preset, and the empty Location field does 
+                  not contradict this.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  69.67.148.211
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the identical place of Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Mexico
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [19/77]  Canada
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Canada
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       144.217.114.178
+      Region        Canada
+      Location      Beauharnois, Quebec, Canada
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Region and Location both correctly indicate Canada, which matches the expected 
+                  preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  144.217.114.178
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings are identical and describe the exact same location in India.
+  ▸ OUTCOME     PASS  —  Canada
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [20/77]  Quebec
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Quebec
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       54.39.85.181
+      Region        Quebec
+      Location      Beauharnois, Quebec, Canada
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The preset, region, and location all perfectly align on Quebec, Canada.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  54.39.85.181
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings exactly match the same location of Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Quebec
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [21/77]  Montreal
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Montreal
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       54.39.85.181
+      Region        Quebec
+      Location      Beauharnois, Quebec, Canada
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Beauharnois is located in the Greater Montreal Area within the province of Quebec, 
+                  making the region and location perfectly coherent with the Montreal preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  54.39.85.181
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations perfectly match as Lucknow, Uttar Pradesh, 
+                  India.
+  ▸ OUTCOME     PASS  —  Montreal
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [22/77]  Toronto
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Toronto
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       (unavailable)
+      Region        Toronto
+      Location      Toronto, Ontario, Canada
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region and Location both correctly indicate Toronto, Canada, which exactly 
+                  matches the selected Toronto preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  (unavailable)
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings exactly describe the same location of Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Toronto
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [23/77]  Europe
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Europe
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Europe.
+      Result       Connected on retry (≤8s; first status after 8s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       85.195.109.190
+      Region        Europe
+      Location      Frankfurt am Main, Hesse, Germany
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Germany is geographically located in Europe, making the location perfectly 
+                  consistent with the region and preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  85.195.109.190
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations perfectly describe the exact same city and region.
+  ▸ OUTCOME     PASS  —  Europe
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [24/77]  EU North
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to EU North
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from EU North.
+      Result       Connected on retry (≤8s; first status after 7s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       51.158.205.168
+      Region        EU North
+      Location      Amsterdam, North Holland, The Netherlands
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region 'EU North' perfectly matches the preset and geographically aligns with 
+                  the exit location in The Netherlands.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  51.158.205.168
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations perfectly match as Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  EU North
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [25/77]  EU South
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to EU South
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       151.106.6.28
+      Region        EU South
+      Location      Strasbourg, Grand Est, France
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region 'EU South' matches the preset, and France is a coherent location for a 
+                  southern or western European VPN server cluster.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  151.106.6.28
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations are exactly identical.
+  ▸ OUTCOME     PASS  —  EU South
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [26/77]  EU East
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to EU East
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       151.115.88.86
+      Region        EU East
+      Location      Warsaw, Mazovia, Poland
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location of Warsaw, Poland accurately corresponds to the EU East region and 
+                  preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  151.115.88.86
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the exactly same city and region.
+  ▸ OUTCOME     PASS  —  EU East
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [27/77]  UK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to UK
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       78.129.146.130
+      Region        UK
+      Location      Reading, England, United Kingdom
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Location 'Reading, England, United Kingdom' perfectly matches the UK Region and 
+                  preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  78.129.146.130
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations identically describe Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  UK
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [28/77]  London
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to London
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 2s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       78.129.146.130
+      Region        London
+      Location      Reading, England, United Kingdom
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Location (Reading, England) is geographically coherent with the Region and 
+                  preset (London), as it is a nearby city in the same country.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  78.129.146.130
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations identically describe Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  London
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [29/77]  France
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to France
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 2s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       51.159.70.137
+      Region        France
+      Location      Paris, Île-de-France, France
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region and location status correctly indicate Paris, France, which perfectly 
+                  matches the selected France preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  51.159.70.137
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings exactly describe the same city, region, and country.
+  ▸ OUTCOME     PASS  —  France
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [30/77]  Paris
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Paris
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       62.210.141.7
+      Region        Paris
+      Location      Paris, Île-de-France, France
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region and location exactly match the requested Paris preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  62.210.141.7
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       49.36.168.6
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  FAIL: post-disconnect freevpn status Your IP must match baseline (baseline='2405:201:600a:a066:edd8:24c5:426d:834d' now='49.36.168.6')
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [31/77]  Strasbourg
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Strasbourg
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       151.106.6.28
+      Region        Strasbourg
+      Location      Strasbourg, Grand Est, France
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region and location perfectly match the preset of Strasbourg, France.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  151.106.6.28
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations match exactly.
+  ▸ OUTCOME     PASS  —  Strasbourg
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [32/77]  Italy
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Italy
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.213.21.217
+      Region        Italy
+      Location      Arezzo, Tuscany, Italy
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location 'Arezzo, Tuscany, Italy' is perfectly geographically coherent with the 
+                  region and preset 'Italy'.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.213.21.217
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations are identical and describe the same place.
+  ▸ OUTCOME     PASS  —  Italy
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [33/77]  Rome
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Rome
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.213.21.217
+      Region        Italy
+      Location      Arezzo, Tuscany, Italy
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location of Arezzo, Italy is geographically coherent with the region of Italy 
+                  and the preset of Rome, as they are all situated within the same country.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.213.21.217
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations correctly identify Lucknow, India, indicating 
+                  the VPN is genuinely disconnected.
+  ▸ OUTCOME     PASS  —  Rome
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [34/77]  Germany
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Germany
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Germany.
+      Result       Connected on retry (≤8s; first status after 8s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       89.163.242.178
+      Region        Germany
+      Location      Essen, North Rhine-Westphalia, Germany
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location Essen in North Rhine-Westphalia perfectly matches the selected Germany 
+                  region and preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  89.163.242.178
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 4s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings are identical and describe the exact same location.
+  ▸ OUTCOME     PASS  —  Germany
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [35/77]  Dusseldorf
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Dusseldorf
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Dusseldorf.
+      Result       Connected on retry (≤8s; first status after 7s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       213.202.223.71
+      Region        Dusseldorf
+      Location      Essen, North Rhine-Westphalia, Germany
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Region and Location are geographically coherent as Essen is located very close to 
+                  Düsseldorf in North Rhine-Westphalia, Germany.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  213.202.223.71
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings are exactly identical and refer to the same real-world place.
+  ▸ OUTCOME     PASS  —  Dusseldorf
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [36/77]  Frankfurt
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Frankfurt
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       85.195.88.166
+      Region        Frankfurt
+      Location      Frankfurt am Main, Hesse, Germany
+  [Gemini connected] User location is not supported for the API use.
+  FAIL: Gemini connected Region/Location check error: User location is not supported for the API use.
+Disconnected from Frankfurt.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [37/77]  Finland
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Finland
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Finland.
+      Result       Connected on retry (≤8s; first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.117.118.209
+      Region        Finland
+      Location      Helsinki, Uusimaa, Finland
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Region and Location are geographically coherent and perfectly match the preset for 
+                  Finland.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.117.118.209
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings are completely identical and describe the exact same city and 
+                  region.
+  ▸ OUTCOME     PASS  —  Finland
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [38/77]  Helsinki
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Helsinki
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.117.118.209
+      Region        Finland
+      Location      Helsinki, Uusimaa, Finland
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region and Location correctly indicate Helsinki, Finland, which perfectly 
+                  matches the requested Helsinki preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.117.118.209
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings identically describe the exact same location.
+  ▸ OUTCOME     PASS  —  Helsinki
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [39/77]  Poland
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Poland
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       151.115.88.86
+      Region        Poland
+      Location      Warsaw, Mazovia, Poland
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region and Location successfully match the requested Poland preset, with Warsaw 
+                  being a geographically accurate city for that country.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  151.115.88.86
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings are exactly identical.
+  ▸ OUTCOME     PASS  —  Poland
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [40/77]  Warsaw
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Warsaw
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       151.115.88.86
+      Region        Warsaw
+      Location      Warsaw, Mazovia, Poland
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The preset, region, and location all perfectly align as Warsaw, Poland.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  151.115.88.86
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations identically describe Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Warsaw
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [41/77]  Ukraine
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Ukraine
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       176.103.54.178
+      Region        Ukraine
+      Location      Kyiv, Kyiv City, Ukraine
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location Kyiv perfectly aligns with the region and preset of Ukraine.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  176.103.54.178
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings identically describe Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Ukraine
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [42/77]  Kyiv
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Kyiv
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       176.103.54.178
+      Region        Kyiv
+      Location      Kyiv, Kyiv City, Ukraine
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region 'Kyiv' and Location 'Kyiv, Ukraine' perfectly align with the selected 
+                  Kyiv preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  176.103.54.178
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations exactly match, describing the same city, region, and country.
+  ▸ OUTCOME     PASS  —  Kyiv
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [43/77]  Spain
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Spain
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       108.181.121.102
+      Region        Spain
+      Location      Barcelona, Catalonia, Spain
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location Barcelona, Catalonia, Spain perfectly aligns with the requested Spain 
+                  region and preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  108.181.121.102
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings are identical and describe the same real-world place.
+  ▸ OUTCOME     PASS  —  Spain
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [44/77]  Barcelona
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Barcelona
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       108.181.121.102
+      Region        Barcelona
+      Location      Barcelona, Catalonia, Spain
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Region and Location both correctly reflect Barcelona, Spain, exactly matching the 
+                  preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  108.181.121.102
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations identically describe Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Barcelona
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [45/77]  Netherlands
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Netherlands
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       109.236.82.187
+      Region        Netherlands
+      Location      Rotterdam, South Holland, The Netherlands
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Rotterdam is located in the Netherlands, completely matching both the requested 
+                  preset and reported region.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  109.236.82.187
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations exactly match Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Netherlands
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [46/77]  Amsterdam
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Amsterdam
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       109.236.82.187
+      Region        Netherlands
+      Location      Rotterdam, South Holland, The Netherlands
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Region and Location both correctly indicate the Netherlands, aligning 
+                  geographically with the Amsterdam preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  109.236.82.187
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations describe the exact same real-world place.
+  ▸ OUTCOME     PASS  —  Amsterdam
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [47/77]  Scandinavia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Scandinavia
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 2s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.117.118.209
+      Region        Scandinavia
+      Location      Helsinki, Uusimaa, Finland
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Helsinki, Finland is geographically coherent with the Scandinavia region preset, as 
+                  Finland is commonly grouped with Scandinavian countries in VPN configurations.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.117.118.209
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations describe Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Scandinavia
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [48/77]  Norway
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Norway
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.213.23.175
+      Region        Norway
+      Location      Sandefjord, Vestfold, Norway
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Sandefjord is a city in Vestfold, Norway, which is perfectly geographically 
+                  coherent with the selected Norway preset and region.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.213.23.175
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe exactly the same real-world place.
+  ▸ OUTCOME     PASS  —  Norway
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [49/77]  Oslo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Oslo
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 2s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.213.23.175
+      Region        Oslo
+      Location      Sandefjord, Vestfold, Norway
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Sandefjord, Norway is geographically close to and coherent with the Oslo region and 
+                  preset, representing a plausible VPN exit.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.213.23.175
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 3s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings describe the exact same city and region in India.
+  ▸ OUTCOME     PASS  —  Oslo
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [50/77]  Switzerland
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Switzerland
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       195.206.105.69
+      Region        Switzerland
+      Location      Zürich, Zurich, Switzerland
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region Switzerland and location Zürich geographically match the preset 
+                  Switzerland.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  195.206.105.69
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings exactly match the same real-world location.
+  ▸ OUTCOME     PASS  —  Switzerland
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [51/77]  Zurich
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Zurich
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       195.206.105.69
+      Region        Zurich
+      Location      Zürich, Zurich, Switzerland
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region 'Zurich' and Location 'Zürich, Zurich, Switzerland' accurately match the 
+                  requested 'Zurich' preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  195.206.105.69
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the exact same city of Lucknow, India.
+  ▸ OUTCOME     PASS  —  Zurich
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [52/77]  Estonia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Estonia
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 2s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       77.247.111.84
+      Region        Estonia
+      Location      Tallinn, Harjumaa, Estonia
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region and Location both correctly correspond to the selected preset of Estonia.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  77.247.111.84
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the same real-world place.
+  ▸ OUTCOME     PASS  —  Estonia
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [53/77]  Tallinn
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Tallinn
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       77.247.111.84
+      Region        Estonia
+      Location      Tallinn, Harjumaa, Estonia
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region Estonia and location Tallinn perfectly match the selected preset of 
+                  Tallinn.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  77.247.111.84
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings are exactly identical.
+  ▸ OUTCOME     PASS  —  Tallinn
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [54/77]  South America
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to South America
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       (unavailable)
+      Region        South America
+      Location      
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region exactly matches the preset and the empty location field does not 
+                  contradict the South America routing.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  (unavailable)
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings exactly match, indicating the same city, state, and country.
+  ▸ OUTCOME     PASS  —  South America
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [55/77]  Argentina
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Argentina
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Argentina.
+      Result       Connected on retry (≤8s; first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       (unavailable)
+      Region        Argentina
+      Location      Buenos Aires, Buenos Aires F.D., Argentina
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region and location accurately reflect Buenos Aires, Argentina, matching the 
+                  requested Argentina preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  (unavailable)
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings exactly match.
+  ▸ OUTCOME     PASS  —  Argentina
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [56/77]  Buenos Aires
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Buenos Aires
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Buenos Aires.
+      Result       Connected on retry (≤8s; first status after 5s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       (unavailable)
+      Region        Buenos Aires
+      Location      
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region exactly matches the preset, and the empty Location field presents no 
+                  geographical contradiction.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  (unavailable)
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both describe the same location of Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Buenos Aires
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [57/77]  Middle East
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Middle East
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Middle East.
+      Result       Connected on retry (≤8s; first status after 5s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.191.205.180
+      Region        Middle East
+      Location      Petaẖ Tiqva, Central District, Israel
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Israel is located in the Middle East, making the Location geographically coherent 
+                  with the Region and preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.191.205.180
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations accurately describe the exact same place in 
+                  Lucknow, India.
+  ▸ OUTCOME     PASS  —  Middle East
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [58/77]  Israel
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Israel
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.191.205.180
+      Region        Israel
+      Location      Petaẖ Tiqva, Central District, Israel
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The status region and location (Petaẖ Tiqva, Israel) accurately match the selected 
+                  Israel preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.191.205.180
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations exactly match the same real-world place in 
+                  India.
+  ▸ OUTCOME     PASS  —  Israel
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [59/77]  Tel Aviv
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Tel Aviv
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.191.205.180
+      Region        Tel Aviv
+      Location      Petaẖ Tiqva, Central District, Israel
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Petaẖ Tiqva is in the Tel Aviv Metropolitan Area in Israel, fully aligning with the 
+                  Tel Aviv region and preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.191.205.180
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both the baseline and current locations exactly match as Lucknow, Uttar Pradesh, 
+                  India.
+  ▸ OUTCOME     PASS  —  Tel Aviv
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [60/77]  Turkey
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Turkey
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 2s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.169.64.6
+      Region        Turkey
+      Location      Istanbul, Istanbul, Turkey
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location Istanbul geographically aligns perfectly with the specified Turkey 
+                  region and preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.169.64.6
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 2s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations identically describe Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Turkey
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [61/77]  Istanbul
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Istanbul
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       185.169.64.6
+      Region        Istanbul
+      Location      Istanbul, Istanbul, Turkey
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region and location accurately match the requested Istanbul preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  185.169.64.6
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings are exactly identical and describe the same city, state, and 
+                  country.
+  ▸ OUTCOME     PASS  —  Istanbul
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [62/77]  South Africa
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to South Africa
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from South Africa.
+      Result       Connected on retry (≤8s; first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       (unavailable)
+      Region        South Africa
+      Location      Cape Town, Western Cape, South Africa
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region and location perfectly match the South Africa preset, as Cape Town is a 
+                  city in South Africa.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  (unavailable)
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both location strings are exactly identical.
+  ▸ OUTCOME     PASS  —  South Africa
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [63/77]  Capetown
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Capetown
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Capetown.
+      Result       Connected on retry (≤8s; first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       41.203.1.190
+      Region        Capetown
+      Location      
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region correctly matches the preset and the empty Location presents no 
+                  geographical contradiction.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  41.203.1.190
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations describe the exact same real-world place.
+  ▸ OUTCOME     PASS  —  Capetown
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [64/77]  Asia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Asia
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Asia.
+      Result       Connected on retry (≤8s; first status after 8s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       103.13.112.84
+      Region        Asia
+      Location      Airoli, Maharashtra, India
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Location of India perfectly aligns with the Asia Region and the requested Asia 
+                  preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  103.13.112.84
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the exact same real-world place (Lucknow, Uttar Pradesh, 
+                  India).
+  ▸ OUTCOME     PASS  —  Asia
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [65/77]  Japan
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Japan
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Japan.
+      Result       Connected on retry (≤8s; first status after 8s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       5.180.44.61
+      Region        Japan
+      Location      Azabu-jūban, Tokyo, Japan
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location Azabu-jūban, Tokyo correctly matches the region and preset of Japan.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  5.180.44.61
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations are exactly identical.
+  ▸ OUTCOME     PASS  —  Japan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [66/77]  Tokyo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Tokyo
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Tokyo.
+      Result       Connected on retry (≤8s; first status after 8s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       5.180.44.61
+      Region        Tokyo
+      Location      Azabu-jūban, Tokyo, Japan
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location Azabu-jūban, Tokyo perfectly matches the selected preset and region of 
+                  Tokyo.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  5.180.44.61
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings exactly describe the same location of Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Tokyo
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [67/77]  China
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to China
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from China.
+      Result       Connected on retry (≤8s; first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       118.107.244.121
+      Region        China
+      Location      Sham Shui Po, Sham Shui Po District, Hong Kong
+  [Gemini connected] User location is not supported for the API use.
+  FAIL: Gemini connected Region/Location check error: User location is not supported for the API use.
+Disconnected from China.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [68/77]  Hong Kong
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Hong Kong
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Hong Kong.
+      Result       Connected on retry (≤8s; first status after 4s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       118.107.244.121
+      Region        Hong Kong
+      Location      Sham Shui Po, Sham Shui Po District, Hong Kong
+  [Gemini connected] User location is not supported for the API use.
+  FAIL: Gemini connected Region/Location check error: User location is not supported for the API use.
+Disconnected from Hong Kong.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [69/77]  India
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to India
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       103.13.112.84
+      Region        India
+      Location      Airoli, Maharashtra, India
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Location (Airoli, Maharashtra, India) and Region (India) perfectly match the 
+                  requested India preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  103.13.112.84
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations precisely describe Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  India
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [70/77]  Maharashtra
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Maharashtra
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 2s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       103.13.112.84
+      Region        Maharashtra
+      Location      Airoli, Maharashtra, India
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region and Location perfectly match the requested Maharashtra preset by 
+                  specifying a valid city (Airoli) within that state.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  103.13.112.84
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both baseline and current locations exactly match as Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  Maharashtra
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [71/77]  Mumbai
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Mumbai
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Mumbai.
+      Result       Connected on retry (≤8s; first status after 2s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       103.13.112.84
+      Region        Mumbai
+      Location      Airoli, Maharashtra, India
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  Airoli is located within the Mumbai Metropolitan Region, making it geographically 
+                  coherent with the Mumbai region and preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  103.13.112.84
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both strings are exactly identical and describe the exact same location in Lucknow, 
+                  India.
+  ▸ OUTCOME     PASS  —  Mumbai
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [72/77]  Singapore
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Singapore
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Singapore.
+  FAIL: not Connected within 4s nor within 8s on retry (see /tmp/freevpn-up-64498.log)
+Disconnected from Singapore.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [73/77]  Malaysia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Malaysia
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Retry        not connected in first window — second up, wait ≤8s
+Disconnected from Malaysia.
+      Result       Connected on retry (≤8s; first status after 5s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       (unavailable)
+      Region        Malaysia
+      Location      
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region matches the requested preset of Malaysia, and the empty Location field 
+                  does not contradict this routing.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  (unavailable)
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations match exactly, confirming the connection successfully reverted to 
+                  the baseline.
+  ▸ OUTCOME     PASS  —  Malaysia
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [74/77]  South Korea
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to South Korea
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       108.181.53.189
+      Region        South Korea
+      Location      Seoul, Seoul, South Korea
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region South Korea and location Seoul accurately match the selected South Korea 
+                  preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  108.181.53.189
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations exactly match as Lucknow, Uttar Pradesh, India.
+  ▸ OUTCOME     PASS  —  South Korea
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [75/77]  Seoul
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Seoul
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       108.181.53.189
+      Region        Seoul
+      Location      Seoul, Seoul, South Korea
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The Region, Location, and preset all consistently indicate Seoul, South Korea.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  108.181.53.189
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the exact same city and region in India.
+  ▸ OUTCOME     PASS  —  Seoul
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [76/77]  Australia
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Australia
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       66.203.112.38
+      Region        Australia
+      Location      Sydney, New South Wales, Australia
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The location of Sydney, New South Wales, Australia is perfectly coherent with the 
+                  requested preset and region of Australia.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  66.203.112.38
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 0s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations describe the identical real-world place of Lucknow, Uttar Pradesh, 
+                  India.
+  ▸ OUTCOME     PASS  —  Australia
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  REGION  [77/77]  Sydney
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VPN was already disconnected.
+  ▸ BASELINE  (freevpn status · disconnected, before this region)
+      VPN           Disconnected
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+  ▸ APPLY REGION  (freevpn set-region)
+      │ applying region…
+      │ Region set to Sydney
+      │ 
+      │ Run `freevpn up` to connect.
+  ▸ CONNECT  (freevpn up)
+      Policy        Connected within ≤4s, else one retry ≤8s
+      Result        Connected (first status after 3s)
+  ▸ DWELL  (post-connect · still connected before snapshot & checks)
+      Duration      5s
+  ▸ CONNECTED SNAPSHOT  (freevpn status)
+      Your IP       66.203.112.38
+      Region        Sydney
+      Location      Sydney, New South Wales, Australia
+  ▸ GEO CHECK  (Gemini · Region/Location vs preset, while connected)
+      Result        PASS
+      Note
+                  The region and location status accurately match the requested Sydney preset.
+  ▸ ALTERNATE-IP  (skipped — SKIP_ALTERNATE_IP=1)
+      Exit Your IP  66.203.112.38
+  ▸ DWELL  (pre-disconnect · still connected; alternate-ip not run)
+      Duration      5s
+  ▸ DISCONNECT  (freevpn down · wait ≤4s for Disconnected)
+      Result        Disconnected (first status after 1s)
+  ▸ POST-DOWN  (freevpn status · compare to baseline)
+      Your IP       2405:201:600a:a066:edd8:24c5:426d:834d
+      Baseline IP   2405:201:600a:a066:edd8:24c5:426d:834d
+      Location      Lucknow, Uttar Pradesh, India
+      Baseline loc.  Lucknow, Uttar Pradesh, India
+  ▸ IP CHECK   (post-down vs baseline)
+      Result        PASS (Your IP matches baseline)
+  ▸ LOCATION CHECK  (Gemini · post-down vs baseline)
+      Result        PASS
+      Note
+                  Both locations are identical and describe the same city of Lucknow, Uttar Pradesh, 
+                  India.
+  ▸ OUTCOME     PASS  —  Sydney
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  RESULT SUMMARY  (this run)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Regions passed              71 / 77
+  Regions failed (hard)       6 / 77
+  Alternate-ip strict tries   0
+  Alternate-ip soft (PASS+Slack)  0
+
+  ▸ PASSED REGIONS
+      North America
+      US East
+      Illinois
+      Chicago
+      Detroit
+      New York
+      Washington DC
+      Florida
+      Miami
+      Dallas
+      Missouri
+      US West
+      Southern California
+      Los Angeles
+      Seattle
+      Phoenix
+      Mexico
+      Canada
+      Quebec
+      Montreal
+      Toronto
+      Europe
+      EU North
+      EU South
+      EU East
+      UK
+      London
+      France
+      Strasbourg
+      Italy
+      Rome
+      Germany
+      Dusseldorf
+      Finland
+      Helsinki
+      Poland
+      Warsaw
+      Ukraine
+      Kyiv
+      Spain
+      Barcelona
+      Netherlands
+      Amsterdam
+      Scandinavia
+      Norway
+      Oslo
+      Switzerland
+      Zurich
+      Estonia
+      Tallinn
+      South America
+      Argentina
+      Buenos Aires
+      Middle East
+      Israel
+      Tel Aviv
+      Turkey
+      Istanbul
+      South Africa
+      Capetown
+      Asia
+      Japan
+      Tokyo
+      India
+      Maharashtra
+      Mumbai
+      Malaysia
+      South Korea
+      Seoul
+      Australia
+      Sydney
+
+  ▸ FAILED REGIONS  (hard; region did not complete PASS)
+      Fastest: Gemini connected Region/Location check error: User location is not supported for the API use.
+      Paris: post-disconnect freevpn status Your IP must match baseline (baseline='2405:201:600a:a066:edd8:24c5:426d:834d' now='49.36.168.6')
+      Frankfurt: Gemini connected Region/Location check error: User location is not supported for the API use.
+      China: Gemini connected Region/Location check error: User location is not supported for the API use.
+      Hong Kong: Gemini connected Region/Location check error: User location is not supported for the API use.
+      Singapore: not Connected within 4s nor within 8s on retry (see /tmp/freevpn-up-64498.log)
+
+  ▸ CONNECT RETRY OK  (missed ≤4s, passed on ≤8s)
+      North America — missed ≤4s connect; Connected on ≤8s retry (first Connected after 7s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Illinois — missed ≤4s connect; Connected on ≤8s retry (first Connected after 4s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Dallas — missed ≤4s connect; Connected on ≤8s retry (first Connected after 6s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Southern California — missed ≤4s connect; Connected on ≤8s retry (first Connected after 3s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Los Angeles — missed ≤4s connect; Connected on ≤8s retry (first Connected after 4s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Phoenix — missed ≤4s connect; Connected on ≤8s retry (first Connected after 4s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Europe — missed ≤4s connect; Connected on ≤8s retry (first Connected after 8s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      EU North — missed ≤4s connect; Connected on ≤8s retry (first Connected after 7s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Germany — missed ≤4s connect; Connected on ≤8s retry (first Connected after 8s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Dusseldorf — missed ≤4s connect; Connected on ≤8s retry (first Connected after 7s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Finland — missed ≤4s connect; Connected on ≤8s retry (first Connected after 3s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Argentina — missed ≤4s connect; Connected on ≤8s retry (first Connected after 4s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Buenos Aires — missed ≤4s connect; Connected on ≤8s retry (first Connected after 5s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Middle East — missed ≤4s connect; Connected on ≤8s retry (first Connected after 5s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      South Africa — missed ≤4s connect; Connected on ≤8s retry (first Connected after 4s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Capetown — missed ≤4s connect; Connected on ≤8s retry (first Connected after 4s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Asia — missed ≤4s connect; Connected on ≤8s retry (first Connected after 8s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Japan — missed ≤4s connect; Connected on ≤8s retry (first Connected after 8s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Tokyo — missed ≤4s connect; Connected on ≤8s retry (first Connected after 8s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Mumbai — missed ≤4s connect; Connected on ≤8s retry (first Connected after 2s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+      Malaysia — missed ≤4s connect; Connected on ≤8s retry (first Connected after 5s); connected Gemini Region/Location OK; alternate-ip skipped (SKIP_ALTERNATE_IP=1); post-down Your IP baseline + Gemini Location vs baseline OK.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Requesting AI summary card (gemini-3.1-pro-preview)...
+
+══════════════════════════════════════════════════════════
+  CFV TESTING SUMMARY (Slack card body)
+══════════════════════════════════════════════════════════
+CFV Testing Summary
+App version: Free VPN CLI 0.2.13 (darwin/arm64)
+	•	Total regions: 77
+	•	Regions tested: 77
+	•	Passed: 71 :white_check_mark:
+	•	Failed: 6 :x:
+	•	Success Rate: 92%
+⸻
+Execution Details
+:white_check_mark: Passed
+    •   North America
+    •   US East
+    •   Illinois
+    •   Chicago
+    •   Detroit
+    •   (+ 66 more passed)
+
+Slow connect — 8s retry OK
+    •   North America — 8s retry OK
+    •   Illinois — 8s retry OK
+    •   Dallas — 8s retry OK
+    •   Southern California — 8s retry OK
+    •   Los Angeles — 8s retry OK
+    •   Phoenix — 8s retry OK
+    •   Europe — 8s retry OK
+    •   EU North — 8s retry OK
+    •   Germany — 8s retry OK
+    •   Dusseldorf — 8s retry OK
+    •   Finland — 8s retry OK
+    •   Argentina — 8s retry OK
+    •   Buenos Aires — 8s retry OK
+    •   Middle East — 8s retry OK
+    •   South Africa — 8s retry OK
+    •   Capetown — 8s retry OK
+    •   Asia — 8s retry OK
+    •   Japan — 8s retry OK
+    •   Tokyo — 8s retry OK
+    •   Mumbai — 8s retry OK
+    •   Malaysia — 8s retry OK
+⸻
+:x: Failed
+    •   Fastest — Gemini API location unsupported.
+    •   Paris — baseline IP mismatch.
+    •   Frankfurt — Gemini API location unsupported.
+    •   China — Gemini API location unsupported.
+    •   Hong Kong — Gemini API location unsupported.
+    •   Singapore — connect timeout.
+⸻
+:warning: Observations
+    •   4 regions failed Gemini checks due to API error.
+    •   Paris failed baseline match; Singapore timed out.
+══════════════════════════════════════════════════════════
+
+[Slack] Posted summary to C0AL361GMHD.
