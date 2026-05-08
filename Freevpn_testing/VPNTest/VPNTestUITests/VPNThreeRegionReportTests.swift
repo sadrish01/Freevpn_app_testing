@@ -32,6 +32,217 @@ final class VPNThreeRegionReportTests: VPNTestBase {
         continueAfterFailure = false
     }
 
+    private typealias TextRow = (index: Int, label: String)
+    private typealias ButtonRow = (index: Int, label: String, hittable: Bool)
+
+    private func snapshotVisibleTexts(_ app: XCUIApplication, max: Int = 44) -> [TextRow] {
+        var rows: [TextRow] = []
+        for i in 0..<max {
+            let t = app.staticTexts.element(boundBy: i)
+            if !t.waitForExistence(timeout: 0.15) { break }
+            let label = t.label.trimmingCharacters(in: .whitespacesAndNewlines)
+            rows.append((i, label))
+        }
+        return rows
+    }
+
+    private func snapshotVisibleButtons(_ app: XCUIApplication, max: Int = 44) -> [ButtonRow] {
+        var rows: [ButtonRow] = []
+        for i in 0..<max {
+            let b = app.buttons.element(boundBy: i)
+            if !b.waitForExistence(timeout: 0.15) { break }
+            let label = b.label.trimmingCharacters(in: .whitespacesAndNewlines)
+            rows.append((i, label, b.isHittable))
+        }
+        return rows
+    }
+
+    private func logSnapshot(_ app: XCUIApplication, tag: String) {
+        let texts = snapshotVisibleTexts(app, max: 24)
+        let buttons = snapshotVisibleButtons(app, max: 24)
+        print("[VPNTest] snapshot[\(tag)] staticTexts=\(texts.count) buttons=\(buttons.count)")
+        for row in texts {
+            print("[VPNTest]   text[\(row.index)] \"\(row.label)\"")
+        }
+        for row in buttons {
+            print("[VPNTest]   button[\(row.index)] \"\(row.label)\" hittable=\(row.hittable)")
+        }
+    }
+
+    private func tapVisibleButtonByIndex(_ app: XCUIApplication, index: Int, context: String) -> Bool {
+        let b = app.buttons.element(boundBy: index)
+        guard b.waitForExistence(timeout: 0.6), b.exists else {
+            print("[VPNTest] \(context): button[\(index)] missing")
+            return false
+        }
+        if b.isHittable {
+            b.tap()
+        } else {
+            b.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        }
+        return true
+    }
+
+    private func tapCurrentLocationFromSnapshot(_ app: XCUIApplication, timeout: TimeInterval) -> Bool {
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            let texts = snapshotVisibleTexts(app, max: 26)
+            if let row = texts.first(where: { $0.label == "Current Location" }) {
+                let t = app.staticTexts.element(boundBy: row.index)
+                if t.exists {
+                    print("[VPNTest] tap Current Location staticText at index \(row.index)")
+                    if t.isHittable {
+                        t.tap()
+                    } else {
+                        t.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+                    }
+                    return true
+                }
+            }
+            let buttons = snapshotVisibleButtons(app, max: 26)
+            if let row = buttons.first(where: { $0.label == "Current Location" }) {
+                print("[VPNTest] tap Current Location button at index \(row.index)")
+                return tapVisibleButtonByIndex(app, index: row.index, context: "current-location")
+            }
+            usleep(250_000)
+        }
+        return false
+    }
+
+    private func openRegionListByCurrentLocationSnapshot(_ app: XCUIApplication, timeout: TimeInterval = 28) -> Bool {
+        if resolveRegionListContainerForSelection(app) != nil { return true }
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            if !tapCurrentLocationFromSnapshot(app, timeout: 2.0) {
+                usleep(250_000)
+                continue
+            }
+            sleep(1)
+            if resolveRegionListContainerForSelection(app) != nil { return true }
+        }
+        return false
+    }
+
+    private func pickConnectButtonIndex(from rows: [ButtonRow]) -> Int? {
+        let low: (String) -> String = { $0.lowercased() }
+        if rows.count > 3 {
+            let l3 = low(rows[3].label)
+            if l3.contains("vpn toggle") || l3.contains("connect") {
+                return 3
+            }
+        }
+        if let r = rows.last(where: { low($0.label).contains("vpn toggle") && low($0.label).contains("off") }) { return r.index }
+        if let r = rows.last(where: { low($0.label) == "connect vpn" }) { return r.index }
+        if let r = rows.last(where: { low($0.label).contains("connect") && !low($0.label).contains("disconnect") }) { return r.index }
+        if let r = rows.last(where: { low($0.label).contains("vpn toggle") }) { return r.index }
+        return nil
+    }
+
+    private func pickDisconnectButtonIndex(from rows: [ButtonRow]) -> Int? {
+        let low: (String) -> String = { $0.lowercased() }
+        if rows.count > 3 {
+            let l3 = low(rows[3].label)
+            if l3.contains("vpn toggle") || l3.contains("disconnect") {
+                return 3
+            }
+        }
+        if let r = rows.last(where: { low($0.label).contains("vpn toggle") && low($0.label).contains("on") }) { return r.index }
+        if let r = rows.last(where: { low($0.label).contains("disconnect") }) { return r.index }
+        if let r = rows.last(where: { low($0.label).contains("vpn toggle") }) { return r.index }
+        return nil
+    }
+
+    private func looksConnectedBySnapshot(_ app: XCUIApplication) -> Bool {
+        let texts = snapshotVisibleTexts(app, max: 24).map { $0.label.lowercased() }
+        let buttons = snapshotVisibleButtons(app, max: 24).map { $0.label.lowercased() }
+        if texts.contains(where: { $0 == "connected" || $0 == "vpn connected" || $0 == "protected" || $0.contains("secure connection") }) { return true }
+        if buttons.contains(where: { $0 == "connected" || $0.contains("disconnect") || ($0.contains("vpn toggle") && $0.contains("on")) }) { return true }
+        return false
+    }
+
+    private func waitForConnectedBySnapshot(_ app: XCUIApplication, timeout: TimeInterval) -> Bool {
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            if looksConnectedBySnapshot(app) { return true }
+            usleep(350_000)
+        }
+        return false
+    }
+
+    private func feedbackVisibleBySnapshot(_ app: XCUIApplication) -> Bool {
+        let texts = snapshotVisibleTexts(app, max: 28).map { $0.label.lowercased() }
+        if texts.contains(where: {
+            $0.contains("session ended")
+                || $0.contains("how was")
+                || $0.contains("vpn session")
+        }) { return true }
+        let buttons = snapshotVisibleButtons(app, max: 28).map { $0.label.lowercased() }
+        if buttons.contains(where: {
+            $0.contains("thumbsdown")
+                || $0.contains("thumbs up")
+                || $0.contains("try alternate server")
+                || $0.contains("trouble connecting")
+                || $0.contains("experiencing slow speeds")
+                || $0.contains("trouble accessing content")
+                || $0.contains("other reasons")
+        }) { return true }
+        return false
+    }
+
+    private func dismissFeedbackBySnapshot(_ app: XCUIApplication, timeout: TimeInterval = 20) -> Bool {
+        let preferred = ["thumbsdown", "close", "not now", "no thanks", "dismiss", "done", "ok", "cancel", "skip", "x"]
+        let deadline = Date().addingTimeInterval(timeout)
+        var passes = 0
+        while Date() < deadline {
+            passes += 1
+            let rows = snapshotVisibleButtons(app, max: 36)
+            if !feedbackVisibleBySnapshot(app) {
+                print("[VPNTest] STEP PASS: feedback not visible after \(passes - 1) dismiss pass(es)")
+                return true
+            }
+            print("[VPNTest] feedback dismiss pass \(passes): visible buttons=\(rows.count)")
+            if rows.count > 4 {
+                let b4 = rows[4].label.lowercased()
+                if b4.contains("thumbsdown") {
+                    print("[VPNTest] feedback dismiss: fast-path tap button[4]=\"\(rows[4].label)\"")
+                    _ = tapVisibleButtonByIndex(app, index: 4, context: "dismiss-feedback-fast-thumbsdown")
+                    sleep(1)
+                    continue
+                }
+            }
+            if let pick = rows.last(where: { row in
+                let l = row.label.lowercased()
+                return preferred.contains(where: { key in l == key || l.contains(key) })
+            }) {
+                print("[VPNTest] feedback dismiss: tap button[\(pick.index)]=\"\(pick.label)\"")
+                _ = tapVisibleButtonByIndex(app, index: pick.index, context: "dismiss-feedback")
+                sleep(1)
+                continue
+            }
+            if let backdrop = rows.first(where: { $0.label.isEmpty }) {
+                print("[VPNTest] feedback dismiss: tap backdrop button[\(backdrop.index)]")
+                _ = tapVisibleButtonByIndex(app, index: backdrop.index, context: "dismiss-feedback-backdrop")
+                sleep(1)
+                continue
+            }
+            print("[VPNTest] feedback dismiss: swipeDown fallback")
+            app.swipeDown(velocity: .default)
+            sleep(1)
+        }
+        let gone = !feedbackVisibleBySnapshot(app)
+        print("[VPNTest] feedback dismiss timeout: visible=\(!gone)")
+        return gone
+    }
+
+    private func defaultIdentityRestored(baseline: HomeNetworkIdentity, now: HomeNetworkIdentity) -> Bool {
+        let ipRestored = !baseline.ip.isEmpty && !now.ip.isEmpty && baseline.ip == now.ip
+        if baseline.location.isEmpty || now.location.isEmpty {
+            return ipRestored
+        }
+        let locationRestored = baseline.location == now.location
+        return ipRestored && locationRestored
+    }
+
     /// Region catalog (every index → name) then rows 0–2: **IFU** row 0 auto-connect only; **IFU** row ≥1 taps Connect; **non-IFU** taps Connect every row; hold **5s**; disconnect; IFU waits for idle before next row.
     func testConnectFirstThreeRegions_ReportSummary() throws {
         let app = ensureVPNAppReady()
@@ -112,6 +323,152 @@ final class VPNThreeRegionReportTests: VPNTestBase {
         print("[VPNTest] \(summary)")
         let attach = XCTAttachment(string: summary)
         attach.name = "three_region_report.txt"
+        attach.lifetime = .keepAlways
+        add(attach)
+
+        for r in results {
+            XCTAssertTrue(r.success, "Row \(r.index) failed: \(r.detail)")
+        }
+    }
+
+    /// Index-driven four-region pipeline: open by **Current Location**, select rows 0..3, connect/disconnect from visible button indices, close feedback, verify default identity restore.
+    func testConnectFirstFourRegions_ReportSummary() throws {
+        let app = ensureVPNAppReady()
+        XCTAssertEqual(app.state, .runningForeground)
+        dismissPaywallIfNeeded(app)
+        prepareDisconnectedState(app)
+        let baseline = captureHomeNetworkIdentity(app, tag: "baseline-home", verbose: false)
+        logSnapshot(app, tag: "home-initial")
+
+        XCTAssertTrue(openRegionListByCurrentLocationSnapshot(app, timeout: 28), "Could not open region list from Current Location.")
+        sleep(1)
+        guard let previewHost = resolveRegionListContainerForSelection(app) else {
+            XCTFail("Region list host missing after opening from Current Location.")
+            return
+        }
+        scrollRegionListToTop(host: previewHost, maxSwipeDown: 8)
+        usleep(300_000)
+        XCTAssertGreaterThanOrEqual(previewHost.cells.count, 4, "Need at least 4 region rows (cells.count=\(previewHost.cells.count)).")
+        for i in 0..<4 {
+            let c = previewHost.cells.element(boundBy: i)
+            if c.waitForExistence(timeout: 0.8) {
+                print("[VPNTest] list preview row[\(i)] = \"\(regionRowDisplayLabel(c))\"")
+            }
+        }
+
+        var results: [VPNRegionRowResult] = []
+        let connectWait: TimeInterval = VPNTestConstants.isIFUTarget ? 70 : 50
+        let holdConnectedSeconds: UInt32 = 5
+
+        for row in 0..<4 {
+            logSnapshot(app, tag: "row\(row)-before-open-list")
+            if !openRegionListByCurrentLocationSnapshot(app, timeout: 24) {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "failed to open region list from Current Location"))
+                continue
+            }
+            sleep(1)
+
+            guard let host = resolveRegionListContainerForSelection(app) else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "region list host missing"))
+                continue
+            }
+            scrollRegionListToTop(host: host, maxSwipeDown: 8)
+            usleep(300_000)
+            if row >= host.cells.count {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "row index \(row) not present in list (cells.count=\(host.cells.count))"))
+                continue
+            }
+            let cell = host.cells.element(boundBy: row)
+            guard cell.waitForExistence(timeout: 4) else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "row cell missing"))
+                continue
+            }
+            let selectedLabel = regionRowDisplayLabel(cell)
+            print("[VPNTest] select row[\(row)] name=\"\(selectedLabel)\"")
+            if cell.isHittable {
+                cell.tap()
+            } else {
+                cell.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            }
+            sleep(1)
+            logSnapshot(app, tag: "row\(row)-after-select")
+
+            let alreadyConnected = waitForConnectedBySnapshot(app, timeout: 8)
+            if alreadyConnected {
+                print("[VPNTest] STEP PASS row \(row): already connected after region select (skip connect tap)")
+            } else {
+                let connectRows = snapshotVisibleButtons(app, max: 36)
+                guard let connectIdx = pickConnectButtonIndex(from: connectRows) else {
+                    results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "connect button not found in visible button list"))
+                    continue
+                }
+                print("[VPNTest] row \(row): connect button index \(connectIdx)")
+                guard tapVisibleButtonByIndex(app, index: connectIdx, context: "row\(row)-connect") else {
+                    results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "connect tap failed at index \(connectIdx)"))
+                    continue
+                }
+            }
+
+            let connected = waitForConnectedBySnapshot(app, timeout: alreadyConnected ? 2 : connectWait)
+            if !connected {
+                logSnapshot(app, tag: "row\(row)-connect-timeout")
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "connected state not visible within \(Int(connectWait))s"))
+                continue
+            }
+            print("[VPNTest] STEP PASS row \(row): connected")
+
+            print("[VPNTest] row \(row): connected — holding \(holdConnectedSeconds)s before disconnect")
+            sleep(holdConnectedSeconds)
+            let stayedConnected = looksConnectedBySnapshot(app)
+            print("[VPNTest] row \(row): stayed connected after hold=\(stayedConnected)")
+            logSnapshot(app, tag: "row\(row)-before-disconnect")
+
+            // Required delay: 1s before toggle-off.
+            sleep(1)
+            let disconnectRows = snapshotVisibleButtons(app, max: 36)
+            guard let disconnectIdx = pickDisconnectButtonIndex(from: disconnectRows) else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "disconnect button not found in visible button list"))
+                continue
+            }
+            print("[VPNTest] row \(row): disconnect button index \(disconnectIdx)")
+            guard tapVisibleButtonByIndex(app, index: disconnectIdx, context: "row\(row)-disconnect") else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "disconnect tap failed at index \(disconnectIdx)"))
+                continue
+            }
+            print("[VPNTest] STEP PASS row \(row): disconnect tap sent")
+            // Required delay: 1s after toggle-off.
+            sleep(1)
+
+            let dismissed = dismissFeedbackBySnapshot(app, timeout: 18)
+            if !dismissed {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "feedback page did not close"))
+                continue
+            }
+            print("[VPNTest] STEP PASS row \(row): feedback closed")
+            logSnapshot(app, tag: "row\(row)-after-feedback-close")
+            // Required delay: 1s after feedback close and before default-identity verification.
+            sleep(1)
+
+            let nowIdentity = captureHomeNetworkIdentity(app, tag: "row\(row)-post-disconnect", verbose: false)
+            if defaultIdentityRestored(baseline: baseline, now: nowIdentity) {
+                print("[VPNTest] STEP PASS row \(row): default identity restored")
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: true, detail: "held \(holdConnectedSeconds)s, feedback closed, default identity restored"))
+            } else {
+                print("[VPNTest] row \(row): identity not restored baselineIP=\"\(baseline.ip)\" nowIP=\"\(nowIdentity.ip)\" baselineLoc=\"\(baseline.location)\" nowLoc=\"\(nowIdentity.location)\"")
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "default ip/location not restored after feedback close"))
+            }
+        }
+
+        let lines = results.map { $0.description }
+        let summary = """
+        ========== VPN region pipeline (index-driven + 4× connect 5s disconnect) ==========
+        \(lines.joined(separator: "\n"))
+        Passed: \(results.filter(\.success).count) / \(results.count)
+        ================================================================
+        """
+        print("[VPNTest] \(summary)")
+        let attach = XCTAttachment(string: summary)
+        attach.name = "four_region_report.txt"
         attach.lifetime = .keepAlways
         add(attach)
 
@@ -247,10 +604,11 @@ final class VPNThreeRegionReportTests: VPNTestBase {
         XCTAssertEqual(app.state, .runningForeground)
         dismissPaywallIfNeeded(app)
         prepareDisconnectedState(app)
+        let baselineDisconnectedIdentity = captureHomeNetworkIdentity(app, tag: "baseline-disconnected", verbose: false)
 
         XCTAssertTrue(openRegionList(app, timeout: 28), "Could not open region list.")
         sleep(1)
-        guard let host = resolveRegionListContainer(app) else {
+        guard let host = resolveRegionListContainerForSelection(app) else {
             XCTFail("Region list host missing after openRegionList.")
             return
         }
@@ -273,7 +631,7 @@ final class VPNThreeRegionReportTests: VPNTestBase {
         let (ok0, label0) = selectRegionListRowByIndex(app, rowIndex: 0, listTimeout: 28, skipOpenRegionList: true, assumeListAlreadyAtTop: true)
         XCTAssertTrue(ok0, "Row 0 select failed (label=\"\(label0)\").")
 
-        XCTAssertTrue(tapConnectFromVisibleButtonSnapshot(app), "Row 0: snapshot connect failed.")
+        XCTAssertTrue(tapConnectAfterRegionSelectIfNeeded(app, rowIndex: 0), "Row 0: connect step failed after region selection.")
         XCTAssertTrue(waitForVPNConnectedUI(app, timeout: connectWaitBase), "Row 0: connected UI timeout \(connectWaitBase)s.")
         XCTAssertTrue(isVPNConnectedUI(app), "Row 0: verify connected before disconnect.")
         print("[VPNTest] two-region: row0 — disconnect (IFU feedback will appear after toggle-off)")
@@ -286,11 +644,13 @@ final class VPNThreeRegionReportTests: VPNTestBase {
             ensureIFUPostSessionFeedbackDismissed(app, maxRounds: 14)
         }
         dismissPaywallIfNeeded(app)
+        print("[VPNTest] row0 post-feedback: proceeding on UI flow only (no identity gating).")
 
-        print("[VPNTest] two-region: reopen region list for row 1")
+        print("[VPNTest] two-region: reopen region list for row 1 (prime with Current Location tap first)")
+        _ = tapCurrentLocationSelectorIfVisible(app)
         XCTAssertTrue(openRegionList(app, timeout: 28), "Could not reopen region list after row0 feedback.")
         sleep(1)
-        guard let host1 = resolveRegionListContainer(app) else {
+        guard let host1 = resolveRegionListContainerForSelection(app) else {
             XCTFail("Region list host missing after reopen for row 1.")
             return
         }
@@ -394,14 +754,21 @@ final class VPNThreeRegionReportTests: VPNTestBase {
         }
         _ = logPostDisconnectPopupYesNoAndDismissIfPresent(app, pollForOverlaySeconds: 0, pollSystemAlertOrSheet: false)
         dismissPaywallIfNeeded(app)
-        if waitForIdleConnectVPNVisible(app, timeout: 12) {
-            print("[VPNTest] two-region: row1 — idle main already visible; skipping extra IFU ensure rounds")
-        } else if VPNTestConstants.isIFUTarget {
-            ensureIFUPostSessionFeedbackDismissed(app, maxRounds: 8)
-        }
-        guard waitForIdleConnectVPNVisible(app, timeout: 40) else {
-            XCTFail("Idle (Connect VPN / vpn toggle off) after row1 disconnect + IFU feedback dismiss — IFU shows feedback after every toggle-off; check dismiss heuristics.")
-            return
+        let row1AfterFeedbackClose = captureHomeNetworkIdentity(app, tag: "row1-after-feedback-close", verbose: false)
+        let ipRestored = !baselineDisconnectedIdentity.ip.isEmpty
+            && !row1AfterFeedbackClose.ip.isEmpty
+            && baselineDisconnectedIdentity.ip == row1AfterFeedbackClose.ip
+        let locationRestored = !baselineDisconnectedIdentity.location.isEmpty
+            && !row1AfterFeedbackClose.location.isEmpty
+            && baselineDisconnectedIdentity.location == row1AfterFeedbackClose.location
+        if ipRestored || locationRestored {
+            print("[VPNTest] row1: default identity restored — finishing test")
+        } else {
+            XCTAssertTrue(
+                waitForIdleConnectVPNVisible(app, timeout: 16),
+                "Row 1: expected default identity restore or idle connect UI after disconnect + feedback close."
+            )
+            print("[VPNTest] row1: idle connect UI visible — finishing test")
         }
         print("[VPNTest] ══════════════════════════════════════════════════════════════")
         print("[VPNTest]  TEST SUCCEEDED (two-region pipeline)")

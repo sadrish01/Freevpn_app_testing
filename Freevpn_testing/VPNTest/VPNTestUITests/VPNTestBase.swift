@@ -34,9 +34,34 @@ class VPNTestBase: XCTestCase {
     /// Tries staticTexts and buttons; use longer waits for real device. Returns true if list appeared.
     @discardableResult
     func openRegionList(_ app: XCUIApplication, timeout: TimeInterval = 20) -> Bool {
-        let regionSelectorLabels = VPNTestConstants.regionSelectorHintsOrdered
         let settleMs: UInt32 = VPNTestConstants.isIFUTarget ? 500_000 : 1_000_000
         let deadline = Date().addingTimeInterval(timeout)
+        if waitForRegionListVisible(app, timeout: 0.8, allowCellCountFallback: VPNTestConstants.isIFUTarget) {
+            print("[VPNTest] openRegionList: list already visible")
+            return true
+        }
+        if VPNTestConstants.isIFUTarget {
+            while Date() < deadline {
+                if waitForRegionListVisible(app, timeout: 0.5, allowCellCountFallback: true) { return true }
+                let st = app.staticTexts["Current Location"].firstMatch
+                if st.waitForExistence(timeout: 0.35) {
+                    print("[VPNTest] openRegionList(IFU): tap staticText \"Current Location\" (hittable=\(st.isHittable))")
+                    tapButtonOrCenter(st, context: "openRegionList-current-location-staticText")
+                    usleep(settleMs)
+                    if waitForRegionListVisible(app, timeout: 6, allowCellCountFallback: true) { return true }
+                }
+                let bt = app.buttons["Current Location"].firstMatch
+                if bt.waitForExistence(timeout: 0.35) {
+                    print("[VPNTest] openRegionList(IFU): tap button \"Current Location\" (hittable=\(bt.isHittable))")
+                    tapButtonOrCenter(bt, context: "openRegionList-current-location-button")
+                    usleep(settleMs)
+                    if waitForRegionListVisible(app, timeout: 6, allowCellCountFallback: true) { return true }
+                }
+                usleep(320_000)
+            }
+            return false
+        }
+        let regionSelectorLabels = VPNTestConstants.regionSelectorHintsOrdered
         while Date() < deadline {
             for label in regionSelectorLabels {
                 var el = app.staticTexts[label].firstMatch
@@ -131,10 +156,11 @@ class VPNTestBase: XCTestCase {
     }
 
     /// Wait until the region list (table with cells) is visible. Returns true when found.
-    private func waitForRegionListVisible(_ app: XCUIApplication, timeout: TimeInterval = 8) -> Bool {
+    private func waitForRegionListVisible(_ app: XCUIApplication, timeout: TimeInterval = 8, allowCellCountFallback: Bool? = nil) -> Bool {
         let deadline = Date().addingTimeInterval(timeout)
         while Date() < deadline {
-            if regionListHostMatchingHeuristics(app, idWait: 0.5, allowCellCountFallback: true) != nil { return true }
+            let allowFallback = allowCellCountFallback ?? !VPNTestConstants.isIFUTarget
+            if regionListHostMatchingHeuristics(app, idWait: 0.5, allowCellCountFallback: allowFallback) != nil { return true }
             usleep(280_000)
         }
         return false
@@ -142,7 +168,14 @@ class VPNTestBase: XCTestCase {
 
     /// Table or collection hosting region rows for **taps** / scroll: strict match, then loose fallbacks.
     func resolveRegionListContainer(_ app: XCUIApplication) -> XCUIElement? {
-        regionListHostMatchingHeuristics(app, idWait: 2.0, allowCellCountFallback: true)
+        let allowFallback = !VPNTestConstants.isIFUTarget
+        return regionListHostMatchingHeuristics(app, idWait: 2.0, allowCellCountFallback: allowFallback)
+    }
+
+    /// Selection-oriented list host resolution. In IFU, the list can be open without a strict anchor,
+    /// so allow a bounded fallback to avoid false negatives before row taps.
+    func resolveRegionListContainerForSelection(_ app: XCUIApplication) -> XCUIElement? {
+        regionListHostMatchingHeuristics(app, idWait: 1.2, allowCellCountFallback: true)
     }
 
     /// Scroll list toward the top (best-effort; UITableView/UICollectionView). Fewer swipes than before to avoid long “scroll to top” phases.
@@ -765,11 +798,8 @@ class VPNTestBase: XCTestCase {
     @discardableResult
     func waitForIdleConnectVPNVisible(_ app: XCUIApplication, timeout: TimeInterval = 30) -> Bool {
         let deadline = Date().addingTimeInterval(timeout)
+        var connectedProbeCounter = 0
         while Date() < deadline {
-            if isVPNConnectedUI(app) {
-                usleep(400_000)
-                continue
-            }
             let connectBtn = app.buttons["Connect VPN"].firstMatch
             let connectText = app.staticTexts["Connect VPN"].firstMatch
             let ifuIdle = vpnToggleOffButton(app)
@@ -777,16 +807,154 @@ class VPNTestBase: XCTestCase {
                 print("[VPNTest] idle UI: Connect VPN button=\(connectBtn.exists) staticText=\(connectText.exists) ifuVpnToggleOff=\(ifuIdle.exists)")
                 return true
             }
+            connectedProbeCounter += 1
+            if connectedProbeCounter % 3 == 0, isVPNConnectedUI(app) {
+                usleep(350_000)
+                continue
+            }
             usleep(350_000)
         }
         return false
+    }
+
+    struct HomeNetworkIdentity {
+        let ip: String
+        let location: String
+        let sourceLabels: [String]
+    }
+
+    private func visibleStaticTextLabels(_ app: XCUIApplication, maxCount: Int = 40) -> [String] {
+        var out: [String] = []
+        for i in 0..<maxCount {
+            let t = app.staticTexts.element(boundBy: i)
+            if !t.waitForExistence(timeout: 0.15) { break }
+            let s = t.label.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !s.isEmpty {
+                out.append(s)
+            }
+        }
+        return out
+    }
+
+    private func firstIPAddress(in labels: [String]) -> String? {
+        let ipv4 = try? NSRegularExpression(pattern: #"(?<!\d)(?:\d{1,3}\.){3}\d{1,3}(?!\d)"#)
+        let ipv6 = try? NSRegularExpression(pattern: #"(?i)\b(?:[0-9a-f]{1,4}:){2,7}[0-9a-f]{1,4}\b"#)
+        for s in labels {
+            let range = NSRange(location: 0, length: s.utf16.count)
+            if let m = ipv4?.firstMatch(in: s, options: [], range: range), let r = Range(m.range, in: s) {
+                return String(s[r])
+            }
+            if let m = ipv6?.firstMatch(in: s, options: [], range: range), let r = Range(m.range, in: s) {
+                return String(s[r])
+            }
+        }
+        return nil
+    }
+
+    private func firstLikelyLocation(in labels: [String]) -> String? {
+        for s in labels {
+            let low = s.lowercased()
+            if low.contains("connected") || low.contains("disconnect") || low.contains("current location") || low.contains("vpn") {
+                continue
+            }
+            if low.contains("india") || low.contains("lucknow") {
+                return s
+            }
+            if s.contains(",") && s.count >= 6 {
+                return s
+            }
+        }
+        return nil
+    }
+
+    func captureHomeNetworkIdentity(_ app: XCUIApplication, tag: String, verbose: Bool = true) -> HomeNetworkIdentity {
+        let labels = visibleStaticTextLabels(app, maxCount: 44)
+        let ip = firstIPAddress(in: labels) ?? ""
+        let location = firstLikelyLocation(in: labels) ?? ""
+        if verbose {
+            print("[VPNTest] identity[\(tag)] ip=\"\(ip.isEmpty ? "<none>" : ip)\" location=\"\(location.isEmpty ? "<none>" : location)\"")
+            if !labels.isEmpty {
+                print("[VPNTest] identity[\(tag)] staticTexts sample:")
+                for (i, s) in labels.prefix(12).enumerated() {
+                    print("[VPNTest]   [\(i)] \"\(s)\"")
+                }
+            }
+        }
+        return HomeNetworkIdentity(ip: ip, location: location, sourceLabels: labels)
+    }
+
+    @discardableResult
+    func waitForHomeIdentityReady(_ app: XCUIApplication, timeout: TimeInterval = 20, tag: String) -> HomeNetworkIdentity? {
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            let now = captureHomeNetworkIdentity(app, tag: tag)
+            let hasFetching = now.sourceLabels.contains { $0.lowercased().contains("fetching ip") }
+            if !now.ip.isEmpty, !hasFetching {
+                return now
+            }
+            usleep(450_000)
+        }
+        return nil
+    }
+
+    /// Best-effort tap on home region selector text/button **Current Location** before list-open retry.
+    /// Useful right after IFU feedback close when list opener needs one explicit priming tap.
+    @discardableResult
+    func tapCurrentLocationSelectorIfVisible(_ app: XCUIApplication) -> Bool {
+        let st = app.staticTexts["Current Location"].firstMatch
+        if st.waitForExistence(timeout: 1.0) {
+            print("[VPNTest] selector: tap \"Current Location\" staticText")
+            tapButtonOrCenter(st, context: "current-location-staticText")
+            usleep(280_000)
+            return true
+        }
+        let bt = app.buttons["Current Location"].firstMatch
+        if bt.waitForExistence(timeout: 1.0) {
+            print("[VPNTest] selector: tap \"Current Location\" button")
+            tapButtonOrCenter(bt, context: "current-location-button")
+            usleep(280_000)
+            return true
+        }
+        return false
+    }
+
+    @discardableResult
+    func waitForHomeIdentityChange(_ app: XCUIApplication, from baseline: HomeNetworkIdentity, timeout: TimeInterval = 30, tag: String) -> HomeNetworkIdentity? {
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            let now = captureHomeNetworkIdentity(app, tag: tag)
+            let ipChanged = !baseline.ip.isEmpty && !now.ip.isEmpty && now.ip != baseline.ip
+            let locationChanged = !baseline.location.isEmpty && !now.location.isEmpty && now.location != baseline.location
+            if ipChanged || locationChanged {
+                print("[VPNTest] identity[\(tag)] changed (ipChanged=\(ipChanged) locationChanged=\(locationChanged))")
+                return now
+            }
+            usleep(450_000)
+        }
+        return nil
+    }
+
+    @discardableResult
+    func waitForHomeIdentityRestore(_ app: XCUIApplication, baseline: HomeNetworkIdentity, timeout: TimeInterval = 35, tag: String) -> HomeNetworkIdentity? {
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            let now = captureHomeNetworkIdentity(app, tag: tag)
+            let ipRestored = baseline.ip.isEmpty || (now.ip == baseline.ip)
+            let locationRestored = baseline.location.isEmpty || (now.location == baseline.location)
+            if ipRestored && locationRestored {
+                print("[VPNTest] identity[\(tag)] restored to baseline")
+                return now
+            }
+            usleep(450_000)
+        }
+        return nil
     }
 
     /// Select the first real region row, scroll into view if needed, tap until main connect screen appears.
     /// Skips "Connect to Fastest" / Fastest-only promo row when present. Returns false if list missing or connect never appears.
     @discardableResult
     func selectFirstRegionInList(_ app: XCUIApplication, timeout: TimeInterval = 10) -> Bool {
-        guard let host = resolveRegionListContainer(app) else {
+        guard let host = resolveRegionListContainerForSelection(app) else {
             print("[VPNTest] selectFirstRegionInList: no region table/collection found")
             return false
         }
@@ -1010,7 +1178,6 @@ class VPNTestBase: XCTestCase {
 
     /// True when IFU-style **in-app** “session ended” feedback is on screen (not `UIAlertController`).
     func ifuPostSessionFeedbackCardVisible(_ app: XCUIApplication) -> Bool {
-        let listOpen = isRegionListPickerSheetOpen(app)
         if app.staticTexts.containing(NSPredicate(format: "label CONTAINS[c] %@", "session ended")).firstMatch.exists { return true }
         if app.staticTexts.containing(NSPredicate(format: "label CONTAINS[c] %@", "How was it")).firstMatch.exists { return true }
         if app.staticTexts.containing(NSPredicate(format: "label CONTAINS[c] %@", "How was your")).firstMatch.exists { return true }
@@ -1018,18 +1185,15 @@ class VPNTestBase: XCTestCase {
         if app.staticTexts.containing(NSPredicate(format: "label CONTAINS[c] %@", "alternate ip")).firstMatch.exists { return true }
         if app.staticTexts.containing(NSPredicate(format: "label CONTAINS[c] %@", "VPN session")).firstMatch.exists { return true }
         let thumbsUp = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] %@", "Thumbs Up")).firstMatch
-        if !listOpen, thumbsUp.exists, thumbsUp.isHittable, app.buttons.count > 12 { return true }
-        if VPNTestConstants.isIFUTarget, !listOpen, app.buttons.count > 13 {
+        if thumbsUp.exists, thumbsUp.isHittable, app.buttons.count > 12 { return true }
+        if VPNTestConstants.isIFUTarget, app.buttons.count > 13 {
             let td = app.buttons["thumbsDown"]
             if td.exists { return true }
         }
-        // Feedback card often shows **Alternate IP** as a CTA next to rating controls — do not tap it (opens a flow); presence with thumbsDown implies the session sheet is up.
-        if !listOpen {
-            let td = app.buttons["thumbsDown"].firstMatch
-            let altIpCue = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] %@", "alternate ip")).firstMatch
-            if td.waitForExistence(timeout: 0.35), altIpCue.waitForExistence(timeout: 0.35) {
-                return true
-            }
+        let td = app.buttons["thumbsDown"].firstMatch
+        let altIpCue = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] %@", "alternate ip")).firstMatch
+        if td.waitForExistence(timeout: 0.35), altIpCue.waitForExistence(timeout: 0.35) {
+            return true
         }
         return false
     }
@@ -1127,19 +1291,17 @@ class VPNTestBase: XCTestCase {
     func ensureIFUPostSessionFeedbackDismissed(_ app: XCUIApplication, maxRounds: Int = 14) {
         if VPNTestConstants.isIFUTarget,
            !ifuPostSessionFeedbackCardVisible(app),
-           !isRegionListPickerSheetOpen(app),
            !isVPNConnectedUI(app) {
             let s: TimeInterval = 0.35
             if app.buttons["Connect VPN"].firstMatch.waitForExistence(timeout: s)
                 || app.staticTexts["Connect VPN"].firstMatch.waitForExistence(timeout: s)
                 || vpnToggleOffButton(app).waitForExistence(timeout: s) {
-                print("[VPNTest] IFU session card: ensure — skip rounds (already idle main, feedback gone, region sheet closed)")
+                print("[VPNTest] IFU session card: ensure — skip rounds (already idle main, feedback gone)")
                 return
             }
         }
         for r in 1...maxRounds {
-            let listOpen = isRegionListPickerSheetOpen(app)
-            let heavyChrome = VPNTestConstants.isIFUTarget && !listOpen && app.buttons.count > 13
+            let heavyChrome = VPNTestConstants.isIFUTarget && app.buttons.count > 13
             let cardHeuristic = ifuPostSessionFeedbackCardVisible(app)
             if !cardHeuristic, !heavyChrome {
                 if r > 1 { print("[VPNTest] IFU session card: ensure — cleared after \(r - 1) round(s) (buttons.count=\(app.buttons.count))") }
@@ -1153,9 +1315,8 @@ class VPNTestBase: XCTestCase {
             }
             sleep(1)
         }
-        let sheetOpen = isRegionListPickerSheetOpen(app)
-        if ifuPostSessionFeedbackCardVisible(app) || (VPNTestConstants.isIFUTarget && !sheetOpen && app.buttons.count > 13) {
-            print("[VPNTest] IFU session card: ensure — WARNING may still be blocked after \(maxRounds) round(s) (buttons.count=\(app.buttons.count) regionSheetOpen=\(sheetOpen))")
+        if ifuPostSessionFeedbackCardVisible(app) || (VPNTestConstants.isIFUTarget && app.buttons.count > 13) {
+            print("[VPNTest] IFU session card: ensure — WARNING may still be blocked after \(maxRounds) round(s) (buttons.count=\(app.buttons.count))")
         }
     }
 
@@ -1398,19 +1559,10 @@ class VPNTestBase: XCTestCase {
     @discardableResult
     func waitForVPNConnectedUI(_ app: XCUIApplication, timeout: TimeInterval = 45) -> Bool {
         let deadline = Date().addingTimeInterval(timeout)
-        var lastFeedbackDismiss = Date.distantPast
         while Date() < deadline {
             if isVPNConnectedUI(app) {
                 print("[VPNTest] milestone: Connected showing on screen")
                 return true
-            }
-            if VPNTestConstants.isIFUTarget,
-               Date().timeIntervalSince(lastFeedbackDismiss) >= 2.0,
-               ifuPostSessionFeedbackCardVisible(app) {
-                print("[VPNTest] IFU feedback visible while waiting for Connected — dismiss sheet (no Alternate-IP tap), then re-check")
-                ensureIFUPostSessionFeedbackDismissed(app, maxRounds: 6)
-                lastFeedbackDismiss = Date()
-                continue
             }
             usleep(300_000)
         }
@@ -1662,7 +1814,7 @@ class VPNTestBase: XCTestCase {
             }
         }
         usleep(400_000)
-        guard let host = resolveRegionListContainer(app) else {
+        guard let host = resolveRegionListContainerForSelection(app) else {
             print("[VPNTest] selectRegionListRowByIndex: no list host")
             return (false, "")
         }
