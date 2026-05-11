@@ -17,11 +17,20 @@ struct VPNRegionRowResult: CustomStringConvertible {
     let success: Bool
     let detail: String
 
+    init(index: Int, catalogName: String, selectedLabel: String, success: Bool, detail: String) {
+        self.index = index
+        self.catalogName = catalogName
+        self.selectedLabel = selectedLabel
+        self.success = success
+        self.detail = detail
+    }
+
     var description: String {
         let s = success ? "PASS" : "FAIL"
         let cat = catalogName.isEmpty ? "(no catalog)" : catalogName
         let sel = selectedLabel.isEmpty ? "(no label)" : selectedLabel
-        return "[\(index)] catalog=\"\(cat)\" selected=\"\(sel)\" — \(s)\(detail.isEmpty ? "" : " — \(detail)")"
+        let trail = detail.isEmpty ? "" : " — \(detail)"
+        return "[\(index)] catalog=\"\(cat)\" selected=\"\(sel)\" — \(s)\(trail)"
     }
 }
 
@@ -30,6 +39,28 @@ final class VPNThreeRegionReportTests: VPNTestBase {
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
+    }
+
+    /// Hard cap per **region iteration** for index-driven snapshots (scroll → select → connect → hold → disconnect → feedback → identity restore).
+    private static let regionPipelineHardBudgetSec: TimeInterval = 78
+    private static let indexedRegionSwipeUpsMax: Int = 140
+
+    private func quoteForReport(_ s: String) -> String {
+        s.replacingOccurrences(of: "\\", with: "\\\\").replacingOccurrences(of: "\"", with: "'")
+    }
+
+    private func passDetailHeldConnectedIdentityRestored(holdConnectedSeconds: UInt32, identityAtConnected: HomeNetworkIdentity) -> String {
+        let iq = quoteForReport(identityAtConnected.ip)
+        let lq = quoteForReport(identityAtConnected.location)
+        return "held \(holdConnectedSeconds)s, ip when connected=\"\(iq)\" and location when connected=\"\(lq)\", feedback closed, default identity restored"
+    }
+
+    private func pipelineBudgetRemain(_ regionStart: Date) -> TimeInterval {
+        max(0, Self.regionPipelineHardBudgetSec - Date().timeIntervalSince(regionStart))
+    }
+
+    private func pipelineBudgetExceeded(_ regionStart: Date) -> Bool {
+        Date().timeIntervalSince(regionStart) >= Self.regionPipelineHardBudgetSec
     }
 
     private typealias TextRow = (index: Int, label: String)
@@ -160,13 +191,29 @@ final class VPNThreeRegionReportTests: VPNTestBase {
         return false
     }
 
-    private func waitForConnectedBySnapshot(_ app: XCUIApplication, timeout: TimeInterval) -> Bool {
+    private func waitForConnectedBySnapshot(_ app: XCUIApplication, timeout: TimeInterval, pipelineBudgetStart: Date? = nil) -> Bool {
         let deadline = Date().addingTimeInterval(timeout)
         while Date() < deadline {
+            if let start = pipelineBudgetStart, pipelineBudgetExceeded(start) {
+                print("[VPNTest] waitForConnected: stopping — region pipeline \(Int(Self.regionPipelineHardBudgetSec))s budget exceeded")
+                return false
+            }
             if looksConnectedBySnapshot(app) { return true }
             usleep(350_000)
         }
         return false
+    }
+
+    /// After list is scrolled to top, swipe up enough to expose lower row indices reliably ( UITableView reorder during tests was stopping around Miami ).
+    private func revealIndexedRegionCell(host: XCUIElement, row: Int) -> (cell: XCUIElement, label: String) {
+        scrollRegionListToTop(host: host, maxSwipeDown: 24)
+        usleep(240_000)
+        let cell = host.cells.element(boundBy: row)
+        _ = cell.waitForExistence(timeout: 8)
+        scrollCellIntoViewSwipeUpOnly(cell, host: host, maxSwipes: Self.indexedRegionSwipeUpsMax)
+        usleep(220_000)
+        let label = regionRowDisplayLabel(cell)
+        return (cell, label)
     }
 
     private func feedbackVisibleBySnapshot(_ app: XCUIApplication) -> Bool {
@@ -361,6 +408,7 @@ final class VPNThreeRegionReportTests: VPNTestBase {
         let holdConnectedSeconds: UInt32 = 5
 
         for row in 0..<4 {
+            let regionT0 = Date()
             logSnapshot(app, tag: "row\(row)-before-open-list")
             if !openRegionListByCurrentLocationSnapshot(app, timeout: 24) {
                 results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "failed to open region list from Current Location"))
@@ -372,19 +420,24 @@ final class VPNThreeRegionReportTests: VPNTestBase {
                 results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "region list host missing"))
                 continue
             }
-            scrollRegionListToTop(host: host, maxSwipeDown: 8)
-            usleep(300_000)
+            if pipelineBudgetExceeded(regionT0) {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "exceeded \(Int(Self.regionPipelineHardBudgetSec))s region budget before row selection"))
+                continue
+            }
             if row >= host.cells.count {
                 results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "row index \(row) not present in list (cells.count=\(host.cells.count))"))
                 continue
             }
-            let cell = host.cells.element(boundBy: row)
-            guard cell.waitForExistence(timeout: 4) else {
-                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "row cell missing"))
+            let (cell, selectedLabel) = revealIndexedRegionCell(host: host, row: row)
+            guard cell.exists else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "row cell missing after scroll-to-index"))
                 continue
             }
-            let selectedLabel = regionRowDisplayLabel(cell)
             print("[VPNTest] select row[\(row)] name=\"\(selectedLabel)\"")
+            if pipelineBudgetExceeded(regionT0) {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "exceeded \(Int(Self.regionPipelineHardBudgetSec))s region budget before connect"))
+                continue
+            }
             if cell.isHittable {
                 cell.tap()
             } else {
@@ -393,7 +446,15 @@ final class VPNThreeRegionReportTests: VPNTestBase {
             sleep(1)
             logSnapshot(app, tag: "row\(row)-after-select")
 
-            let alreadyConnected = waitForConnectedBySnapshot(app, timeout: 8)
+            let postSelectReserve: TimeInterval = TimeInterval(holdConnectedSeconds) + 34
+            let connectCap = pipelineBudgetRemain(regionT0) - postSelectReserve
+            let effectiveConnectWait = min(connectWait, max(12, connectCap))
+            if connectCap < 12 {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "insufficient time under \(Int(Self.regionPipelineHardBudgetSec))s region budget before connect (remaining \(Int(pipelineBudgetRemain(regionT0)))s)"))
+                continue
+            }
+
+            let alreadyConnected = waitForConnectedBySnapshot(app, timeout: 8, pipelineBudgetStart: regionT0)
             if alreadyConnected {
                 print("[VPNTest] STEP PASS row \(row): already connected after region select (skip connect tap)")
             } else {
@@ -409,13 +470,20 @@ final class VPNThreeRegionReportTests: VPNTestBase {
                 }
             }
 
-            let connected = waitForConnectedBySnapshot(app, timeout: alreadyConnected ? 2 : connectWait)
+            let connected = waitForConnectedBySnapshot(app, timeout: alreadyConnected ? 2 : effectiveConnectWait, pipelineBudgetStart: regionT0)
             if !connected {
                 logSnapshot(app, tag: "row\(row)-connect-timeout")
-                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "connected state not visible within \(Int(connectWait))s"))
+                let bp = pipelineBudgetExceeded(regionT0)
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: bp ? "connected state not reached within \(Int(Self.regionPipelineHardBudgetSec))s region budget" : "connected state not visible within \(Int(effectiveConnectWait))s"))
                 continue
             }
             print("[VPNTest] STEP PASS row \(row): connected")
+            let identityWhenConnected = captureHomeNetworkIdentity(app, tag: "row\(row)-connected", verbose: false)
+
+            if pipelineBudgetRemain(regionT0) < TimeInterval(holdConnectedSeconds) + 18 {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "exceeded \(Int(Self.regionPipelineHardBudgetSec))s region budget before hold/disconnect teardown"))
+                continue
+            }
 
             print("[VPNTest] row \(row): connected — holding \(holdConnectedSeconds)s before disconnect")
             sleep(holdConnectedSeconds)
@@ -439,9 +507,10 @@ final class VPNThreeRegionReportTests: VPNTestBase {
             // Required delay: 1s after toggle-off.
             sleep(1)
 
-            let dismissed = dismissFeedbackBySnapshot(app, timeout: 18)
+            let fbTimeout = max(8, min(18, pipelineBudgetRemain(regionT0) - 4))
+            let dismissed = dismissFeedbackBySnapshot(app, timeout: fbTimeout)
             if !dismissed {
-                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "feedback page did not close"))
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: pipelineBudgetExceeded(regionT0) ? "feedback did not close within \(Int(Self.regionPipelineHardBudgetSec))s region budget" : "feedback page did not close"))
                 continue
             }
             print("[VPNTest] STEP PASS row \(row): feedback closed")
@@ -452,7 +521,7 @@ final class VPNThreeRegionReportTests: VPNTestBase {
             let nowIdentity = captureHomeNetworkIdentity(app, tag: "row\(row)-post-disconnect", verbose: false)
             if defaultIdentityRestored(baseline: baseline, now: nowIdentity) {
                 print("[VPNTest] STEP PASS row \(row): default identity restored")
-                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: true, detail: "held \(holdConnectedSeconds)s, feedback closed, default identity restored"))
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: true, detail: passDetailHeldConnectedIdentityRestored(holdConnectedSeconds: holdConnectedSeconds, identityAtConnected: identityWhenConnected)))
             } else {
                 print("[VPNTest] row \(row): identity not restored baselineIP=\"\(baseline.ip)\" nowIP=\"\(nowIdentity.ip)\" baselineLoc=\"\(baseline.location)\" nowLoc=\"\(nowIdentity.location)\"")
                 results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "default ip/location not restored after feedback close"))
@@ -472,8 +541,340 @@ final class VPNThreeRegionReportTests: VPNTestBase {
         attach.lifetime = .keepAlways
         add(attach)
 
-        for r in results {
-            XCTAssertTrue(r.success, "Row \(r.index) failed: \(r.detail)")
+        let failedRows = results.filter { !$0.success }
+        if !failedRows.isEmpty {
+            XCTFail("One or more region rows failed (\(failedRows.count)):\n" + failedRows.map { $0.description }.joined(separator: "\n"))
+        }
+    }
+
+    /// Index-driven ten-region pipeline: open by **Current Location**, select rows 0..9, connect/disconnect from visible button indices, close feedback, verify default identity restore, hold connected for 10s per region.
+    func testConnectFirstTenRegions_Hold10s_ReportSummary() throws {
+        let app = ensureVPNAppReady()
+        XCTAssertEqual(app.state, .runningForeground)
+        dismissPaywallIfNeeded(app)
+        prepareDisconnectedState(app)
+        let baseline = captureHomeNetworkIdentity(app, tag: "baseline-home-10", verbose: false)
+        logSnapshot(app, tag: "home-initial-10")
+
+        XCTAssertTrue(openRegionListByCurrentLocationSnapshot(app, timeout: 28), "Could not open region list from Current Location.")
+        sleep(1)
+        guard let previewHost = resolveRegionListContainerForSelection(app) else {
+            XCTFail("Region list host missing after opening from Current Location.")
+            return
+        }
+        scrollRegionListToTop(host: previewHost, maxSwipeDown: 8)
+        usleep(300_000)
+        XCTAssertGreaterThanOrEqual(previewHost.cells.count, 10, "Need at least 10 region rows (cells.count=\(previewHost.cells.count)).")
+        for i in 0..<10 {
+            let c = previewHost.cells.element(boundBy: i)
+            if c.waitForExistence(timeout: 0.8) {
+                print("[VPNTest] list preview row[\(i)] = \"\(regionRowDisplayLabel(c))\"")
+            }
+        }
+
+        var results: [VPNRegionRowResult] = []
+        let connectWait: TimeInterval = VPNTestConstants.isIFUTarget ? 70 : 50
+        let holdConnectedSeconds: UInt32 = 10
+
+        for row in 0..<10 {
+            let regionT0 = Date()
+            logSnapshot(app, tag: "row\(row)-before-open-list-10")
+            if !openRegionListByCurrentLocationSnapshot(app, timeout: 24) {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "failed to open region list from Current Location"))
+                continue
+            }
+            sleep(1)
+
+            guard let host = resolveRegionListContainerForSelection(app) else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "region list host missing"))
+                continue
+            }
+            if pipelineBudgetExceeded(regionT0) {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "exceeded \(Int(Self.regionPipelineHardBudgetSec))s region budget before row selection"))
+                continue
+            }
+            if row >= host.cells.count {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "row index \(row) not present in list (cells.count=\(host.cells.count))"))
+                continue
+            }
+            let (cell, selectedLabel) = revealIndexedRegionCell(host: host, row: row)
+            guard cell.exists else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "row cell missing after scroll-to-index"))
+                continue
+            }
+            print("[VPNTest] select row[\(row)] name=\"\(selectedLabel)\"")
+            if pipelineBudgetExceeded(regionT0) {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "exceeded \(Int(Self.regionPipelineHardBudgetSec))s region budget before connect"))
+                continue
+            }
+            if cell.isHittable {
+                cell.tap()
+            } else {
+                cell.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            }
+            sleep(1)
+            logSnapshot(app, tag: "row\(row)-after-select-10")
+
+            let postSelectReserve: TimeInterval = TimeInterval(holdConnectedSeconds) + 34
+            let connectCap = pipelineBudgetRemain(regionT0) - postSelectReserve
+            let effectiveConnectWait = min(connectWait, max(12, connectCap))
+            if connectCap < 12 {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "insufficient time under \(Int(Self.regionPipelineHardBudgetSec))s region budget before connect (remaining \(Int(pipelineBudgetRemain(regionT0)))s)"))
+                continue
+            }
+
+            let alreadyConnected = waitForConnectedBySnapshot(app, timeout: 8, pipelineBudgetStart: regionT0)
+            if alreadyConnected {
+                print("[VPNTest] STEP PASS row \(row): already connected after region select (skip connect tap)")
+            } else {
+                let connectRows = snapshotVisibleButtons(app, max: 36)
+                guard let connectIdx = pickConnectButtonIndex(from: connectRows) else {
+                    results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "connect button not found in visible button list"))
+                    continue
+                }
+                print("[VPNTest] row \(row): connect button index \(connectIdx)")
+                guard tapVisibleButtonByIndex(app, index: connectIdx, context: "row\(row)-connect") else {
+                    results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "connect tap failed at index \(connectIdx)"))
+                    continue
+                }
+            }
+
+            let connected = waitForConnectedBySnapshot(app, timeout: alreadyConnected ? 2 : effectiveConnectWait, pipelineBudgetStart: regionT0)
+            if !connected {
+                logSnapshot(app, tag: "row\(row)-connect-timeout-10")
+                let bp = pipelineBudgetExceeded(regionT0)
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: bp ? "connected state not reached within \(Int(Self.regionPipelineHardBudgetSec))s region budget" : "connected state not visible within \(Int(effectiveConnectWait))s"))
+                continue
+            }
+            print("[VPNTest] STEP PASS row \(row): connected")
+            let identityWhenConnected = captureHomeNetworkIdentity(app, tag: "row\(row)-connected-10", verbose: false)
+
+            if pipelineBudgetRemain(regionT0) < TimeInterval(holdConnectedSeconds) + 18 {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "exceeded \(Int(Self.regionPipelineHardBudgetSec))s region budget before hold/disconnect teardown"))
+                continue
+            }
+
+            print("[VPNTest] row \(row): connected — holding \(holdConnectedSeconds)s before disconnect")
+            sleep(holdConnectedSeconds)
+            let stayedConnected = looksConnectedBySnapshot(app)
+            print("[VPNTest] row \(row): stayed connected after hold=\(stayedConnected)")
+            logSnapshot(app, tag: "row\(row)-before-disconnect-10")
+
+            sleep(1)
+            let disconnectRows = snapshotVisibleButtons(app, max: 36)
+            guard let disconnectIdx = pickDisconnectButtonIndex(from: disconnectRows) else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "disconnect button not found in visible button list"))
+                continue
+            }
+            print("[VPNTest] row \(row): disconnect button index \(disconnectIdx)")
+            guard tapVisibleButtonByIndex(app, index: disconnectIdx, context: "row\(row)-disconnect") else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "disconnect tap failed at index \(disconnectIdx)"))
+                continue
+            }
+            print("[VPNTest] STEP PASS row \(row): disconnect tap sent")
+            sleep(1)
+
+            let fbTimeout = max(8, min(18, pipelineBudgetRemain(regionT0) - 4))
+            let dismissed = dismissFeedbackBySnapshot(app, timeout: fbTimeout)
+            if !dismissed {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: pipelineBudgetExceeded(regionT0) ? "feedback did not close within \(Int(Self.regionPipelineHardBudgetSec))s region budget" : "feedback page did not close"))
+                continue
+            }
+            print("[VPNTest] STEP PASS row \(row): feedback closed")
+            logSnapshot(app, tag: "row\(row)-after-feedback-close-10")
+            sleep(1)
+
+            let nowIdentity = captureHomeNetworkIdentity(app, tag: "row\(row)-post-disconnect-10", verbose: false)
+            if defaultIdentityRestored(baseline: baseline, now: nowIdentity) {
+                print("[VPNTest] STEP PASS row \(row): default identity restored")
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: true, detail: passDetailHeldConnectedIdentityRestored(holdConnectedSeconds: holdConnectedSeconds, identityAtConnected: identityWhenConnected)))
+            } else {
+                print("[VPNTest] row \(row): identity not restored baselineIP=\"\(baseline.ip)\" nowIP=\"\(nowIdentity.ip)\" baselineLoc=\"\(baseline.location)\" nowLoc=\"\(nowIdentity.location)\"")
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "default ip/location not restored after feedback close"))
+            }
+        }
+
+        let lines = results.map { $0.description }
+        let summary = """
+        ========== VPN region pipeline (index-driven + 10× connect 10s disconnect) ==========
+        \(lines.joined(separator: "\n"))
+        Passed: \(results.filter(\.success).count) / \(results.count)
+        ================================================================
+        """
+        print("[VPNTest] \(summary)")
+        let attach = XCTAttachment(string: summary)
+        attach.name = "ten_region_hold10_report.txt"
+        attach.lifetime = .keepAlways
+        add(attach)
+
+        let failedRows10 = results.filter { !$0.success }
+        if !failedRows10.isEmpty {
+            XCTFail("One or more region rows failed (\(failedRows10.count)):\n" + failedRows10.map { $0.description }.joined(separator: "\n"))
+        }
+    }
+
+    /// Index-driven full-region pipeline: walk all rows in the list, skip names containing "IPv6", connect/disconnect from visible button indices, close feedback, verify default identity restore, hold connected for 10s per tested region.
+    func testConnectAllRegions_Hold10s_SkipIPv6_ReportSummary() throws {
+        let app = ensureVPNAppReady()
+        XCTAssertEqual(app.state, .runningForeground)
+        dismissPaywallIfNeeded(app)
+        prepareDisconnectedState(app)
+        let baseline = captureHomeNetworkIdentity(app, tag: "baseline-home-all", verbose: false)
+        logSnapshot(app, tag: "home-initial-all")
+
+        XCTAssertTrue(openRegionListByCurrentLocationSnapshot(app, timeout: 28), "Could not open region list from Current Location.")
+        sleep(1)
+        guard let previewHost = resolveRegionListContainerForSelection(app) else {
+            XCTFail("Region list host missing after opening from Current Location.")
+            return
+        }
+        scrollRegionListToTop(host: previewHost, maxSwipeDown: 8)
+        usleep(300_000)
+        let totalRows = previewHost.cells.count
+        XCTAssertGreaterThan(totalRows, 0, "No region rows found in list.")
+        print("[VPNTest] all-regions run: totalRows=\(totalRows) (will skip labels containing IPv6)")
+
+        var results: [VPNRegionRowResult] = []
+        let connectWait: TimeInterval = VPNTestConstants.isIFUTarget ? 70 : 50
+        let holdConnectedSeconds: UInt32 = 10
+
+        for row in 0..<totalRows {
+            let regionT0 = Date()
+            logSnapshot(app, tag: "row\(row)-before-open-list-all")
+            if !openRegionListByCurrentLocationSnapshot(app, timeout: 24) {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "failed to open region list from Current Location"))
+                continue
+            }
+            sleep(1)
+
+            guard let host = resolveRegionListContainerForSelection(app) else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "region list host missing"))
+                continue
+            }
+            if row >= host.cells.count {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: "", success: false, detail: "row index \(row) not present in list (cells.count=\(host.cells.count))"))
+                continue
+            }
+            let (cell, selectedLabel) = revealIndexedRegionCell(host: host, row: row)
+            guard cell.exists else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "row cell missing after scroll-to-index"))
+                continue
+            }
+            let lowerLabel = selectedLabel.lowercased()
+            if lowerLabel.contains("ipv6") {
+                print("[VPNTest] row \(row): SKIP IPv6 region \"\(selectedLabel)\"")
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: true, detail: "skipped IPv6 region"))
+                continue
+            }
+
+            print("[VPNTest] select row[\(row)] name=\"\(selectedLabel)\"")
+            if pipelineBudgetExceeded(regionT0) {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "exceeded \(Int(Self.regionPipelineHardBudgetSec))s region budget before connect"))
+                continue
+            }
+            if cell.isHittable {
+                cell.tap()
+            } else {
+                cell.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            }
+            sleep(1)
+            logSnapshot(app, tag: "row\(row)-after-select-all")
+
+            let postSelectReserve: TimeInterval = TimeInterval(holdConnectedSeconds) + 34
+            let connectCap = pipelineBudgetRemain(regionT0) - postSelectReserve
+            let effectiveConnectWait = min(connectWait, max(12, connectCap))
+            if connectCap < 12 {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "insufficient time under \(Int(Self.regionPipelineHardBudgetSec))s region budget before connect (remaining \(Int(pipelineBudgetRemain(regionT0)))s)"))
+                continue
+            }
+
+            let alreadyConnected = waitForConnectedBySnapshot(app, timeout: 8, pipelineBudgetStart: regionT0)
+            if alreadyConnected {
+                print("[VPNTest] STEP PASS row \(row): already connected after region select (skip connect tap)")
+            } else {
+                let connectRows = snapshotVisibleButtons(app, max: 36)
+                guard let connectIdx = pickConnectButtonIndex(from: connectRows) else {
+                    results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "connect button not found in visible button list"))
+                    continue
+                }
+                print("[VPNTest] row \(row): connect button index \(connectIdx)")
+                guard tapVisibleButtonByIndex(app, index: connectIdx, context: "row\(row)-connect") else {
+                    results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "connect tap failed at index \(connectIdx)"))
+                    continue
+                }
+            }
+
+            let connected = waitForConnectedBySnapshot(app, timeout: alreadyConnected ? 2 : effectiveConnectWait, pipelineBudgetStart: regionT0)
+            if !connected {
+                logSnapshot(app, tag: "row\(row)-connect-timeout-all")
+                let bp = pipelineBudgetExceeded(regionT0)
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: bp ? "connected state not reached within \(Int(Self.regionPipelineHardBudgetSec))s region budget" : "connected state not visible within \(Int(effectiveConnectWait))s"))
+                continue
+            }
+            print("[VPNTest] STEP PASS row \(row): connected")
+            let identityWhenConnected = captureHomeNetworkIdentity(app, tag: "row\(row)-connected-all", verbose: false)
+
+            if pipelineBudgetRemain(regionT0) < TimeInterval(holdConnectedSeconds) + 18 {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "exceeded \(Int(Self.regionPipelineHardBudgetSec))s region budget before hold/disconnect teardown"))
+                continue
+            }
+
+            print("[VPNTest] row \(row): connected — holding \(holdConnectedSeconds)s before disconnect")
+            sleep(holdConnectedSeconds)
+            let stayedConnected = looksConnectedBySnapshot(app)
+            print("[VPNTest] row \(row): stayed connected after hold=\(stayedConnected)")
+            logSnapshot(app, tag: "row\(row)-before-disconnect-all")
+
+            sleep(1)
+            let disconnectRows = snapshotVisibleButtons(app, max: 36)
+            guard let disconnectIdx = pickDisconnectButtonIndex(from: disconnectRows) else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "disconnect button not found in visible button list"))
+                continue
+            }
+            print("[VPNTest] row \(row): disconnect button index \(disconnectIdx)")
+            guard tapVisibleButtonByIndex(app, index: disconnectIdx, context: "row\(row)-disconnect") else {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "disconnect tap failed at index \(disconnectIdx)"))
+                continue
+            }
+            print("[VPNTest] STEP PASS row \(row): disconnect tap sent")
+            sleep(1)
+
+            let fbTimeout = max(8, min(18, pipelineBudgetRemain(regionT0) - 4))
+            let dismissed = dismissFeedbackBySnapshot(app, timeout: fbTimeout)
+            if !dismissed {
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: pipelineBudgetExceeded(regionT0) ? "feedback did not close within \(Int(Self.regionPipelineHardBudgetSec))s region budget" : "feedback page did not close"))
+                continue
+            }
+            print("[VPNTest] STEP PASS row \(row): feedback closed")
+            logSnapshot(app, tag: "row\(row)-after-feedback-close-all")
+            sleep(1)
+
+            let nowIdentity = captureHomeNetworkIdentity(app, tag: "row\(row)-post-disconnect-all", verbose: false)
+            if defaultIdentityRestored(baseline: baseline, now: nowIdentity) {
+                print("[VPNTest] STEP PASS row \(row): default identity restored")
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: true, detail: passDetailHeldConnectedIdentityRestored(holdConnectedSeconds: holdConnectedSeconds, identityAtConnected: identityWhenConnected)))
+            } else {
+                print("[VPNTest] row \(row): identity not restored baselineIP=\"\(baseline.ip)\" nowIP=\"\(nowIdentity.ip)\" baselineLoc=\"\(baseline.location)\" nowLoc=\"\(nowIdentity.location)\"")
+                results.append(VPNRegionRowResult(index: row, catalogName: "", selectedLabel: selectedLabel, success: false, detail: "default ip/location not restored after feedback close"))
+            }
+        }
+
+        let lines = results.map { $0.description }
+        let summary = """
+        ========== VPN region pipeline (index-driven + all regions, 10s hold, skip IPv6) ==========
+        \(lines.joined(separator: "\n"))
+        Passed: \(results.filter(\.success).count) / \(results.count)
+        ================================================================
+        """
+        print("[VPNTest] \(summary)")
+        let attach = XCTAttachment(string: summary)
+        attach.name = "all_regions_hold10_skip_ipv6_report.txt"
+        attach.lifetime = .keepAlways
+        add(attach)
+
+        let failedRowsAll = results.filter { !$0.success }
+        if !failedRowsAll.isEmpty {
+            XCTFail("One or more region rows failed (\(failedRowsAll.count)):\n" + failedRowsAll.map { $0.description }.joined(separator: "\n"))
         }
     }
 
