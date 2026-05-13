@@ -1,0 +1,1782 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -project VPNTest.xcodeproj -scheme VPNTest -destination id=00008130-001128E914D2001C -allowProvisioningUpdates
+
+2026-05-12 13:31:53.209 xcodebuild[38703:928149]  DVTDeveloperAccountManager: Failed to load credentials for sadrishinc@gmail.com: Error Domain=DVTDeveloperAccountCredentialsError Code=0 "Invalid credentials in keychain for sadrishinc@gmail.com, missing Xcode-Token" UserInfo={NSLocalizedDescription=Invalid credentials in keychain for sadrishinc@gmail.com, missing Xcode-Token}
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (2 targets)
+    Target 'VPNTestUITests' in project 'VPNTest'
+        ➜ Explicit dependency on target 'VPNTestHost' in project 'VPNTest'
+    Target 'VPNTestHost' in project 'VPNTest' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: 93d4c432af01f3fd8d0f0601343effb5
+Build description path: /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/XCBuildData/93d4c432af01f3fd8d0f0601343effb5.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk /Users/sadrish/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphoneos26.2-23C53-3794476bd08197c3e2abd9bb477ef7f7.sdkstatcache
+    cd /Users/sadrish/Documents/App_testing/testing/VPNTest.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -o /Users/sadrish/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphoneos26.2-23C53-3794476bd08197c3e2abd9bb477ef7f7.sdkstatcache
+
+ProcessProductPackaging "" /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/VPNTestHost.app.xcent (in target 'VPNTestHost' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    
+    Entitlements:
+    
+    {
+    "application-identifier" = "PTLM4TG6YC.com.example.VPNTestHost";
+    "com.apple.developer.team-identifier" = PTLM4TG6YC;
+    "get-task-allow" = 1;
+}
+    
+    builtin-productPackagingUtility -entitlements -format xml -o /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/VPNTestHost.app.xcent
+
+ProcessProductPackagingDER /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/VPNTestHost.app.xcent /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/VPNTestHost.app.xcent.der (in target 'VPNTestHost' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    /usr/bin/derq query -f xml -i /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/VPNTestHost.app.xcent -o /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/VPNTestHost.app.xcent.der --raw
+
+ProcessProductPackaging "" /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.xctest.xcent (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    
+    Entitlements:
+    
+    {
+    "application-identifier" = "PTLM4TG6YC.com.example.VPNTestUITests.xctrunner";
+    "com.apple.developer.team-identifier" = PTLM4TG6YC;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+        "PTLM4TG6YC.com.example.VPNTestUITests.xctrunner"
+    );
+}
+    
+    builtin-productPackagingUtility -entitlements -format xml -o /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.xctest.xcent
+
+ProcessInfoPlistFile /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app/Info.plist /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/empty-VPNTestHost.plist (in target 'VPNTestHost' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-infoPlistUtility /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/empty-VPNTestHost.plist -producttype com.apple.product-type.application -genpkginfo /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -requiredArchitecture arm64 -o /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app/Info.plist
+
+ProcessProductPackagingDER /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.xctest.xcent /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.xctest.xcent.der (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    /usr/bin/derq query -f xml -i /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.xctest.xcent -o /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.xctest.xcent.der --raw
+
+CopySwiftLibs /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app (in target 'VPNTestHost' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-swiftStdLibTool --copy --verbose --sign 1BCEB4CF39FB4DD11369EC651BCFDE76DDD7F814 --scan-executable /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app/VPNTestHost.debug.dylib --scan-folder /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app/Frameworks --scan-folder /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app/PlugIns --scan-folder /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app/SystemExtensions --scan-folder /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app/Extensions --platform iphoneos --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+SwiftDriver VPNTestUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name VPNTestUITests -Onone -enforce-exclusivity\=checked @/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/sadrish/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphoneos26.2-23C53-3794476bd08197c3e2abd9bb477ef7f7.sdkstatcache -output-file-map /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-generated-files.hmap -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-own-target-headers.hmap -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-project-headers.hmap -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/include -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/DerivedSources/arm64 -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests-Swift.h -working-directory /Users/sadrish/Documents/App_testing/testing -experimental-emit-module-separately -disable-cmo
+
+CodeSign /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app (in target 'VPNTestHost' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    
+    Signing Identity:     "Apple Development: Andrew Foss (YUF56NUN5H)"
+    Provisioning Profile: "iOS Team Provisioning Profile: *"
+                          (1ae05b0f-43f7-4a65-9513-9a54ccb07fa5)
+    
+    /usr/bin/codesign --force --sign 1BCEB4CF39FB4DD11369EC651BCFDE76DDD7F814 --entitlements /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestHost.build/VPNTestHost.app.xcent --timestamp\=none --generate-entitlement-der /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app
+/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app: replacing existing signature
+
+Validate /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app (in target 'VPNTestHost' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-validationUtility /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestHost.app -shallow-bundle -infoplist-subpath Info.plist
+
+ProcessInfoPlistFile /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/Info.plist /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/empty-VPNTestUITests.plist (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-infoPlistUtility /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/empty-VPNTestUITests.plist -producttype com.apple.product-type.bundle.ui-testing -expandbuildsettings -format binary -platform iphoneos -additionalcontentfile /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/ProductTypeInfoPlistAdditions.plist -requiredArchitecture arm64 -o /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/Info.plist
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ VPNTestUITests (in target 'VPNTestUITests' from project 'VPNTest')
+
+SwiftCompile normal arm64 /Users/sadrish/Documents/App_testing/testing/VPNTestUITests/VPNRegionPipelineTests.swift (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    
+
+SwiftCompile normal arm64 Compiling\ VPNRegionPipelineTests.swift /Users/sadrish/Documents/App_testing/testing/VPNTestUITests/VPNRegionPipelineTests.swift (in target 'VPNTestUITests' from project 'VPNTest')
+SwiftCompile normal arm64 /Users/sadrish/Documents/App_testing/testing/VPNTestUITests/VPNRegionPipelineTests.swift (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for VPNTestUITests (in target 'VPNTestUITests' from project 'VPNTest')
+
+SwiftDriver\ Compilation\ Requirements VPNTestUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name VPNTestUITests -Onone -enforce-exclusivity\=checked @/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/sadrish/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphoneos26.2-23C53-3794476bd08197c3e2abd9bb477ef7f7.sdkstatcache -output-file-map /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-generated-files.hmap -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-own-target-headers.hmap -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-project-headers.hmap -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/include -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/DerivedSources/arm64 -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests-Swift.h -working-directory /Users/sadrish/Documents/App_testing/testing -experimental-emit-module-separately -disable-cmo
+
+Copy /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.swiftsourceinfo (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.swiftsourceinfo /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo
+
+Copy /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests.swiftmodule/arm64-apple-ios.swiftmodule /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.swiftmodule (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.swiftmodule /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests.swiftmodule/arm64-apple-ios.swiftmodule
+
+Copy /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests.swiftmodule/arm64-apple-ios.abi.json /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.abi.json (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.abi.json /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests.swiftmodule/arm64-apple-ios.abi.json
+
+SwiftDriverJobDiscovery normal arm64 Compiling VPNRegionPipelineTests.swift (in target 'VPNTestUITests' from project 'VPNTest')
+
+SwiftDriver\ Compilation VPNTestUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name VPNTestUITests -Onone -enforce-exclusivity\=checked @/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.SwiftFileList -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/sadrish/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphoneos26.2-23C53-3794476bd08197c3e2abd9bb477ef7f7.sdkstatcache -output-file-map /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/sadrish/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-generated-files.hmap -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-own-target-headers.hmap -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests-project-headers.hmap -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/include -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/DerivedSources/arm64 -Xcc -I/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests-Swift.h -working-directory /Users/sadrish/Documents/App_testing/testing -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/VPNTestUITests normal (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk -O0 -L/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -L/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib -F/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -F/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk/Developer/Library/Frameworks -filelist /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests_dependency_info.dat -fobjc-link-runtime -fprofile-instr-generate -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.swiftmodule @/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests-linker-args.resp -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -Xlinker -no_adhoc_codesign -o /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/VPNTestUITests
+
+GenerateDSYMFile /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest.dSYM /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/VPNTestUITests (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/VPNTestUITests -o /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest.dSYM
+
+CopySwiftLibs /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    builtin-swiftStdLibTool --copy --verbose --sign 1BCEB4CF39FB4DD11369EC651BCFDE76DDD7F814 --scan-executable /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/VPNTestUITests --scan-folder /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/Frameworks --scan-folder /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/PlugIns --scan-folder /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/SystemExtensions --scan-folder /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/Extensions --platform iphoneos --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name VPNTestUITests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk --xcode-version 17C52 --platform-family iOS --deployment-target 17.0 --bundle-identifier com.example.VPNTestUITests --output /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest --target-triple arm64-apple-ios17.0 --binary-file /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest/VPNTestUITests --dependency-file /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests_dependency_info.dat --stringsdata-file /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.SwiftFileList --metadata-file-list /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.DependencyMetadataFileList --static-metadata-file-list /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/Objects-normal/arm64/VPNTestUITests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-05-12 13:31:55.389 appintentsmetadataprocessor[38753:928333] Starting appintentsmetadataprocessor export
+2026-05-12 13:31:55.390 appintentsmetadataprocessor[38753:928333] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CodeSign /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    
+    Signing Identity:     "Apple Development: Andrew Foss (YUF56NUN5H)"
+    Provisioning Profile: "iOS Team Provisioning Profile: *"
+                          (1ae05b0f-43f7-4a65-9513-9a54ccb07fa5)
+    
+    /usr/bin/codesign --force --sign 1BCEB4CF39FB4DD11369EC651BCFDE76DDD7F814 --entitlements /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.xctest.xcent --timestamp\=none --generate-entitlement-der /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app/PlugIns/VPNTestUITests.xctest
+
+CodeSign /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app (in target 'VPNTestUITests' from project 'VPNTest')
+    cd /Users/sadrish/Documents/App_testing/testing
+    
+    Signing Identity:     "Apple Development: Andrew Foss (YUF56NUN5H)"
+    Provisioning Profile: "iOS Team Provisioning Profile: *"
+                          (1ae05b0f-43f7-4a65-9513-9a54ccb07fa5)
+    
+    /usr/bin/codesign --force --sign 1BCEB4CF39FB4DD11369EC651BCFDE76DDD7F814 --entitlements /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Intermediates.noindex/VPNTest.build/Debug-iphoneos/VPNTestUITests.build/VPNTestUITests.xctest.xcent --timestamp\=none --generate-entitlement-der /Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app
+/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Build/Products/Debug-iphoneos/VPNTestUITests-Runner.app: replacing existing signature
+
+2026-05-12 13:31:57.297638+0530 VPNTestUITests-Runner[5876:1910471] [Default] Running tests...
+    t =      nans Interface orientation changed to Portrait
+Test Suite 'All tests' started at 2026-05-12 13:31:57.805.
+Test Suite 'VPNTestUITests.xctest' started at 2026-05-12 13:31:57.805.
+Test Suite 'VPNRegionPipelineTests' started at 2026-05-12 13:31:57.805.
+Test Case '-[VPNTestUITests.VPNRegionPipelineTests testRegionPipeline]' started.
+    t =     0.00s Start Test at 2026-05-12 13:31:57.806
+    t =     0.01s Set Up
+[VPNTest] ========== VPN region pipeline (index-driven + 10x connect 10s disconnect) ==========
+    t =     0.02s Wait for org.freevpn.vpn.us to become Running Foreground
+    t =     0.02s Checking existence of `"Allow" Button`
+    t =     0.05s Checking existence of `"OK" Button`
+    t =     0.07s Checking existence of `"Not Now" Button`
+    t =     0.08s Checking existence of `"Cancel" Button`
+    t =     0.09s Checking existence of `"Close" Button`
+[VPNTest] OCR startup: 9:41@0.15,0.03 | 4 VPN- Dash@0.12,0.04 | VPN US@0.50,0.08 | Powered by Free VPN.org@0.50,0.10 | 171.49.160.136@0.48,0.19 | Bahraich, Uttar Pradesh,...@0.48,0.22 | Current Location@0.32,0.27 | Fastest@0.29,0.29 | Current Service@0.31,0.36 | Off@0.25,0.39 | Status@0.15,0.84 | Connect VPN@0.25,0.86 | www@0.82,0.93 | BOOST MODE@0.16,0.96 | MY PREMIUM@0.49,0.96 | BROWSER@0.82,0.96
+[VPNTest] homepage stable for 5s; starting region tests
+[VPNTest] feature round: boost on | adblock on
+    t =    11.10s Tap Application 'org.freevpn.vpn.us'[0.07, 0.09]
+    t =    11.10s     Wait for org.freevpn.vpn.us to idle
+    t =    11.10s     Find the Application 'org.freevpn.vpn.us'
+    t =    11.12s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    11.15s     Synthesize event
+    t =    11.15s         Find the Application 'org.freevpn.vpn.us'
+    t =    11.16s         Find the Application 'org.freevpn.vpn.us'
+    t =    11.17s         Find the Application 'org.freevpn.vpn.us'
+    t =    11.46s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] IFU settings opened on attempt 1
+    t =    13.05s Get all elements bound by index for: Descendants matching type Switch
+    t =    13.13s Find the Switch (Element at index 0)
+    t =    13.16s Find the "Boost Speed" Switch
+    t =    13.18s Get all elements bound by index for: Descendants matching type Switch
+    t =    13.20s Find the Switch (Element at index 0)
+    t =    13.23s Tap "Boost Speed" Switch
+    t =    13.23s     Wait for org.freevpn.vpn.us to idle
+    t =    13.23s     Find the "Boost Speed" Switch
+    t =    13.26s     Check for interrupting elements affecting "Boost Speed" Switch
+    t =    13.30s     Synthesize event
+    t =    13.58s     Wait for org.freevpn.vpn.us to idle
+    t =    15.89s Get all elements bound by index for: Descendants matching type Switch
+    t =    15.97s Find the Switch (Element at index 0)
+    t =    16.11s Find the "Boost Speed" Switch
+    t =    16.26s Get all elements bound by index for: Descendants matching type Switch
+    t =    16.32s Find the Switch (Element at index 0)
+    t =    16.36s Find the Switch (Element at index 1)
+    t =    16.40s Find the Switch (Element at index 2)
+    t =    16.43s Find the Switch (Element at index 3)
+    t =    16.46s Find the Switch (Element at index 4)
+    t =    16.50s Find the "Adblock Plus" Switch
+    t =    16.53s Get all elements bound by index for: Descendants matching type Switch
+    t =    16.56s Find the Switch (Element at index 0)
+    t =    16.59s Find the Switch (Element at index 1)
+    t =    16.62s Find the Switch (Element at index 2)
+    t =    16.66s Find the Switch (Element at index 3)
+    t =    16.69s Find the Switch (Element at index 4)
+    t =    16.73s Tap "Adblock Plus" Switch
+    t =    16.73s     Wait for org.freevpn.vpn.us to idle
+    t =    16.74s     Find the "Adblock Plus" Switch
+    t =    16.77s     Check for interrupting elements affecting "Adblock Plus" Switch
+    t =    16.93s     Found 1 interrupting element:
+    t =    16.93s         Find the "Boost Speed" Alert
+    t =    17.08s "Boost Speed" Alert from Application 'org.freevpn.vpn.us'
+    t =    17.09s     Invoking UI interruption monitors for "Boost Speed" Alert from Application 'org.freevpn.vpn.us'
+    t =    17.09s         Find the "Boost Speed" Alert
+    t =    17.14s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =    17.19s         Checking existence of `Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')`
+    t =    17.23s Default interruption handler attempting to dismiss alert by tapping Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"').
+    t =    17.23s         Tap Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')
+    t =    17.23s             Wait for org.freevpn.vpn.us to idle
+    t =    17.24s             Find the Button (Elements matching predicate 'userTestingAttributes CONTAINS "cancel-button"')
+    t =    17.29s             Check for interrupting elements affecting "Maybe later" Button
+    t =    17.35s             Synthesize event
+    t =    17.64s             Wait for org.freevpn.vpn.us to idle
+    t =    17.89s         Waiting 1.0s for Alert to not exist
+    t =    18.90s             Checking `Expect predicate `existsNoRetry == 0` for object Alert`
+    t =    18.90s                 Checking existence of `Alert`
+    t =    18.97s             Checking existence of `Alert`
+    t =    19.01s         Verifying handling...
+    t =    19.05s Confirmed successful handling of interrupting element
+    t =    19.05s     Synthesize event
+    t =    19.47s     Wait for org.freevpn.vpn.us to idle
+    t =    21.78s Get all elements bound by index for: Descendants matching type Switch
+    t =    21.85s Find the Switch (Element at index 0)
+    t =    21.89s Find the Switch (Element at index 1)
+    t =    21.92s Find the Switch (Element at index 2)
+    t =    21.96s Find the Switch (Element at index 3)
+    t =    21.99s Find the Switch (Element at index 4)
+    t =    22.03s Find the "Adblock Plus" Switch
+[VPNTest] IFU feature preflight: boost on, adblock on
+    t =    22.21s Tap Application 'org.freevpn.vpn.us'[0.90, 0.10]
+    t =    22.21s     Wait for org.freevpn.vpn.us to idle
+    t =    22.21s     Find the Application 'org.freevpn.vpn.us'
+    t =    22.26s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    22.29s     Synthesize event
+    t =    22.29s         Find the Application 'org.freevpn.vpn.us'
+    t =    22.32s         Find the Application 'org.freevpn.vpn.us'
+    t =    22.34s         Find the Application 'org.freevpn.vpn.us'
+    t =    22.65s     Wait for org.freevpn.vpn.us to idle
+    t =    24.03s Tap Application 'org.freevpn.vpn.us'[0.07, 0.93]
+    t =    24.03s     Wait for org.freevpn.vpn.us to idle
+    t =    24.04s     Find the Application 'org.freevpn.vpn.us'
+    t =    24.09s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    24.13s     Synthesize event
+    t =    24.13s         Find the Application 'org.freevpn.vpn.us'
+    t =    24.15s         Find the Application 'org.freevpn.vpn.us'
+    t =    24.17s         Find the Application 'org.freevpn.vpn.us'
+    t =    24.47s     Wait for org.freevpn.vpn.us to idle
+    t =    27.23s Tap Application 'org.freevpn.vpn.us'[0.16, 0.96]
+    t =    27.24s     Wait for org.freevpn.vpn.us to idle
+    t =    28.32s     Find the Application 'org.freevpn.vpn.us'
+    t =    28.41s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    28.45s     Synthesize event
+    t =    28.46s         Find the Application 'org.freevpn.vpn.us'
+    t =    28.48s         Find the Application 'org.freevpn.vpn.us'
+    t =    28.62s         Find the Application 'org.freevpn.vpn.us'
+    t =    28.96s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] OCR baseline: 9:41@0.15,0.03 | 4 VPN- Dash@0.12,0.04 | VPN US@0.50,0.08 | Powered by Free VPN.org@0.50,0.10 | 171.49.160.136@0.48,0.19 | Bahraich, Uttar Pradesh,...@0.48,0.22 | Current Location@0.32,0.27 | Fastest@0.29,0.29 | Current Service@0.31,0.36 | Off@0.25,0.39 | Status@0.15,0.84 | Connect VPN@0.25,0.86 | www@0.82,0.93 | BOOST MODE@0.16,0.96 | MY PREMIUM@0.49,0.96 | BROWSER@0.82,0.96
+[VPNTest] default identity: IP="171.49.160.136", Location="Bahraich, Uttar Pradesh,..."
+[VPNTest] planned ordinal range: 1...250
+[VPNTest] opening picker tap @0.30,0.29
+    t =    42.37s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =    42.37s     Wait for org.freevpn.vpn.us to idle
+    t =    42.37s     Find the Application 'org.freevpn.vpn.us'
+    t =    42.40s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    42.42s     Synthesize event
+    t =    42.42s         Find the Application 'org.freevpn.vpn.us'
+    t =    42.43s         Find the Application 'org.freevpn.vpn.us'
+    t =    42.55s         Find the Application 'org.freevpn.vpn.us'
+    t =    42.84s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 1 visible rows: US East@0.40884194053208134 | Fastest@0.477112676056338 | North America@0.5446009389671362 | Chicago@0.6830985915492958 | Detroit@0.749413145539906 | New York@0.8169014084507042 | Washington DC@0.8873239436619718
+    t =    45.71s Tap Application 'org.freevpn.vpn.us'[0.50, 0.41]
+    t =    45.71s     Wait for org.freevpn.vpn.us to idle
+    t =    45.71s     Find the Application 'org.freevpn.vpn.us'
+    t =    45.96s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    46.14s     Synthesize event
+    t =    46.14s         Find the Application 'org.freevpn.vpn.us'
+    t =    46.19s         Find the Application 'org.freevpn.vpn.us'
+    t =    46.24s         Find the Application 'org.freevpn.vpn.us'
+    t =    46.58s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected US East; waiting for automatic connection
+    t =    63.02s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =    63.02s     Wait for org.freevpn.vpn.us to idle
+    t =    63.02s     Find the Application 'org.freevpn.vpn.us'
+    t =    63.05s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    63.07s     Synthesize event
+    t =    63.07s         Find the Application 'org.freevpn.vpn.us'
+    t =    63.08s         Find the Application 'org.freevpn.vpn.us'
+    t =    63.10s         Find the Application 'org.freevpn.vpn.us'
+    t =    63.38s     Wait for org.freevpn.vpn.us to idle
+    t =    66.25s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =    66.25s     Wait for org.freevpn.vpn.us to idle
+    t =    66.25s     Find the Application 'org.freevpn.vpn.us'
+    t =    66.29s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    66.31s     Synthesize event
+    t =    66.31s         Find the Application 'org.freevpn.vpn.us'
+    t =    66.33s         Find the Application 'org.freevpn.vpn.us'
+    t =    66.34s         Find the Application 'org.freevpn.vpn.us'
+    t =    66.63s     Wait for org.freevpn.vpn.us to idle
+    t =    67.81s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =    67.81s     Wait for org.freevpn.vpn.us to idle
+    t =    67.81s     Find the Application 'org.freevpn.vpn.us'
+    t =    67.84s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    67.87s     Synthesize event
+    t =    67.87s         Find the Application 'org.freevpn.vpn.us'
+    t =    67.88s         Find the Application 'org.freevpn.vpn.us'
+    t =    67.90s         Find the Application 'org.freevpn.vpn.us'
+    t =    68.19s     Wait for org.freevpn.vpn.us to idle
+[1] catalog="(ordinal 1)" selected="US East" - PASS - IP="64.31.59.139", Location="New York, New York, Uni..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =    70.62s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =    70.62s     Wait for org.freevpn.vpn.us to idle
+    t =    70.62s     Find the Application 'org.freevpn.vpn.us'
+    t =    70.65s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    70.67s     Synthesize event
+    t =    70.67s         Find the Application 'org.freevpn.vpn.us'
+    t =    70.68s         Find the Application 'org.freevpn.vpn.us'
+    t =    70.70s         Find the Application 'org.freevpn.vpn.us'
+    t =    70.99s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 2 attempt 1 visible rows: US East@0.40884194053208134 | Fastest@0.477112676056338 | North America@0.5446009389671362 | Chicago@0.6830985915492958 | Detroit@0.749413145539906 | New York@0.8169014084507042 | Washington DC@0.8873239436619718
+    t =    73.60s Tap Application 'org.freevpn.vpn.us'[0.50, 0.48]
+    t =    73.60s     Wait for org.freevpn.vpn.us to idle
+    t =    73.60s     Find the Application 'org.freevpn.vpn.us'
+    t =    73.85s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    73.93s     Synthesize event
+    t =    73.93s         Find the Application 'org.freevpn.vpn.us'
+    t =    73.97s         Find the Application 'org.freevpn.vpn.us'
+    t =    74.03s         Find the Application 'org.freevpn.vpn.us'
+    t =    74.36s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Fastest; waiting for automatic connection
+    t =    97.94s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =    97.94s     Wait for org.freevpn.vpn.us to idle
+    t =    97.94s     Find the Application 'org.freevpn.vpn.us'
+    t =    97.97s     Check for interrupting elements affecting "Free VPN US" Application
+    t =    97.99s     Synthesize event
+    t =    97.99s         Find the Application 'org.freevpn.vpn.us'
+    t =    98.00s         Find the Application 'org.freevpn.vpn.us'
+    t =    98.02s         Find the Application 'org.freevpn.vpn.us'
+    t =    98.31s     Wait for org.freevpn.vpn.us to idle
+    t =   101.19s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   101.19s     Wait for org.freevpn.vpn.us to idle
+    t =   101.19s     Find the Application 'org.freevpn.vpn.us'
+    t =   101.23s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   101.25s     Synthesize event
+    t =   101.25s         Find the Application 'org.freevpn.vpn.us'
+    t =   101.27s         Find the Application 'org.freevpn.vpn.us'
+    t =   101.28s         Find the Application 'org.freevpn.vpn.us'
+    t =   101.57s     Wait for org.freevpn.vpn.us to idle
+    t =   102.75s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   102.75s     Wait for org.freevpn.vpn.us to idle
+    t =   102.75s     Find the Application 'org.freevpn.vpn.us'
+    t =   102.79s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   102.81s     Synthesize event
+    t =   102.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   102.82s         Find the Application 'org.freevpn.vpn.us'
+    t =   102.84s         Find the Application 'org.freevpn.vpn.us'
+    t =   103.13s     Wait for org.freevpn.vpn.us to idle
+[2] catalog="(ordinal 2)" selected="Fastest" - PASS - IP="163.172.121.242", Location="Charles de Gaulle, Paris,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   105.56s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   105.56s     Wait for org.freevpn.vpn.us to idle
+    t =   105.56s     Find the Application 'org.freevpn.vpn.us'
+    t =   105.59s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   105.61s     Synthesize event
+    t =   105.61s         Find the Application 'org.freevpn.vpn.us'
+    t =   105.62s         Find the Application 'org.freevpn.vpn.us'
+    t =   105.63s         Find the Application 'org.freevpn.vpn.us'
+    t =   105.92s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 3 attempt 1 visible rows: US East@0.40884194053208134 | Fastest@0.477112676056338 | North America@0.5446009389671362 | Chicago@0.6830985915492958 | Detroit@0.749413145539906 | New York@0.8169014084507042 | Washington DC@0.8873239436619718
+    t =   108.58s Tap Application 'org.freevpn.vpn.us'[0.50, 0.54]
+    t =   108.58s     Wait for org.freevpn.vpn.us to idle
+    t =   108.58s     Find the Application 'org.freevpn.vpn.us'
+    t =   108.74s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   108.80s     Synthesize event
+    t =   108.80s         Find the Application 'org.freevpn.vpn.us'
+    t =   108.85s         Find the Application 'org.freevpn.vpn.us'
+    t =   108.89s         Find the Application 'org.freevpn.vpn.us'
+    t =   109.22s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected North America; waiting for automatic connection
+    t =   125.74s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   125.74s     Wait for org.freevpn.vpn.us to idle
+    t =   125.74s     Find the Application 'org.freevpn.vpn.us'
+    t =   125.77s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   125.79s     Synthesize event
+    t =   125.79s         Find the Application 'org.freevpn.vpn.us'
+    t =   125.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   125.82s         Find the Application 'org.freevpn.vpn.us'
+    t =   126.11s     Wait for org.freevpn.vpn.us to idle
+    t =   128.97s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   128.97s     Wait for org.freevpn.vpn.us to idle
+    t =   128.97s     Find the Application 'org.freevpn.vpn.us'
+    t =   129.00s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   129.03s     Synthesize event
+    t =   129.03s         Find the Application 'org.freevpn.vpn.us'
+    t =   129.04s         Find the Application 'org.freevpn.vpn.us'
+    t =   129.06s         Find the Application 'org.freevpn.vpn.us'
+    t =   129.35s     Wait for org.freevpn.vpn.us to idle
+    t =   130.52s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   130.52s     Wait for org.freevpn.vpn.us to idle
+    t =   130.52s     Find the Application 'org.freevpn.vpn.us'
+    t =   130.55s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   130.58s     Synthesize event
+    t =   130.58s         Find the Application 'org.freevpn.vpn.us'
+    t =   130.59s         Find the Application 'org.freevpn.vpn.us'
+    t =   130.61s         Find the Application 'org.freevpn.vpn.us'
+    t =   130.90s     Wait for org.freevpn.vpn.us to idle
+[3] catalog="(ordinal 3)" selected="North America" - PASS - IP="162.254.207.132", Location="Miami, Miami, United St..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   133.33s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   133.33s     Wait for org.freevpn.vpn.us to idle
+    t =   133.33s     Find the Application 'org.freevpn.vpn.us'
+    t =   133.36s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   133.38s     Synthesize event
+    t =   133.38s         Find the Application 'org.freevpn.vpn.us'
+    t =   133.39s         Find the Application 'org.freevpn.vpn.us'
+    t =   133.40s         Find the Application 'org.freevpn.vpn.us'
+    t =   133.69s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 4 attempt 1 visible rows: US East@0.40884194053208134 | Fastest@0.477112676056338 | North America@0.5446009389671362 | Chicago@0.6830985915492958 | Detroit@0.749413145539906 | New York@0.8169014084507042 | Washington DC@0.8873239436619718
+    t =   136.34s Tap Application 'org.freevpn.vpn.us'[0.50, 0.68]
+    t =   136.34s     Wait for org.freevpn.vpn.us to idle
+    t =   136.34s     Find the Application 'org.freevpn.vpn.us'
+    t =   136.49s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   136.55s     Synthesize event
+    t =   136.55s         Find the Application 'org.freevpn.vpn.us'
+    t =   136.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   136.65s         Find the Application 'org.freevpn.vpn.us'
+    t =   136.97s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Chicago; waiting for automatic connection
+    t =   152.53s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   152.53s     Wait for org.freevpn.vpn.us to idle
+    t =   152.53s     Find the Application 'org.freevpn.vpn.us'
+    t =   152.56s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   152.58s     Synthesize event
+    t =   152.58s         Find the Application 'org.freevpn.vpn.us'
+    t =   152.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   152.61s         Find the Application 'org.freevpn.vpn.us'
+    t =   152.90s     Wait for org.freevpn.vpn.us to idle
+    t =   155.77s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   155.77s     Wait for org.freevpn.vpn.us to idle
+    t =   155.77s     Find the Application 'org.freevpn.vpn.us'
+    t =   155.80s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   155.83s     Synthesize event
+    t =   155.83s         Find the Application 'org.freevpn.vpn.us'
+    t =   155.84s         Find the Application 'org.freevpn.vpn.us'
+    t =   155.86s         Find the Application 'org.freevpn.vpn.us'
+    t =   156.15s     Wait for org.freevpn.vpn.us to idle
+    t =   157.32s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   157.32s     Wait for org.freevpn.vpn.us to idle
+    t =   157.33s     Find the Application 'org.freevpn.vpn.us'
+    t =   157.36s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   157.38s     Synthesize event
+    t =   157.38s         Find the Application 'org.freevpn.vpn.us'
+    t =   157.40s         Find the Application 'org.freevpn.vpn.us'
+    t =   157.41s         Find the Application 'org.freevpn.vpn.us'
+    t =   157.70s     Wait for org.freevpn.vpn.us to idle
+[4] catalog="(ordinal 4)" selected="Chicago" - PASS - IP="173.234.29.248", Location="Chicago, Illinois, United..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   160.13s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   160.13s     Wait for org.freevpn.vpn.us to idle
+    t =   160.13s     Find the Application 'org.freevpn.vpn.us'
+    t =   160.16s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   160.19s     Synthesize event
+    t =   160.19s         Find the Application 'org.freevpn.vpn.us'
+    t =   160.20s         Find the Application 'org.freevpn.vpn.us'
+    t =   160.21s         Find the Application 'org.freevpn.vpn.us'
+    t =   160.50s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 5 attempt 1 visible rows: US East@0.40884194053208134 | Fastest@0.477112676056338 | North America@0.5446009389671362 | Chicago@0.6830985915492958 | Detroit@0.749413145539906 | New York@0.8169014084507042 | Washington DC@0.8873239436619718
+    t =   163.09s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   163.09s     Wait for org.freevpn.vpn.us to idle
+    t =   163.09s     Find the Application 'org.freevpn.vpn.us'
+    t =   163.25s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   163.31s     Synthesize event
+    t =   163.31s         Find the Application 'org.freevpn.vpn.us'
+    t =   163.35s         Find the Application 'org.freevpn.vpn.us'
+    t =   163.51s         Find the Application 'org.freevpn.vpn.us'
+    t =   163.95s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Detroit; waiting for automatic connection
+    t =   181.36s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   181.36s     Wait for org.freevpn.vpn.us to idle
+    t =   181.36s     Find the Application 'org.freevpn.vpn.us'
+    t =   181.39s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   181.41s     Synthesize event
+    t =   181.41s         Find the Application 'org.freevpn.vpn.us'
+    t =   181.43s         Find the Application 'org.freevpn.vpn.us'
+    t =   181.44s         Find the Application 'org.freevpn.vpn.us'
+    t =   181.74s     Wait for org.freevpn.vpn.us to idle
+    t =   184.61s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   184.61s     Wait for org.freevpn.vpn.us to idle
+    t =   184.61s     Find the Application 'org.freevpn.vpn.us'
+    t =   184.64s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   184.67s     Synthesize event
+    t =   184.67s         Find the Application 'org.freevpn.vpn.us'
+    t =   184.68s         Find the Application 'org.freevpn.vpn.us'
+    t =   184.70s         Find the Application 'org.freevpn.vpn.us'
+    t =   184.99s     Wait for org.freevpn.vpn.us to idle
+    t =   186.16s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   186.16s     Wait for org.freevpn.vpn.us to idle
+    t =   186.16s     Find the Application 'org.freevpn.vpn.us'
+    t =   186.30s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   186.34s     Synthesize event
+    t =   186.35s         Find the Application 'org.freevpn.vpn.us'
+    t =   186.37s         Find the Application 'org.freevpn.vpn.us'
+    t =   186.40s         Find the Application 'org.freevpn.vpn.us'
+    t =   186.70s     Wait for org.freevpn.vpn.us to idle
+[5] catalog="(ordinal 5)" selected="Detroit" - PASS - IP="38.127.60.102", Location="Detroit, Detroit, United..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   189.12s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   189.12s     Wait for org.freevpn.vpn.us to idle
+    t =   189.13s     Find the Application 'org.freevpn.vpn.us'
+    t =   189.15s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   189.18s     Synthesize event
+    t =   189.18s         Find the Application 'org.freevpn.vpn.us'
+    t =   189.19s         Find the Application 'org.freevpn.vpn.us'
+    t =   189.20s         Find the Application 'org.freevpn.vpn.us'
+    t =   189.49s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 6 attempt 1 visible rows: Fastest@0.414906103286385 | North America@0.4823943661971831 | Chicago@0.6208920187793427 | Detroit@0.687206572769953 | New York@0.7546948356807512 | Washington DC@0.8251173708920188 | Florida@0.8908450704225352
+    t =   192.10s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   192.10s     Wait for org.freevpn.vpn.us to idle
+    t =   192.10s     Find the Application 'org.freevpn.vpn.us'
+    t =   192.25s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   192.31s     Synthesize event
+    t =   192.31s         Find the Application 'org.freevpn.vpn.us'
+    t =   192.35s         Find the Application 'org.freevpn.vpn.us'
+    t =   192.41s         Find the Application 'org.freevpn.vpn.us'
+    t =   192.74s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected New York; waiting for automatic connection
+[VPNTest] identity did not change in time; last IP="171.49.160.136", Location="Bahraich, Uttar Pradesh,...", OCR: 9:41@0.15,0.03 | 4 VPN- Dash@0.12,0.04 | VPN US@0.50,0.08 | Powered by Free VPN.org@0.50,0.10 | 171.49.160.136@0.48,0.19 | Bahraich, Uttar Pradesh,...@0.48,0.22 | Current Location@0.32,0.27 | New York@0.32,0.29 | Current Service@0.31,0.36 | Off@0.25,0.39 | Status@0.15,0.84 | Connected@0.22,0.86 | www@0.82,0.93 | BOOST MODE@0.16,0.96 | MY PREMIUM@0.49,0.96 | BROWSER@0.82,0.96
+    t =   231.09s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   231.09s     Wait for org.freevpn.vpn.us to idle
+    t =   231.09s     Find the Application 'org.freevpn.vpn.us'
+    t =   231.12s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   231.14s     Synthesize event
+    t =   231.14s         Find the Application 'org.freevpn.vpn.us'
+    t =   231.15s         Find the Application 'org.freevpn.vpn.us'
+    t =   231.16s         Find the Application 'org.freevpn.vpn.us'
+    t =   231.55s     Wait for org.freevpn.vpn.us to idle
+    t =   234.39s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   234.39s     Wait for org.freevpn.vpn.us to idle
+    t =   234.39s     Find the Application 'org.freevpn.vpn.us'
+    t =   234.43s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   234.45s     Synthesize event
+    t =   234.45s         Find the Application 'org.freevpn.vpn.us'
+    t =   234.46s         Find the Application 'org.freevpn.vpn.us'
+    t =   234.48s         Find the Application 'org.freevpn.vpn.us'
+    t =   234.77s     Wait for org.freevpn.vpn.us to idle
+    t =   235.94s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   235.94s     Wait for org.freevpn.vpn.us to idle
+    t =   235.94s     Find the Application 'org.freevpn.vpn.us'
+    t =   235.98s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   236.00s     Synthesize event
+    t =   236.00s         Find the Application 'org.freevpn.vpn.us'
+    t =   236.02s         Find the Application 'org.freevpn.vpn.us'
+    t =   236.03s         Find the Application 'org.freevpn.vpn.us'
+    t =   236.32s     Wait for org.freevpn.vpn.us to idle
+[6] catalog="(ordinal 6)" selected="New York" - FAIL - IP did not change, IP="171.49.160.136", Location="Bahraich, Uttar Pradesh,...", held 0s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   238.76s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   238.76s     Wait for org.freevpn.vpn.us to idle
+    t =   238.76s     Find the Application 'org.freevpn.vpn.us'
+    t =   238.79s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   238.81s     Synthesize event
+    t =   238.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   238.82s         Find the Application 'org.freevpn.vpn.us'
+    t =   238.84s         Find the Application 'org.freevpn.vpn.us'
+    t =   239.12s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 7 attempt 1 visible rows: North America@0.41451486697965567 | Chicago@0.5528169014084507 | Detroit@0.619131455399061 | New York@0.6868153364632238 | Washington DC@0.7568466353677621 | Florida@0.8229655712050078 | Miami@0.8914319248826291
+    t =   241.84s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   241.84s     Wait for org.freevpn.vpn.us to idle
+    t =   241.84s     Find the Application 'org.freevpn.vpn.us'
+    t =   242.00s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   242.05s     Synthesize event
+    t =   242.05s         Find the Application 'org.freevpn.vpn.us'
+    t =   242.10s         Find the Application 'org.freevpn.vpn.us'
+    t =   242.15s         Find the Application 'org.freevpn.vpn.us'
+    t =   242.58s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Washington DC; waiting for automatic connection
+    t =   258.14s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   258.14s     Wait for org.freevpn.vpn.us to idle
+    t =   258.14s     Find the Application 'org.freevpn.vpn.us'
+    t =   258.17s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   258.19s     Synthesize event
+    t =   258.19s         Find the Application 'org.freevpn.vpn.us'
+    t =   258.20s         Find the Application 'org.freevpn.vpn.us'
+    t =   258.22s         Find the Application 'org.freevpn.vpn.us'
+    t =   258.52s     Wait for org.freevpn.vpn.us to idle
+    t =   261.39s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   261.39s     Wait for org.freevpn.vpn.us to idle
+    t =   261.39s     Find the Application 'org.freevpn.vpn.us'
+    t =   261.42s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   261.45s     Synthesize event
+    t =   261.45s         Find the Application 'org.freevpn.vpn.us'
+    t =   261.47s         Find the Application 'org.freevpn.vpn.us'
+    t =   261.48s         Find the Application 'org.freevpn.vpn.us'
+    t =   261.77s     Wait for org.freevpn.vpn.us to idle
+    t =   262.94s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   262.94s     Wait for org.freevpn.vpn.us to idle
+    t =   262.95s     Find the Application 'org.freevpn.vpn.us'
+    t =   262.98s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   263.00s     Synthesize event
+    t =   263.01s         Find the Application 'org.freevpn.vpn.us'
+    t =   263.02s         Find the Application 'org.freevpn.vpn.us'
+    t =   263.04s         Find the Application 'org.freevpn.vpn.us'
+    t =   263.33s     Wait for org.freevpn.vpn.us to idle
+[7] catalog="(ordinal 7)" selected="Washington DC" - PASS - IP="108.181.91.250", Location="Dulles, Virginia, United S..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   265.76s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   265.76s     Wait for org.freevpn.vpn.us to idle
+    t =   265.76s     Find the Application 'org.freevpn.vpn.us'
+    t =   265.79s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   265.82s     Synthesize event
+    t =   265.82s         Find the Application 'org.freevpn.vpn.us'
+    t =   265.83s         Find the Application 'org.freevpn.vpn.us'
+    t =   265.84s         Find the Application 'org.freevpn.vpn.us'
+    t =   266.14s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 8 attempt 1 visible rows: Chicago@0.4845461658841941 | Detroit@0.551056338028169 | New York@0.6185446009389672 | Washington DC@0.6889671361502347 | Florida@0.7546948356807512 | Miami@0.823356807511737 | Dallas@0.8910406885758999
+    t =   268.85s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   268.85s     Wait for org.freevpn.vpn.us to idle
+    t =   268.85s     Find the Application 'org.freevpn.vpn.us'
+    t =   269.00s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   269.06s     Synthesize event
+    t =   269.06s         Find the Application 'org.freevpn.vpn.us'
+    t =   269.11s         Find the Application 'org.freevpn.vpn.us'
+    t =   269.16s         Find the Application 'org.freevpn.vpn.us'
+    t =   269.49s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Florida; waiting for automatic connection
+    t =   286.86s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   286.86s     Wait for org.freevpn.vpn.us to idle
+    t =   286.86s     Find the Application 'org.freevpn.vpn.us'
+    t =   286.89s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   286.92s     Synthesize event
+    t =   286.92s         Find the Application 'org.freevpn.vpn.us'
+    t =   286.93s         Find the Application 'org.freevpn.vpn.us'
+    t =   286.94s         Find the Application 'org.freevpn.vpn.us'
+    t =   287.23s     Wait for org.freevpn.vpn.us to idle
+    t =   290.13s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   290.13s     Wait for org.freevpn.vpn.us to idle
+    t =   290.13s     Find the Application 'org.freevpn.vpn.us'
+    t =   290.16s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   290.19s     Synthesize event
+    t =   290.19s         Find the Application 'org.freevpn.vpn.us'
+    t =   290.20s         Find the Application 'org.freevpn.vpn.us'
+    t =   290.22s         Find the Application 'org.freevpn.vpn.us'
+    t =   290.51s     Wait for org.freevpn.vpn.us to idle
+    t =   291.69s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   291.69s     Wait for org.freevpn.vpn.us to idle
+    t =   291.69s     Find the Application 'org.freevpn.vpn.us'
+    t =   291.72s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   291.75s     Synthesize event
+    t =   291.75s         Find the Application 'org.freevpn.vpn.us'
+    t =   291.76s         Find the Application 'org.freevpn.vpn.us'
+    t =   291.78s         Find the Application 'org.freevpn.vpn.us'
+    t =   292.07s     Wait for org.freevpn.vpn.us to idle
+[8] catalog="(ordinal 8)" selected="Florida" - PASS - IP="162.254.200.186", Location="Miami, Miami, United St..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   294.50s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   294.50s     Wait for org.freevpn.vpn.us to idle
+    t =   294.50s     Find the Application 'org.freevpn.vpn.us'
+    t =   294.53s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   294.55s     Synthesize event
+    t =   294.55s         Find the Application 'org.freevpn.vpn.us'
+    t =   294.57s         Find the Application 'org.freevpn.vpn.us'
+    t =   294.58s         Find the Application 'org.freevpn.vpn.us'
+    t =   294.87s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 9 attempt 1 visible rows: Chicago@0.41666666666666663 | Detroit@0.482981220657277 | New York@0.5506651017214397 | Washington DC@0.6206964006259781 | Florida@0.6868153364632238 | Miami@0.755281690140845 | Dallas@0.8229655712050078 | Missouri@0.8914319248826291
+    t =   297.58s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   297.58s     Wait for org.freevpn.vpn.us to idle
+    t =   297.58s     Find the Application 'org.freevpn.vpn.us'
+    t =   297.75s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   297.81s     Synthesize event
+    t =   297.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   297.85s         Find the Application 'org.freevpn.vpn.us'
+    t =   297.91s         Find the Application 'org.freevpn.vpn.us'
+    t =   298.24s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Miami; waiting for automatic connection
+    t =   314.75s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   314.75s     Wait for org.freevpn.vpn.us to idle
+    t =   314.75s     Find the Application 'org.freevpn.vpn.us'
+    t =   314.78s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   314.80s     Synthesize event
+    t =   314.80s         Find the Application 'org.freevpn.vpn.us'
+    t =   314.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   314.83s         Find the Application 'org.freevpn.vpn.us'
+    t =   315.13s     Wait for org.freevpn.vpn.us to idle
+    t =   318.00s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   318.00s     Wait for org.freevpn.vpn.us to idle
+    t =   318.00s     Find the Application 'org.freevpn.vpn.us'
+    t =   318.04s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   318.06s     Synthesize event
+    t =   318.07s         Find the Application 'org.freevpn.vpn.us'
+    t =   318.08s         Find the Application 'org.freevpn.vpn.us'
+    t =   318.10s         Find the Application 'org.freevpn.vpn.us'
+    t =   318.38s     Wait for org.freevpn.vpn.us to idle
+    t =   319.56s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   319.56s     Wait for org.freevpn.vpn.us to idle
+    t =   319.56s     Find the Application 'org.freevpn.vpn.us'
+    t =   319.70s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   319.74s     Synthesize event
+    t =   319.75s         Find the Application 'org.freevpn.vpn.us'
+    t =   319.77s         Find the Application 'org.freevpn.vpn.us'
+    t =   319.80s         Find the Application 'org.freevpn.vpn.us'
+    t =   320.10s     Wait for org.freevpn.vpn.us to idle
+[9] catalog="(ordinal 9)" selected="Miami" - PASS - IP="162.254.200.186", Location="Miami, Miami, United St..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   322.53s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   322.53s     Wait for org.freevpn.vpn.us to idle
+    t =   322.54s     Find the Application 'org.freevpn.vpn.us'
+    t =   322.56s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   322.59s     Synthesize event
+    t =   322.59s         Find the Application 'org.freevpn.vpn.us'
+    t =   322.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   322.62s         Find the Application 'org.freevpn.vpn.us'
+    t =   322.91s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 10 attempt 1 visible rows: Detroit@0.414906103286385 | New York@0.4823943661971831 | Washington DC@0.5528169014084507 | Florida@0.6185446009389672 | Miami@0.687206572769953 | Dallas@0.7546948356807512 | Missouri@0.823356807511737 | US West@0.8912363067292645
+    t =   325.59s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   325.59s     Wait for org.freevpn.vpn.us to idle
+    t =   325.59s     Find the Application 'org.freevpn.vpn.us'
+    t =   325.75s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   325.80s     Synthesize event
+    t =   325.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   325.85s         Find the Application 'org.freevpn.vpn.us'
+    t =   325.90s         Find the Application 'org.freevpn.vpn.us'
+    t =   326.23s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Dallas; waiting for automatic connection
+    t =   349.37s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   349.37s     Wait for org.freevpn.vpn.us to idle
+    t =   349.38s     Find the Application 'org.freevpn.vpn.us'
+    t =   349.51s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   349.55s     Synthesize event
+    t =   349.55s         Find the Application 'org.freevpn.vpn.us'
+    t =   349.57s         Find the Application 'org.freevpn.vpn.us'
+    t =   349.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   349.90s     Wait for org.freevpn.vpn.us to idle
+    t =   352.76s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   352.76s     Wait for org.freevpn.vpn.us to idle
+    t =   352.76s     Find the Application 'org.freevpn.vpn.us'
+    t =   352.80s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   352.82s     Synthesize event
+    t =   352.82s         Find the Application 'org.freevpn.vpn.us'
+    t =   352.84s         Find the Application 'org.freevpn.vpn.us'
+    t =   352.86s         Find the Application 'org.freevpn.vpn.us'
+    t =   353.26s     Wait for org.freevpn.vpn.us to idle
+    t =   354.44s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   354.44s     Wait for org.freevpn.vpn.us to idle
+    t =   354.44s     Find the Application 'org.freevpn.vpn.us'
+    t =   354.48s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   354.50s     Synthesize event
+    t =   354.50s         Find the Application 'org.freevpn.vpn.us'
+    t =   354.52s         Find the Application 'org.freevpn.vpn.us'
+    t =   354.53s         Find the Application 'org.freevpn.vpn.us'
+    t =   354.83s     Wait for org.freevpn.vpn.us to idle
+[10] catalog="(ordinal 10)" selected="Dallas" - PASS - IP="173.234.30.51", Location="Dallas-Fort Worth, Texas,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   357.23s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   357.23s     Wait for org.freevpn.vpn.us to idle
+    t =   357.23s     Find the Application 'org.freevpn.vpn.us'
+    t =   357.26s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   357.28s     Synthesize event
+    t =   357.28s         Find the Application 'org.freevpn.vpn.us'
+    t =   357.30s         Find the Application 'org.freevpn.vpn.us'
+    t =   357.31s         Find the Application 'org.freevpn.vpn.us'
+    t =   357.60s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 11 attempt 1 visible rows: New York@0.414319248826291 | Washington DC@0.4845461658841941 | Florida@0.5506651017214397 | Miami@0.619131455399061 | Dallas@0.6868153364632238 | Missouri@0.755281690140845 | US West@0.8231611893583725 | Southern California@0.8908450704225352
+    t =   360.34s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   360.34s     Wait for org.freevpn.vpn.us to idle
+    t =   360.35s     Find the Application 'org.freevpn.vpn.us'
+    t =   360.50s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   360.55s     Synthesize event
+    t =   360.56s         Find the Application 'org.freevpn.vpn.us'
+    t =   360.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   360.65s         Find the Application 'org.freevpn.vpn.us'
+    t =   360.98s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Missouri; waiting for automatic connection
+    t =   377.51s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   377.51s     Wait for org.freevpn.vpn.us to idle
+    t =   377.51s     Find the Application 'org.freevpn.vpn.us'
+    t =   377.54s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   377.57s     Synthesize event
+    t =   377.57s         Find the Application 'org.freevpn.vpn.us'
+    t =   377.58s         Find the Application 'org.freevpn.vpn.us'
+    t =   377.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   377.89s     Wait for org.freevpn.vpn.us to idle
+    t =   380.75s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   380.75s     Wait for org.freevpn.vpn.us to idle
+    t =   380.75s     Find the Application 'org.freevpn.vpn.us'
+    t =   380.79s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   380.81s     Synthesize event
+    t =   380.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   380.83s         Find the Application 'org.freevpn.vpn.us'
+    t =   380.85s         Find the Application 'org.freevpn.vpn.us'
+    t =   381.14s     Wait for org.freevpn.vpn.us to idle
+    t =   382.32s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   382.32s     Wait for org.freevpn.vpn.us to idle
+    t =   382.32s     Find the Application 'org.freevpn.vpn.us'
+    t =   382.36s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   382.38s     Synthesize event
+    t =   382.38s         Find the Application 'org.freevpn.vpn.us'
+    t =   382.40s         Find the Application 'org.freevpn.vpn.us'
+    t =   382.41s         Find the Application 'org.freevpn.vpn.us'
+    t =   382.71s     Wait for org.freevpn.vpn.us to idle
+[11] catalog="(ordinal 11)" selected="Missouri" - PASS - IP="148.72.166.139", Location="St Louis, Missouri, Unite..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   385.15s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   385.15s     Wait for org.freevpn.vpn.us to idle
+    t =   385.15s     Find the Application 'org.freevpn.vpn.us'
+    t =   385.18s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   385.21s     Synthesize event
+    t =   385.21s         Find the Application 'org.freevpn.vpn.us'
+    t =   385.22s         Find the Application 'org.freevpn.vpn.us'
+    t =   385.24s         Find the Application 'org.freevpn.vpn.us'
+    t =   385.52s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 12 attempt 1 visible rows: Washington DC@0.41666666666666663 | Florida@0.4823943661971831 | Miami@0.551056338028169 | Dallas@0.6185446009389672 | Missouri@0.687206572769953 | US West@0.7550860719874805 | Southern California@0.8227699530516432 | Los Angeles@0.8929968701095461
+    t =   388.07s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   388.07s     Wait for org.freevpn.vpn.us to idle
+    t =   388.07s     Find the Application 'org.freevpn.vpn.us'
+    t =   388.23s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   388.28s     Synthesize event
+    t =   388.29s         Find the Application 'org.freevpn.vpn.us'
+    t =   388.44s         Find the Application 'org.freevpn.vpn.us'
+    t =   388.50s         Find the Application 'org.freevpn.vpn.us'
+    t =   388.83s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected US West; waiting for automatic connection
+    t =   404.47s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   404.47s     Wait for org.freevpn.vpn.us to idle
+    t =   404.47s     Find the Application 'org.freevpn.vpn.us'
+    t =   404.50s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   404.52s     Synthesize event
+    t =   404.52s         Find the Application 'org.freevpn.vpn.us'
+    t =   404.54s         Find the Application 'org.freevpn.vpn.us'
+    t =   404.55s         Find the Application 'org.freevpn.vpn.us'
+    t =   404.84s     Wait for org.freevpn.vpn.us to idle
+    t =   407.71s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   407.71s     Wait for org.freevpn.vpn.us to idle
+    t =   407.71s     Find the Application 'org.freevpn.vpn.us'
+    t =   407.74s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   407.77s     Synthesize event
+    t =   407.77s         Find the Application 'org.freevpn.vpn.us'
+    t =   407.78s         Find the Application 'org.freevpn.vpn.us'
+    t =   407.80s         Find the Application 'org.freevpn.vpn.us'
+    t =   408.09s     Wait for org.freevpn.vpn.us to idle
+    t =   409.26s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   409.26s     Wait for org.freevpn.vpn.us to idle
+    t =   409.26s     Find the Application 'org.freevpn.vpn.us'
+    t =   409.30s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   409.32s     Synthesize event
+    t =   409.32s         Find the Application 'org.freevpn.vpn.us'
+    t =   409.34s         Find the Application 'org.freevpn.vpn.us'
+    t =   409.35s         Find the Application 'org.freevpn.vpn.us'
+    t =   409.64s     Wait for org.freevpn.vpn.us to idle
+[12] catalog="(ordinal 12)" selected="US West" - PASS - IP="74.201.177.178", Location="Los Angeles, California,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   412.09s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   412.09s     Wait for org.freevpn.vpn.us to idle
+    t =   412.09s     Find the Application 'org.freevpn.vpn.us'
+    t =   412.12s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   412.15s     Synthesize event
+    t =   412.15s         Find the Application 'org.freevpn.vpn.us'
+    t =   412.16s         Find the Application 'org.freevpn.vpn.us'
+    t =   412.18s         Find the Application 'org.freevpn.vpn.us'
+    t =   412.46s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 13 attempt 1 visible rows: Florida@0.41451486697965567 | Miami@0.482981220657277 | Dallas@0.5506651017214397 | Missouri@0.619131455399061 | US West@0.6870109546165885 | Southern California@0.7546948356807512 | Los Angeles@0.8251173708920188 | Seattle@0.8910406885758999
+    t =   415.09s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   415.10s     Wait for org.freevpn.vpn.us to idle
+    t =   415.10s     Find the Application 'org.freevpn.vpn.us'
+    t =   415.25s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   415.30s     Synthesize event
+    t =   415.31s         Find the Application 'org.freevpn.vpn.us'
+    t =   415.35s         Find the Application 'org.freevpn.vpn.us'
+    t =   415.41s         Find the Application 'org.freevpn.vpn.us'
+    t =   415.74s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Southern California; waiting for automatic connection
+    t =   431.34s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   431.34s     Wait for org.freevpn.vpn.us to idle
+    t =   431.34s     Find the Application 'org.freevpn.vpn.us'
+    t =   431.38s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   431.40s     Synthesize event
+    t =   431.40s         Find the Application 'org.freevpn.vpn.us'
+    t =   431.41s         Find the Application 'org.freevpn.vpn.us'
+    t =   431.43s         Find the Application 'org.freevpn.vpn.us'
+    t =   431.73s     Wait for org.freevpn.vpn.us to idle
+    t =   434.61s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   434.61s     Wait for org.freevpn.vpn.us to idle
+    t =   434.62s     Find the Application 'org.freevpn.vpn.us'
+    t =   434.65s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   434.67s     Synthesize event
+    t =   434.67s         Find the Application 'org.freevpn.vpn.us'
+    t =   434.69s         Find the Application 'org.freevpn.vpn.us'
+    t =   434.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   435.12s     Wait for org.freevpn.vpn.us to idle
+    t =   436.30s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   436.31s     Wait for org.freevpn.vpn.us to idle
+    t =   436.31s     Find the Application 'org.freevpn.vpn.us'
+    t =   436.34s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   436.37s     Synthesize event
+    t =   436.37s         Find the Application 'org.freevpn.vpn.us'
+    t =   436.39s         Find the Application 'org.freevpn.vpn.us'
+    t =   436.40s         Find the Application 'org.freevpn.vpn.us'
+    t =   436.69s     Wait for org.freevpn.vpn.us to idle
+[13] catalog="(ordinal 13)" selected="Southern California" - PASS - IP="162.251.167.220", Location="Los Angeles, California,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   439.13s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   439.13s     Wait for org.freevpn.vpn.us to idle
+    t =   439.13s     Find the Application 'org.freevpn.vpn.us'
+    t =   439.16s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   439.19s     Synthesize event
+    t =   439.19s         Find the Application 'org.freevpn.vpn.us'
+    t =   439.20s         Find the Application 'org.freevpn.vpn.us'
+    t =   439.22s         Find the Application 'org.freevpn.vpn.us'
+    t =   439.51s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 14 attempt 1 visible rows: Miami@0.414906103286385 | Dallas@0.4823943661971831 | Missouri@0.551056338028169 | US West@0.6189358372456963 | Southern California@0.6866197183098592 | Los Angeles@0.7568466353677621 | Seattle@0.8229655712050078 | Phoenix@0.8910406885758999
+    t =   442.08s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   442.08s     Wait for org.freevpn.vpn.us to idle
+    t =   442.09s     Find the Application 'org.freevpn.vpn.us'
+    t =   442.24s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   442.30s     Synthesize event
+    t =   442.30s         Find the Application 'org.freevpn.vpn.us'
+    t =   442.45s         Find the Application 'org.freevpn.vpn.us'
+    t =   442.52s         Find the Application 'org.freevpn.vpn.us'
+    t =   442.84s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Los Angeles; waiting for automatic connection
+    t =   458.51s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   458.51s     Wait for org.freevpn.vpn.us to idle
+    t =   458.52s     Find the Application 'org.freevpn.vpn.us'
+    t =   458.55s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   458.57s     Synthesize event
+    t =   458.57s         Find the Application 'org.freevpn.vpn.us'
+    t =   458.58s         Find the Application 'org.freevpn.vpn.us'
+    t =   458.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   458.89s     Wait for org.freevpn.vpn.us to idle
+    t =   461.75s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   461.75s     Wait for org.freevpn.vpn.us to idle
+    t =   461.75s     Find the Application 'org.freevpn.vpn.us'
+    t =   461.79s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   461.81s     Synthesize event
+    t =   461.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   461.83s         Find the Application 'org.freevpn.vpn.us'
+    t =   461.95s         Find the Application 'org.freevpn.vpn.us'
+    t =   462.26s     Wait for org.freevpn.vpn.us to idle
+    t =   463.44s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   463.44s     Wait for org.freevpn.vpn.us to idle
+    t =   463.44s     Find the Application 'org.freevpn.vpn.us'
+    t =   463.48s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   463.50s     Synthesize event
+    t =   463.50s         Find the Application 'org.freevpn.vpn.us'
+    t =   463.52s         Find the Application 'org.freevpn.vpn.us'
+    t =   463.53s         Find the Application 'org.freevpn.vpn.us'
+    t =   463.83s     Wait for org.freevpn.vpn.us to idle
+[14] catalog="(ordinal 14)" selected="Los Angeles" - PASS - IP="162.251.167.220", Location="Los Angeles, California,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   466.27s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   466.27s     Wait for org.freevpn.vpn.us to idle
+    t =   466.27s     Find the Application 'org.freevpn.vpn.us'
+    t =   466.30s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   466.33s     Synthesize event
+    t =   466.33s         Find the Application 'org.freevpn.vpn.us'
+    t =   466.34s         Find the Application 'org.freevpn.vpn.us'
+    t =   466.36s         Find the Application 'org.freevpn.vpn.us'
+    t =   466.65s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 15 attempt 1 visible rows: Dallas@0.41451486697965567 | Missouri@0.482981220657277 | US West@0.5508607198748043 | Southern California@0.6185446009389672 | Los Angeles@0.6889671361502347 | Seattle@0.7546948356807512 | Phoenix@0.8229655712050078 | Mexico@0.8914319248826291
+    t =   469.34s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   469.34s     Wait for org.freevpn.vpn.us to idle
+    t =   469.34s     Find the Application 'org.freevpn.vpn.us'
+    t =   469.49s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   469.55s     Synthesize event
+    t =   469.55s         Find the Application 'org.freevpn.vpn.us'
+    t =   469.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   469.65s         Find the Application 'org.freevpn.vpn.us'
+    t =   469.98s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Seattle; waiting for automatic connection
+    t =   485.55s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   485.55s     Wait for org.freevpn.vpn.us to idle
+    t =   485.55s     Find the Application 'org.freevpn.vpn.us'
+    t =   485.59s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   485.61s     Synthesize event
+    t =   485.61s         Find the Application 'org.freevpn.vpn.us'
+    t =   485.62s         Find the Application 'org.freevpn.vpn.us'
+    t =   485.64s         Find the Application 'org.freevpn.vpn.us'
+    t =   485.93s     Wait for org.freevpn.vpn.us to idle
+    t =   488.82s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   488.82s     Wait for org.freevpn.vpn.us to idle
+    t =   488.82s     Find the Application 'org.freevpn.vpn.us'
+    t =   488.86s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   488.88s     Synthesize event
+    t =   488.88s         Find the Application 'org.freevpn.vpn.us'
+    t =   488.90s         Find the Application 'org.freevpn.vpn.us'
+    t =   488.92s         Find the Application 'org.freevpn.vpn.us'
+    t =   489.21s     Wait for org.freevpn.vpn.us to idle
+    t =   490.38s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   490.38s     Wait for org.freevpn.vpn.us to idle
+    t =   490.38s     Find the Application 'org.freevpn.vpn.us'
+    t =   490.42s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   490.44s     Synthesize event
+    t =   490.44s         Find the Application 'org.freevpn.vpn.us'
+    t =   490.46s         Find the Application 'org.freevpn.vpn.us'
+    t =   490.47s         Find the Application 'org.freevpn.vpn.us'
+    t =   490.76s     Wait for org.freevpn.vpn.us to idle
+[15] catalog="(ordinal 15)" selected="Seattle" - PASS - IP="23.82.201.144", Location="Seattle, Seattle, United S..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   493.19s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   493.19s     Wait for org.freevpn.vpn.us to idle
+    t =   493.19s     Find the Application 'org.freevpn.vpn.us'
+    t =   493.23s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   493.25s     Synthesize event
+    t =   493.25s         Find the Application 'org.freevpn.vpn.us'
+    t =   493.26s         Find the Application 'org.freevpn.vpn.us'
+    t =   493.28s         Find the Application 'org.freevpn.vpn.us'
+    t =   493.57s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 16 attempt 1 visible rows: Missouri@0.414906103286385 | US West@0.48278560250391234 | Southern California@0.550469483568075 | Los Angeles@0.6206964006259781 | Seattle@0.6868153364632238 | Phoenix@0.7548904538341158 | Mexico@0.823356807511737 | Canada@0.8908450704225352
+    t =   496.35s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   496.35s     Wait for org.freevpn.vpn.us to idle
+    t =   496.35s     Find the Application 'org.freevpn.vpn.us'
+    t =   496.51s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   496.57s     Synthesize event
+    t =   496.57s         Find the Application 'org.freevpn.vpn.us'
+    t =   496.62s         Find the Application 'org.freevpn.vpn.us'
+    t =   496.67s         Find the Application 'org.freevpn.vpn.us'
+    t =   497.00s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Phoenix; waiting for automatic connection
+    t =   512.60s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   512.61s     Wait for org.freevpn.vpn.us to idle
+    t =   512.61s     Find the Application 'org.freevpn.vpn.us'
+    t =   512.64s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   512.66s     Synthesize event
+    t =   512.66s         Find the Application 'org.freevpn.vpn.us'
+    t =   512.68s         Find the Application 'org.freevpn.vpn.us'
+    t =   512.69s         Find the Application 'org.freevpn.vpn.us'
+    t =   512.97s     Wait for org.freevpn.vpn.us to idle
+    t =   515.87s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   515.87s     Wait for org.freevpn.vpn.us to idle
+    t =   515.88s     Find the Application 'org.freevpn.vpn.us'
+    t =   515.91s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   515.94s     Synthesize event
+    t =   515.94s         Find the Application 'org.freevpn.vpn.us'
+    t =   515.96s         Find the Application 'org.freevpn.vpn.us'
+    t =   515.97s         Find the Application 'org.freevpn.vpn.us'
+    t =   516.26s     Wait for org.freevpn.vpn.us to idle
+    t =   517.45s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   517.45s     Wait for org.freevpn.vpn.us to idle
+    t =   517.45s     Find the Application 'org.freevpn.vpn.us'
+    t =   517.49s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   517.51s     Synthesize event
+    t =   517.51s         Find the Application 'org.freevpn.vpn.us'
+    t =   517.53s         Find the Application 'org.freevpn.vpn.us'
+    t =   517.55s         Find the Application 'org.freevpn.vpn.us'
+    t =   517.83s     Wait for org.freevpn.vpn.us to idle
+[16] catalog="(ordinal 16)" selected="Phoenix" - PASS - IP="107.158.232.250", Location="Phoenix, Arizona, United..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   520.27s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   520.27s     Wait for org.freevpn.vpn.us to idle
+    t =   520.27s     Find the Application 'org.freevpn.vpn.us'
+    t =   520.30s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   520.32s     Synthesize event
+    t =   520.33s         Find the Application 'org.freevpn.vpn.us'
+    t =   520.34s         Find the Application 'org.freevpn.vpn.us'
+    t =   520.36s         Find the Application 'org.freevpn.vpn.us'
+    t =   520.64s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 17 attempt 1 visible rows: US West@0.41471048513302033 | Southern California@0.4823943661971831 | Los Angeles@0.5528169014084507 | Seattle@0.6185446009389672 | Phoenix@0.6868153364632238 | Mexico@0.755281690140845 | Canada@0.8229655712050078 | Quebec@0.8910406885758999
+    t =   523.33s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   523.33s     Wait for org.freevpn.vpn.us to idle
+    t =   523.34s     Find the Application 'org.freevpn.vpn.us'
+    t =   523.49s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   523.55s     Synthesize event
+    t =   523.56s         Find the Application 'org.freevpn.vpn.us'
+    t =   523.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   523.66s         Find the Application 'org.freevpn.vpn.us'
+    t =   523.98s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Mexico; waiting for automatic connection
+    t =   540.48s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   540.48s     Wait for org.freevpn.vpn.us to idle
+    t =   540.48s     Find the Application 'org.freevpn.vpn.us'
+    t =   540.51s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   540.54s     Synthesize event
+    t =   540.54s         Find the Application 'org.freevpn.vpn.us'
+    t =   540.55s         Find the Application 'org.freevpn.vpn.us'
+    t =   540.57s         Find the Application 'org.freevpn.vpn.us'
+    t =   540.87s     Wait for org.freevpn.vpn.us to idle
+    t =   543.77s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   543.77s     Wait for org.freevpn.vpn.us to idle
+    t =   543.77s     Find the Application 'org.freevpn.vpn.us'
+    t =   543.80s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   543.83s     Synthesize event
+    t =   543.83s         Find the Application 'org.freevpn.vpn.us'
+    t =   543.85s         Find the Application 'org.freevpn.vpn.us'
+    t =   543.87s         Find the Application 'org.freevpn.vpn.us'
+    t =   544.15s     Wait for org.freevpn.vpn.us to idle
+    t =   545.33s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   545.33s     Wait for org.freevpn.vpn.us to idle
+    t =   545.33s     Find the Application 'org.freevpn.vpn.us'
+    t =   545.37s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   545.39s     Synthesize event
+    t =   545.40s         Find the Application 'org.freevpn.vpn.us'
+    t =   545.41s         Find the Application 'org.freevpn.vpn.us'
+    t =   545.43s         Find the Application 'org.freevpn.vpn.us'
+    t =   545.71s     Wait for org.freevpn.vpn.us to idle
+[17] catalog="(ordinal 17)" selected="Mexico" - PASS - IP="69.67.148.211", Location="Mexico City, Mexico, No..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   548.16s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   548.16s     Wait for org.freevpn.vpn.us to idle
+    t =   548.16s     Find the Application 'org.freevpn.vpn.us'
+    t =   548.20s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   548.22s     Synthesize event
+    t =   548.22s         Find the Application 'org.freevpn.vpn.us'
+    t =   548.23s         Find the Application 'org.freevpn.vpn.us'
+    t =   548.25s         Find the Application 'org.freevpn.vpn.us'
+    t =   548.54s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 18 attempt 1 visible rows: Southern California@0.414319248826291 | Los Angeles@0.4845461658841941 | Seattle@0.5506651017214397 | Phoenix@0.6185446009389672 | Mexico@0.687206572769953 | Canada@0.7546948356807512 | Quebec@0.8229655712050078 | Montreal@0.8908450704225352
+    t =   551.10s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   551.10s     Wait for org.freevpn.vpn.us to idle
+    t =   551.11s     Find the Application 'org.freevpn.vpn.us'
+    t =   551.26s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   551.32s     Synthesize event
+    t =   551.33s         Find the Application 'org.freevpn.vpn.us'
+    t =   551.37s         Find the Application 'org.freevpn.vpn.us'
+    t =   551.53s         Find the Application 'org.freevpn.vpn.us'
+    t =   551.87s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Canada; waiting for automatic connection
+    t =   568.37s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   568.37s     Wait for org.freevpn.vpn.us to idle
+    t =   568.37s     Find the Application 'org.freevpn.vpn.us'
+    t =   568.40s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   568.43s     Synthesize event
+    t =   568.43s         Find the Application 'org.freevpn.vpn.us'
+    t =   568.44s         Find the Application 'org.freevpn.vpn.us'
+    t =   568.46s         Find the Application 'org.freevpn.vpn.us'
+    t =   568.75s     Wait for org.freevpn.vpn.us to idle
+    t =   571.64s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   571.64s     Wait for org.freevpn.vpn.us to idle
+    t =   571.64s     Find the Application 'org.freevpn.vpn.us'
+    t =   571.68s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   571.70s     Synthesize event
+    t =   571.70s         Find the Application 'org.freevpn.vpn.us'
+    t =   571.72s         Find the Application 'org.freevpn.vpn.us'
+    t =   571.74s         Find the Application 'org.freevpn.vpn.us'
+    t =   572.02s     Wait for org.freevpn.vpn.us to idle
+    t =   573.20s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   573.20s     Wait for org.freevpn.vpn.us to idle
+    t =   573.20s     Find the Application 'org.freevpn.vpn.us'
+    t =   573.34s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   573.38s     Synthesize event
+    t =   573.39s         Find the Application 'org.freevpn.vpn.us'
+    t =   573.41s         Find the Application 'org.freevpn.vpn.us'
+    t =   573.44s         Find the Application 'org.freevpn.vpn.us'
+    t =   573.75s     Wait for org.freevpn.vpn.us to idle
+[18] catalog="(ordinal 18)" selected="Canada" - PASS - IP="66.70.164.3", Location="Montreal, Quebec, Canada" held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   576.19s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   576.19s     Wait for org.freevpn.vpn.us to idle
+    t =   576.20s     Find the Application 'org.freevpn.vpn.us'
+    t =   576.23s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   576.25s     Synthesize event
+    t =   576.25s         Find the Application 'org.freevpn.vpn.us'
+    t =   576.27s         Find the Application 'org.freevpn.vpn.us'
+    t =   576.28s         Find the Application 'org.freevpn.vpn.us'
+    t =   576.57s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 19 attempt 1 visible rows: Los Angeles@0.41666666666666663 | Seattle@0.4823943661971831 | Phoenix@0.5506651017214397 | Mexico@0.619131455399061 | Canada@0.6868153364632238 | Quebec@0.7546948356807512 | Montreal@0.8229655712050078 | Toronto@0.8914319248826291
+    t =   579.35s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   579.35s     Wait for org.freevpn.vpn.us to idle
+    t =   579.35s     Find the Application 'org.freevpn.vpn.us'
+    t =   579.50s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   579.56s     Synthesize event
+    t =   579.56s         Find the Application 'org.freevpn.vpn.us'
+    t =   579.61s         Find the Application 'org.freevpn.vpn.us'
+    t =   579.77s         Find the Application 'org.freevpn.vpn.us'
+    t =   580.11s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Quebec; waiting for automatic connection
+    t =   596.59s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   596.59s     Wait for org.freevpn.vpn.us to idle
+    t =   596.59s     Find the Application 'org.freevpn.vpn.us'
+    t =   596.63s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   596.65s     Synthesize event
+    t =   596.65s         Find the Application 'org.freevpn.vpn.us'
+    t =   596.66s         Find the Application 'org.freevpn.vpn.us'
+    t =   596.68s         Find the Application 'org.freevpn.vpn.us'
+    t =   596.97s     Wait for org.freevpn.vpn.us to idle
+    t =   599.81s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   599.81s     Wait for org.freevpn.vpn.us to idle
+    t =   599.81s     Find the Application 'org.freevpn.vpn.us'
+    t =   599.85s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   599.87s     Synthesize event
+    t =   599.87s         Find the Application 'org.freevpn.vpn.us'
+    t =   599.89s         Find the Application 'org.freevpn.vpn.us'
+    t =   599.91s         Find the Application 'org.freevpn.vpn.us'
+    t =   600.21s     Wait for org.freevpn.vpn.us to idle
+    t =   601.38s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   601.38s     Wait for org.freevpn.vpn.us to idle
+    t =   601.38s     Find the Application 'org.freevpn.vpn.us'
+    t =   601.42s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   601.45s     Synthesize event
+    t =   601.45s         Find the Application 'org.freevpn.vpn.us'
+    t =   601.46s         Find the Application 'org.freevpn.vpn.us'
+    t =   601.48s         Find the Application 'org.freevpn.vpn.us'
+    t =   601.77s     Wait for org.freevpn.vpn.us to idle
+[19] catalog="(ordinal 19)" selected="Quebec" - PASS - IP="149.56.159.118", Location="Montreal, Quebec, Canada" held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   604.20s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   604.20s     Wait for org.freevpn.vpn.us to idle
+    t =   604.20s     Find the Application 'org.freevpn.vpn.us'
+    t =   604.23s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   604.26s     Synthesize event
+    t =   604.26s         Find the Application 'org.freevpn.vpn.us'
+    t =   604.27s         Find the Application 'org.freevpn.vpn.us'
+    t =   604.29s         Find the Application 'org.freevpn.vpn.us'
+    t =   604.58s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 20 attempt 1 visible rows: Seattle@0.41451486697965567 | Phoenix@0.4823943661971831 | Mexico@0.551056338028169 | Canada@0.6185446009389672 | Quebec@0.6868153364632238 | Montreal@0.7546948356807512 | Toronto@0.823356807511737 | Europe@0.8939749608763694
+    t =   607.35s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   607.35s     Wait for org.freevpn.vpn.us to idle
+    t =   607.35s     Find the Application 'org.freevpn.vpn.us'
+    t =   607.51s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   607.57s     Synthesize event
+    t =   607.57s         Find the Application 'org.freevpn.vpn.us'
+    t =   607.62s         Find the Application 'org.freevpn.vpn.us'
+    t =   607.68s         Find the Application 'org.freevpn.vpn.us'
+    t =   608.01s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Montreal; waiting for automatic connection
+    t =   624.57s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   624.57s     Wait for org.freevpn.vpn.us to idle
+    t =   624.57s     Find the Application 'org.freevpn.vpn.us'
+    t =   624.60s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   624.63s     Synthesize event
+    t =   624.63s         Find the Application 'org.freevpn.vpn.us'
+    t =   624.64s         Find the Application 'org.freevpn.vpn.us'
+    t =   624.66s         Find the Application 'org.freevpn.vpn.us'
+    t =   624.94s     Wait for org.freevpn.vpn.us to idle
+    t =   627.78s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   627.79s     Wait for org.freevpn.vpn.us to idle
+    t =   627.79s     Find the Application 'org.freevpn.vpn.us'
+    t =   627.82s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   627.85s     Synthesize event
+    t =   627.85s         Find the Application 'org.freevpn.vpn.us'
+    t =   627.87s         Find the Application 'org.freevpn.vpn.us'
+    t =   627.88s         Find the Application 'org.freevpn.vpn.us'
+    t =   628.17s     Wait for org.freevpn.vpn.us to idle
+    t =   629.35s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   629.35s     Wait for org.freevpn.vpn.us to idle
+    t =   629.35s     Find the Application 'org.freevpn.vpn.us'
+    t =   629.39s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   629.42s     Synthesize event
+    t =   629.42s         Find the Application 'org.freevpn.vpn.us'
+    t =   629.43s         Find the Application 'org.freevpn.vpn.us'
+    t =   629.45s         Find the Application 'org.freevpn.vpn.us'
+    t =   629.74s     Wait for org.freevpn.vpn.us to idle
+[20] catalog="(ordinal 20)" selected="Montreal" - PASS - IP="149.56.159.118", Location="Montreal, Quebec, Canada" held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   632.17s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   632.17s     Wait for org.freevpn.vpn.us to idle
+    t =   632.17s     Find the Application 'org.freevpn.vpn.us'
+    t =   632.21s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   632.23s     Synthesize event
+    t =   632.23s         Find the Application 'org.freevpn.vpn.us'
+    t =   632.25s         Find the Application 'org.freevpn.vpn.us'
+    t =   632.26s         Find the Application 'org.freevpn.vpn.us'
+    t =   632.55s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 21 attempt 1 visible rows: Phoenix@0.41451486697965567 | Mexico@0.482981220657277 | Canada@0.5506651017214397 | Quebec@0.6185446009389672 | Montreal@0.6868153364632238 | Toronto@0.755281690140845 | Europe@0.8258998435054773 | EU North@0.8910406885758999
+    t =   635.13s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   635.13s     Wait for org.freevpn.vpn.us to idle
+    t =   635.13s     Find the Application 'org.freevpn.vpn.us'
+    t =   635.28s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   635.34s     Synthesize event
+    t =   635.35s         Find the Application 'org.freevpn.vpn.us'
+    t =   635.39s         Find the Application 'org.freevpn.vpn.us'
+    t =   635.45s         Find the Application 'org.freevpn.vpn.us'
+    t =   635.77s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Toronto; waiting for automatic connection
+    t =   652.30s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   652.30s     Wait for org.freevpn.vpn.us to idle
+    t =   652.30s     Find the Application 'org.freevpn.vpn.us'
+    t =   652.34s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   652.36s     Synthesize event
+    t =   652.36s         Find the Application 'org.freevpn.vpn.us'
+    t =   652.38s         Find the Application 'org.freevpn.vpn.us'
+    t =   652.39s         Find the Application 'org.freevpn.vpn.us'
+    t =   652.68s     Wait for org.freevpn.vpn.us to idle
+    t =   655.54s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   655.54s     Wait for org.freevpn.vpn.us to idle
+    t =   655.54s     Find the Application 'org.freevpn.vpn.us'
+    t =   655.58s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   655.60s     Synthesize event
+    t =   655.61s         Find the Application 'org.freevpn.vpn.us'
+    t =   655.62s         Find the Application 'org.freevpn.vpn.us'
+    t =   655.64s         Find the Application 'org.freevpn.vpn.us'
+    t =   655.92s     Wait for org.freevpn.vpn.us to idle
+    t =   657.10s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   657.10s     Wait for org.freevpn.vpn.us to idle
+    t =   657.10s     Find the Application 'org.freevpn.vpn.us'
+    t =   657.14s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   657.17s     Synthesize event
+    t =   657.17s         Find the Application 'org.freevpn.vpn.us'
+    t =   657.19s         Find the Application 'org.freevpn.vpn.us'
+    t =   657.20s         Find the Application 'org.freevpn.vpn.us'
+    t =   657.50s     Wait for org.freevpn.vpn.us to idle
+[21] catalog="(ordinal 21)" selected="Toronto" - PASS - IP="162.253.128.26", Location="Toronto, Toronto, Canada" held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   659.94s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   659.94s     Wait for org.freevpn.vpn.us to idle
+    t =   659.94s     Find the Application 'org.freevpn.vpn.us'
+    t =   659.98s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   660.00s     Synthesize event
+    t =   660.00s         Find the Application 'org.freevpn.vpn.us'
+    t =   660.01s         Find the Application 'org.freevpn.vpn.us'
+    t =   660.03s         Find the Application 'org.freevpn.vpn.us'
+    t =   660.31s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 22 attempt 1 visible rows: Mexico@0.414906103286385 | Canada@0.4823943661971831 | Quebec@0.5506651017214397 | Montreal@0.6185446009389672 | Toronto@0.687206572769953 | Europe@0.7578247261345853 | EU North@0.8229655712050078 | EU South@0.8910406885758999
+    t =   662.86s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   662.86s     Wait for org.freevpn.vpn.us to idle
+    t =   662.86s     Find the Application 'org.freevpn.vpn.us'
+    t =   663.02s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   663.07s     Synthesize event
+    t =   663.08s         Find the Application 'org.freevpn.vpn.us'
+    t =   663.13s         Find the Application 'org.freevpn.vpn.us'
+    t =   663.19s         Find the Application 'org.freevpn.vpn.us'
+    t =   663.51s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Europe; waiting for automatic connection
+    t =   688.18s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   688.18s     Wait for org.freevpn.vpn.us to idle
+    t =   688.19s     Find the Application 'org.freevpn.vpn.us'
+    t =   688.22s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   688.24s     Synthesize event
+    t =   688.24s         Find the Application 'org.freevpn.vpn.us'
+    t =   688.26s         Find the Application 'org.freevpn.vpn.us'
+    t =   688.27s         Find the Application 'org.freevpn.vpn.us'
+    t =   688.57s     Wait for org.freevpn.vpn.us to idle
+    t =   691.43s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   691.43s     Wait for org.freevpn.vpn.us to idle
+    t =   691.43s     Find the Application 'org.freevpn.vpn.us'
+    t =   691.47s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   691.50s     Synthesize event
+    t =   691.50s         Find the Application 'org.freevpn.vpn.us'
+    t =   691.51s         Find the Application 'org.freevpn.vpn.us'
+    t =   691.53s         Find the Application 'org.freevpn.vpn.us'
+    t =   691.82s     Wait for org.freevpn.vpn.us to idle
+    t =   693.00s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   693.00s     Wait for org.freevpn.vpn.us to idle
+    t =   693.01s     Find the Application 'org.freevpn.vpn.us'
+    t =   693.04s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   693.07s     Synthesize event
+    t =   693.07s         Find the Application 'org.freevpn.vpn.us'
+    t =   693.09s         Find the Application 'org.freevpn.vpn.us'
+    t =   693.10s         Find the Application 'org.freevpn.vpn.us'
+    t =   693.40s     Wait for org.freevpn.vpn.us to idle
+[22] catalog="(ordinal 22)" selected="Europe" - PASS - IP="163.172.121.242", Location="Charles de Gaulle, Paris,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   695.86s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   695.86s     Wait for org.freevpn.vpn.us to idle
+    t =   695.86s     Find the Application 'org.freevpn.vpn.us'
+    t =   695.89s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   695.91s     Synthesize event
+    t =   695.91s         Find the Application 'org.freevpn.vpn.us'
+    t =   695.93s         Find the Application 'org.freevpn.vpn.us'
+    t =   695.94s         Find the Application 'org.freevpn.vpn.us'
+    t =   696.23s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 23 attempt 1 visible rows: Canada@0.41451486697965567 | Quebec@0.4823943661971831 | Montreal@0.550469483568075 | Toronto@0.619131455399061 | Europe@0.6897496087636933 | EU North@0.7546948356807512 | EU South@0.8229655712050078 | EU East@0.8914319248826291
+    t =   698.84s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   698.84s     Wait for org.freevpn.vpn.us to idle
+    t =   698.84s     Find the Application 'org.freevpn.vpn.us'
+    t =   698.99s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   699.05s     Synthesize event
+    t =   699.05s         Find the Application 'org.freevpn.vpn.us'
+    t =   699.10s         Find the Application 'org.freevpn.vpn.us'
+    t =   699.15s         Find the Application 'org.freevpn.vpn.us'
+    t =   699.48s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected EU North; waiting for automatic connection
+    t =   717.49s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   717.49s     Wait for org.freevpn.vpn.us to idle
+    t =   717.49s     Find the Application 'org.freevpn.vpn.us'
+    t =   717.52s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   717.54s     Synthesize event
+    t =   717.55s         Find the Application 'org.freevpn.vpn.us'
+    t =   717.56s         Find the Application 'org.freevpn.vpn.us'
+    t =   717.58s         Find the Application 'org.freevpn.vpn.us'
+    t =   717.87s     Wait for org.freevpn.vpn.us to idle
+    t =   720.73s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   720.74s     Wait for org.freevpn.vpn.us to idle
+    t =   720.74s     Find the Application 'org.freevpn.vpn.us'
+    t =   720.77s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   720.80s     Synthesize event
+    t =   720.80s         Find the Application 'org.freevpn.vpn.us'
+    t =   720.82s         Find the Application 'org.freevpn.vpn.us'
+    t =   720.84s         Find the Application 'org.freevpn.vpn.us'
+    t =   721.12s     Wait for org.freevpn.vpn.us to idle
+    t =   722.29s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   722.29s     Wait for org.freevpn.vpn.us to idle
+    t =   722.29s     Find the Application 'org.freevpn.vpn.us'
+    t =   722.33s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   722.36s     Synthesize event
+    t =   722.36s         Find the Application 'org.freevpn.vpn.us'
+    t =   722.38s         Find the Application 'org.freevpn.vpn.us'
+    t =   722.39s         Find the Application 'org.freevpn.vpn.us'
+    t =   722.69s     Wait for org.freevpn.vpn.us to idle
+[23] catalog="(ordinal 23)" selected="EU North" - PASS - IP="85.195.115.186", Location="Frankfurt, Hesse, Germany" held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   725.12s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   725.12s     Wait for org.freevpn.vpn.us to idle
+    t =   725.13s     Find the Application 'org.freevpn.vpn.us'
+    t =   725.16s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   725.18s     Synthesize event
+    t =   725.18s         Find the Application 'org.freevpn.vpn.us'
+    t =   725.20s         Find the Application 'org.freevpn.vpn.us'
+    t =   725.21s         Find the Application 'org.freevpn.vpn.us'
+    t =   725.50s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 24 attempt 1 visible rows: Quebec@0.41451486697965567 | Montreal@0.4823943661971831 | Toronto@0.551056338028169 | Europe@0.6216744913928012 | EU North@0.6868153364632238 | EU South@0.7546948356807512 | EU East@0.823356807511737
+    t =   728.09s Tap Application 'org.freevpn.vpn.us'[0.50, 0.75]
+    t =   728.09s     Wait for org.freevpn.vpn.us to idle
+    t =   728.10s     Find the Application 'org.freevpn.vpn.us'
+    t =   728.25s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   728.31s     Synthesize event
+    t =   728.31s         Find the Application 'org.freevpn.vpn.us'
+    t =   728.36s         Find the Application 'org.freevpn.vpn.us'
+    t =   728.42s         Find the Application 'org.freevpn.vpn.us'
+    t =   728.74s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected EU South; waiting for automatic connection
+    t =   746.12s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   746.12s     Wait for org.freevpn.vpn.us to idle
+    t =   746.12s     Find the Application 'org.freevpn.vpn.us'
+    t =   746.16s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   746.18s     Synthesize event
+    t =   746.18s         Find the Application 'org.freevpn.vpn.us'
+    t =   746.20s         Find the Application 'org.freevpn.vpn.us'
+    t =   746.21s         Find the Application 'org.freevpn.vpn.us'
+    t =   746.50s     Wait for org.freevpn.vpn.us to idle
+    t =   749.34s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   749.34s     Wait for org.freevpn.vpn.us to idle
+    t =   749.34s     Find the Application 'org.freevpn.vpn.us'
+    t =   749.38s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   749.41s     Synthesize event
+    t =   749.41s         Find the Application 'org.freevpn.vpn.us'
+    t =   749.43s         Find the Application 'org.freevpn.vpn.us'
+    t =   749.44s         Find the Application 'org.freevpn.vpn.us'
+    t =   749.73s     Wait for org.freevpn.vpn.us to idle
+    t =   750.91s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   750.91s     Wait for org.freevpn.vpn.us to idle
+    t =   750.91s     Find the Application 'org.freevpn.vpn.us'
+    t =   750.95s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   750.98s     Synthesize event
+    t =   750.98s         Find the Application 'org.freevpn.vpn.us'
+    t =   751.00s         Find the Application 'org.freevpn.vpn.us'
+    t =   751.01s         Find the Application 'org.freevpn.vpn.us'
+    t =   751.30s     Wait for org.freevpn.vpn.us to idle
+[24] catalog="(ordinal 24)" selected="EU South" - PASS - IP="134.119.186.67", Location="Charles de Gaulle, Paris,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   753.74s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   753.74s     Wait for org.freevpn.vpn.us to idle
+    t =   753.74s     Find the Application 'org.freevpn.vpn.us'
+    t =   753.77s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   753.80s     Synthesize event
+    t =   753.80s         Find the Application 'org.freevpn.vpn.us'
+    t =   753.81s         Find the Application 'org.freevpn.vpn.us'
+    t =   753.83s         Find the Application 'org.freevpn.vpn.us'
+    t =   754.12s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 25 attempt 1 visible rows: Montreal@0.414319248826291 | Toronto@0.482981220657277 | Europe@0.5535993740219092 | EU North@0.6185446009389672 | EU South@0.6868153364632238 | EU East@0.755281690140845 | London@0.8910406885758999
+    t =   756.85s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   756.85s     Wait for org.freevpn.vpn.us to idle
+    t =   756.85s     Find the Application 'org.freevpn.vpn.us'
+    t =   757.01s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   757.07s     Synthesize event
+    t =   757.07s         Find the Application 'org.freevpn.vpn.us'
+    t =   757.12s         Find the Application 'org.freevpn.vpn.us'
+    t =   757.17s         Find the Application 'org.freevpn.vpn.us'
+    t =   757.50s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected EU East; waiting for automatic connection
+    t =   782.92s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   782.92s     Wait for org.freevpn.vpn.us to idle
+    t =   782.92s     Find the Application 'org.freevpn.vpn.us'
+    t =   782.95s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   782.98s     Synthesize event
+    t =   782.98s         Find the Application 'org.freevpn.vpn.us'
+    t =   782.99s         Find the Application 'org.freevpn.vpn.us'
+    t =   783.12s         Find the Application 'org.freevpn.vpn.us'
+    t =   783.43s     Wait for org.freevpn.vpn.us to idle
+    t =   786.28s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   786.28s     Wait for org.freevpn.vpn.us to idle
+    t =   786.29s     Find the Application 'org.freevpn.vpn.us'
+    t =   786.32s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   786.35s     Synthesize event
+    t =   786.35s         Find the Application 'org.freevpn.vpn.us'
+    t =   786.37s         Find the Application 'org.freevpn.vpn.us'
+    t =   786.39s         Find the Application 'org.freevpn.vpn.us'
+    t =   786.67s     Wait for org.freevpn.vpn.us to idle
+    t =   787.85s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   787.85s     Wait for org.freevpn.vpn.us to idle
+    t =   787.85s     Find the Application 'org.freevpn.vpn.us'
+    t =   787.89s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   787.91s     Synthesize event
+    t =   787.92s         Find the Application 'org.freevpn.vpn.us'
+    t =   787.93s         Find the Application 'org.freevpn.vpn.us'
+    t =   787.95s         Find the Application 'org.freevpn.vpn.us'
+    t =   788.24s     Wait for org.freevpn.vpn.us to idle
+[25] catalog="(ordinal 25)" selected="EU East" - PASS - IP="151.115.88.86", Location="Warsaw, Masovian, Poland" held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   790.67s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   790.67s     Wait for org.freevpn.vpn.us to idle
+    t =   790.67s     Find the Application 'org.freevpn.vpn.us'
+    t =   790.71s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   790.73s     Synthesize event
+    t =   790.73s         Find the Application 'org.freevpn.vpn.us'
+    t =   790.75s         Find the Application 'org.freevpn.vpn.us'
+    t =   790.76s         Find the Application 'org.freevpn.vpn.us'
+    t =   791.06s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 26 attempt 1 visible rows: Toronto@0.414906103286385 | Europe@0.48552425665101717 | EU North@0.5506651017214397 | EU South@0.6185446009389672 | EU East@0.687206572769953 | London@0.8229655712050078 | France@0.8914319248826291
+    t =   793.63s Tap Application 'org.freevpn.vpn.us'[0.50, 0.82]
+    t =   793.63s     Wait for org.freevpn.vpn.us to idle
+    t =   793.63s     Find the Application 'org.freevpn.vpn.us'
+    t =   793.79s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   793.84s     Synthesize event
+    t =   793.85s         Find the Application 'org.freevpn.vpn.us'
+    t =   793.90s         Find the Application 'org.freevpn.vpn.us'
+    t =   794.06s         Find the Application 'org.freevpn.vpn.us'
+    t =   794.40s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected London; waiting for automatic connection
+    t =   811.61s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   811.61s     Wait for org.freevpn.vpn.us to idle
+    t =   811.61s     Find the Application 'org.freevpn.vpn.us'
+    t =   811.64s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   811.67s     Synthesize event
+    t =   811.67s         Find the Application 'org.freevpn.vpn.us'
+    t =   811.69s         Find the Application 'org.freevpn.vpn.us'
+    t =   811.70s         Find the Application 'org.freevpn.vpn.us'
+    t =   812.11s     Wait for org.freevpn.vpn.us to idle
+    t =   814.99s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   814.99s     Wait for org.freevpn.vpn.us to idle
+    t =   814.99s     Find the Application 'org.freevpn.vpn.us'
+    t =   815.03s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   815.06s     Synthesize event
+    t =   815.06s         Find the Application 'org.freevpn.vpn.us'
+    t =   815.07s         Find the Application 'org.freevpn.vpn.us'
+    t =   815.09s         Find the Application 'org.freevpn.vpn.us'
+    t =   815.38s     Wait for org.freevpn.vpn.us to idle
+    t =   816.56s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   816.56s     Wait for org.freevpn.vpn.us to idle
+    t =   816.56s     Find the Application 'org.freevpn.vpn.us'
+    t =   816.59s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   816.62s     Synthesize event
+    t =   816.62s         Find the Application 'org.freevpn.vpn.us'
+    t =   816.64s         Find the Application 'org.freevpn.vpn.us'
+    t =   816.66s         Find the Application 'org.freevpn.vpn.us'
+    t =   816.94s     Wait for org.freevpn.vpn.us to idle
+[26] catalog="(ordinal 26)" selected="London" - PASS - IP="109.123.108.7", Location="Heathrow, London, UK" held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   819.38s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   819.39s     Wait for org.freevpn.vpn.us to idle
+    t =   819.39s     Find the Application 'org.freevpn.vpn.us'
+    t =   819.42s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   819.44s     Synthesize event
+    t =   819.44s         Find the Application 'org.freevpn.vpn.us'
+    t =   819.46s         Find the Application 'org.freevpn.vpn.us'
+    t =   819.47s         Find the Application 'org.freevpn.vpn.us'
+    t =   819.76s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 27 attempt 1 visible rows: EU North@0.41451486697965567 | EU South@0.4823943661971831 | EU East@0.551056338028169 | London@0.6868153364632238 | France@0.755281690140845 | Paris@0.823356807511737 | Strasbourg@0.8929968701095461
+    t =   822.33s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   822.33s     Wait for org.freevpn.vpn.us to idle
+    t =   822.33s     Find the Application 'org.freevpn.vpn.us'
+    t =   822.49s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   822.55s     Synthesize event
+    t =   822.56s         Find the Application 'org.freevpn.vpn.us'
+    t =   822.60s         Find the Application 'org.freevpn.vpn.us'
+    t =   822.66s         Find the Application 'org.freevpn.vpn.us'
+    t =   822.99s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected France; waiting for automatic connection
+    t =   838.64s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   838.64s     Wait for org.freevpn.vpn.us to idle
+    t =   838.65s     Find the Application 'org.freevpn.vpn.us'
+    t =   838.68s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   838.70s     Synthesize event
+    t =   838.71s         Find the Application 'org.freevpn.vpn.us'
+    t =   838.72s         Find the Application 'org.freevpn.vpn.us'
+    t =   838.74s         Find the Application 'org.freevpn.vpn.us'
+    t =   839.03s     Wait for org.freevpn.vpn.us to idle
+    t =   841.89s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   841.89s     Wait for org.freevpn.vpn.us to idle
+    t =   841.90s     Find the Application 'org.freevpn.vpn.us'
+    t =   841.93s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   841.96s     Synthesize event
+    t =   841.96s         Find the Application 'org.freevpn.vpn.us'
+    t =   841.98s         Find the Application 'org.freevpn.vpn.us'
+    t =   842.00s         Find the Application 'org.freevpn.vpn.us'
+    t =   842.29s     Wait for org.freevpn.vpn.us to idle
+    t =   843.47s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   843.47s     Wait for org.freevpn.vpn.us to idle
+    t =   843.47s     Find the Application 'org.freevpn.vpn.us'
+    t =   843.51s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   843.53s     Synthesize event
+    t =   843.53s         Find the Application 'org.freevpn.vpn.us'
+    t =   843.55s         Find the Application 'org.freevpn.vpn.us'
+    t =   843.57s         Find the Application 'org.freevpn.vpn.us'
+    t =   843.86s     Wait for org.freevpn.vpn.us to idle
+[27] catalog="(ordinal 27)" selected="France" - PASS - IP="62.210.101.225", Location="Charles de Gaulle, Paris,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   846.29s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   846.29s     Wait for org.freevpn.vpn.us to idle
+    t =   846.29s     Find the Application 'org.freevpn.vpn.us'
+    t =   846.33s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   846.35s     Synthesize event
+    t =   846.35s         Find the Application 'org.freevpn.vpn.us'
+    t =   846.36s         Find the Application 'org.freevpn.vpn.us'
+    t =   846.38s         Find the Application 'org.freevpn.vpn.us'
+    t =   846.67s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 28 attempt 1 visible rows: EU South@0.41451486697965567 | EU East@0.482981220657277 | London@0.6185446009389672 | France@0.687206572769953 | Paris@0.755281690140845 | Strasbourg@0.8251173708920188 | Italy@0.8928013552801765
+    t =   849.34s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   849.34s     Wait for org.freevpn.vpn.us to idle
+    t =   849.34s     Find the Application 'org.freevpn.vpn.us'
+    t =   849.50s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   849.56s     Synthesize event
+    t =   849.56s         Find the Application 'org.freevpn.vpn.us'
+    t =   849.61s         Find the Application 'org.freevpn.vpn.us'
+    t =   849.66s         Find the Application 'org.freevpn.vpn.us'
+    t =   849.99s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Paris; waiting for automatic connection
+    t =   865.62s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   865.62s     Wait for org.freevpn.vpn.us to idle
+    t =   865.62s     Find the Application 'org.freevpn.vpn.us'
+    t =   865.65s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   865.68s     Synthesize event
+    t =   865.68s         Find the Application 'org.freevpn.vpn.us'
+    t =   865.69s         Find the Application 'org.freevpn.vpn.us'
+    t =   865.71s         Find the Application 'org.freevpn.vpn.us'
+    t =   866.00s     Wait for org.freevpn.vpn.us to idle
+    t =   868.90s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   868.90s     Wait for org.freevpn.vpn.us to idle
+    t =   868.90s     Find the Application 'org.freevpn.vpn.us'
+    t =   868.94s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   868.97s     Synthesize event
+    t =   868.97s         Find the Application 'org.freevpn.vpn.us'
+    t =   868.99s         Find the Application 'org.freevpn.vpn.us'
+    t =   869.00s         Find the Application 'org.freevpn.vpn.us'
+    t =   869.30s     Wait for org.freevpn.vpn.us to idle
+    t =   870.48s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   870.48s     Wait for org.freevpn.vpn.us to idle
+    t =   870.48s     Find the Application 'org.freevpn.vpn.us'
+    t =   870.52s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   870.54s     Synthesize event
+    t =   870.54s         Find the Application 'org.freevpn.vpn.us'
+    t =   870.56s         Find the Application 'org.freevpn.vpn.us'
+    t =   870.58s         Find the Application 'org.freevpn.vpn.us'
+    t =   870.88s     Wait for org.freevpn.vpn.us to idle
+[28] catalog="(ordinal 28)" selected="Paris" - PASS - IP="51.158.54.38", Location="Charles de Gaulle, Paris,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   873.33s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   873.33s     Wait for org.freevpn.vpn.us to idle
+    t =   873.33s     Find the Application 'org.freevpn.vpn.us'
+    t =   873.36s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   873.39s     Synthesize event
+    t =   873.39s         Find the Application 'org.freevpn.vpn.us'
+    t =   873.40s         Find the Application 'org.freevpn.vpn.us'
+    t =   873.42s         Find the Application 'org.freevpn.vpn.us'
+    t =   873.82s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 29 attempt 1 visible rows: EU East@0.414906103286385 | London@0.5506651017214397 | France@0.619131455399061 | Paris@0.687206572769953 | Strasbourg@0.7568466353677621 | Italy@0.8249218560626491 | Rome@0.8914319248826291
+    t =   876.59s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   876.59s     Wait for org.freevpn.vpn.us to idle
+    t =   876.60s     Find the Application 'org.freevpn.vpn.us'
+    t =   876.76s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   876.82s     Synthesize event
+    t =   876.83s         Find the Application 'org.freevpn.vpn.us'
+    t =   876.87s         Find the Application 'org.freevpn.vpn.us'
+    t =   876.93s         Find the Application 'org.freevpn.vpn.us'
+    t =   877.26s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] selected Strasbourg; waiting for automatic connection
+    t =   892.87s Tap Application 'org.freevpn.vpn.us'[0.82, 0.85]
+    t =   892.87s     Wait for org.freevpn.vpn.us to idle
+    t =   892.87s     Find the Application 'org.freevpn.vpn.us'
+    t =   892.91s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   892.94s     Synthesize event
+    t =   892.94s         Find the Application 'org.freevpn.vpn.us'
+    t =   892.95s         Find the Application 'org.freevpn.vpn.us'
+    t =   892.97s         Find the Application 'org.freevpn.vpn.us'
+    t =   893.25s     Wait for org.freevpn.vpn.us to idle
+    t =   896.12s Tap Application 'org.freevpn.vpn.us'[0.50, 0.58]
+    t =   896.12s     Wait for org.freevpn.vpn.us to idle
+    t =   896.12s     Find the Application 'org.freevpn.vpn.us'
+    t =   896.16s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   896.19s     Synthesize event
+    t =   896.19s         Find the Application 'org.freevpn.vpn.us'
+    t =   896.21s         Find the Application 'org.freevpn.vpn.us'
+    t =   896.23s         Find the Application 'org.freevpn.vpn.us'
+    t =   896.52s     Wait for org.freevpn.vpn.us to idle
+    t =   897.70s Tap Application 'org.freevpn.vpn.us'[0.50, 0.21]
+    t =   897.70s     Wait for org.freevpn.vpn.us to idle
+    t =   897.70s     Find the Application 'org.freevpn.vpn.us'
+    t =   897.74s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   897.76s     Synthesize event
+    t =   897.76s         Find the Application 'org.freevpn.vpn.us'
+    t =   897.78s         Find the Application 'org.freevpn.vpn.us'
+    t =   897.80s         Find the Application 'org.freevpn.vpn.us'
+    t =   898.09s     Wait for org.freevpn.vpn.us to idle
+[29] catalog="(ordinal 29)" selected="Strasbourg" - PASS - IP="134.119.186.67", Location="Charles de Gaulle, Paris,..." held 10s, feedback closed, default identity restored
+[VPNTest] opening picker tap @0.30,0.29
+    t =   900.53s Tap Application 'org.freevpn.vpn.us'[0.30, 0.29]
+    t =   900.53s     Wait for org.freevpn.vpn.us to idle
+    t =   900.53s     Find the Application 'org.freevpn.vpn.us'
+    t =   900.57s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   900.59s     Synthesize event
+    t =   900.59s         Find the Application 'org.freevpn.vpn.us'
+    t =   900.61s         Find the Application 'org.freevpn.vpn.us'
+    t =   900.72s         Find the Application 'org.freevpn.vpn.us'
+    t =   901.04s     Wait for org.freevpn.vpn.us to idle
+[VPNTest] ordinal 30 attempt 1 visible rows: London@0.4823943661971831 | France@0.551056338028169 | Paris@0.619131455399061 | Strasbourg@0.6889671361502347 | Italy@0.7566511205383923 | Rome@0.823356807511737 | Germany@0.8933881064162754
+    t =   903.61s Tap Application 'org.freevpn.vpn.us'[0.50, 0.76]
+    t =   903.61s     Wait for org.freevpn.vpn.us to idle
+    t =   903.62s     Find the Application 'org.freevpn.vpn.us'
+    t =   903.78s     Check for interrupting elements affecting "Free VPN US" Application
+    t =   903.84s     Synthesize event
+    t =   903.84s         Find the Application 'org.freevpn.vpn.us'
+    t =   903.89s         Find the Application 'org.freevpn.vpn.us'
+    t =   903.94s         Find the Application 'org.freevpn.vpn.us'
+    t =   904.04s         Device orientation changed to Portrait
+    t =   904.28s     Wait for org.freevpn.vpn.us to idle
+    t =   904.44s         Device orientation changed to Face Up
+[VPNTest] selected Italy; waiting for automatic connection
+    t =   907.65s Device orientation changed to Portrait
+    t =   907.87s Device orientation changed to Face Up
+    t =   909.55s Device orientation changed to Portrait
+    t =   910.86s Device orientation changed to Face Up
+[VPNTest] hold broke before 10s; OCR: VPN- Dash@0.20,0.10 | ' Free VPN US@0.72,0.09 | Unsecured Connecti@0.26,0.18 | Airtel Zerotouch 5G@0.28,0.19 | VPN US@0.81,0.18 | Powered by Free VPN.org@0.81,0.19 | 171.49.16C.@0.77,0.26 | Ad Block@0.17,0.28 | Acceler@0.38,0.28 | Bahraich, Uttar Pra@0.76,0.28 | Current Location@0.67,0.31 | Italy@0.63,0.34 | ahr@0.25,0.39 | Current Service@0.67,0.38 | tt@0.17,0.42 | es@0.39,0.42 | 133@0.62,0.45 | Phenomen@0.92,0.43 | Your digital san@0.91,0.45 | perfectly protecte@0.89,0.46 | Ads blocked@0.62,0.49 | Share Ap@0.95,0.50 | VPN session ended. How was@0.79,0.58 | London@0.11,0.69 | Channel 5@0.12,0.74 | Connection issues? Try an alternate@0.76,0.74 | Try Alternate Server@0.80,0.77 | VPN@0.06,0.79 | BOOST MODE@0.56,0.82 | MY PREMIUM@0.80,0.82
+    t =   911.43s Open org.freevpn.vpn.us
+    t =   911.43s     Launch org.freevpn.vpn.us
+    t =   911.50s         Setting up automation session
+    t =   911.52s         Wait for org.freevpn.vpn.us to idle
+    t =   914.26s Wait for org.freevpn.vpn.us to become Running Foreground
+    t =   914.90s Device orientation changed to Portrait
+    t =   915.36s Device orientation changed to Face Up
+    t =   916.96s Open org.freevpn.vpn.us
+    t =   916.96s     Launch org.freevpn.vpn.us
+    t =   917.04s         Setting up automation session
+    t =   917.07s         Wait for org.freevpn.vpn.us to idle
+    t =   917.73s             Device orientation changed to Portrait
+    t =   918.22s             Device orientation changed to Face Up
+    t =   919.68s Wait for org.freevpn.vpn.us to become Running Foreground
+    t =   920.40s Open org.freevpn.vpn.us
+    t =   920.40s     Activate org.freevpn.vpn.us
+/Users/sadrish/Documents/App_testing/testing/VPNTestUITests/VPNRegionPipelineTests.swift:1763: error: -[VPNTestUITests.VPNRegionPipelineTests testRegionPipeline] : Failed to launch org.freevpn.vpn.us: The request to open "org.freevpn.vpn.us" failed. The request was denied by service delegate (SBMainWorkspace) for reason: Locked ("Unable to launch org.freevpn.vpn.us because the device was not, or could not be, unlocked"). (Underlying Error: The operation couldn’t be completed. Unable to launch org.freevpn.vpn.us because the device was not, or could not be, unlocked.)
+    t =   920.49s Tear Down
+    t =   922.63s         Checking for crash reports corresponding to unexpected termination of org.freevpn.vpn.us
+Test Case '-[VPNTestUITests.VPNRegionPipelineTests testRegionPipeline]' failed (942.654 seconds).
+Test Suite 'VPNRegionPipelineTests' failed at 2026-05-12 13:47:40.460.
+	 Executed 1 test, with 1 failure (0 unexpected) in 942.654 (942.655) seconds
+Test Suite 'VPNTestUITests.xctest' failed at 2026-05-12 13:47:40.461.
+	 Executed 1 test, with 1 failure (0 unexpected) in 942.654 (942.656) seconds
+Test Suite 'All tests' failed at 2026-05-12 13:47:40.463.
+	 Executed 1 test, with 1 failure (0 unexpected) in 942.654 (942.658) seconds
+2026-05-12 13:58:18.275 xcodebuild[38703:938575]  IDETestOperationsObserverDebug: Failure collecting diagnostics from devices: Timed out after 600.0 seconds while waiting for a response from the invoked process
+2026-05-12 13:58:18.294 xcodebuild[38703:928101] [MT] IDETestOperationsObserverDebug: 1582.685 elapsed -- Testing started completed.
+2026-05-12 13:58:18.294 xcodebuild[38703:928101] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-05-12 13:58:18.294 xcodebuild[38703:928101] [MT] IDETestOperationsObserverDebug: 1582.685 sec, +1582.685 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/sadrish/Library/Developer/Xcode/DerivedData/VPNTest-erwdsynqpdedtsctczqfynvwhuxl/Logs/Test/Test-VPNTest-2026.05.12_13-31-53-+0530.xcresult
+
+** TEST FAILED **
+
+Testing started
